@@ -7,7 +7,7 @@
 #   2. Authenticate openclaw to the model provider (codex/openai login)  [interactive]
 #   3. Give this laptop READ access to the private repo:
 #        a read-only Deploy Key, OR run `gh auth login` once
-#   4. Put real secrets in  ~/.openclaw/.env  (copy from .env.example)
+#   4. Put real secrets in  ~/.openclaw/.env  (use the company .env file you were given)
 #
 # ── THEN the non-technical user runs ONLY this: ────────────────────────────
 #        bash setup.sh
@@ -20,10 +20,11 @@ NODE_BIN="$HOME/.nvm/versions/node/v24.15.0/bin"
 OPENCLAW_HOME="${OPENCLAW_HOME:-$HOME/.openclaw}"
 WORKSPACE="$OPENCLAW_HOME/workspace"
 AGENTS=(research fullstack-developer designer-and-creatives marketing website-qa evaluator)
+ALL7='["main","research","fullstack-developer","designer-and-creatives","marketing","website-qa","evaluator"]'
 MODEL="openai/gpt-5.5"
-RUNTIME_ID="codex"            # Codex CLI harness
-THINKING="high"              # thinkingDefault (off|minimal|low|medium|high|xhigh|adaptive|max)
-TIMEOUT_SECONDS=1800          # 30 min
+RUNTIME_ID="codex"
+THINKING="high"
+TIMEOUT_SECONDS=1800
 CLONE_DIR="$(mktemp -d)/company-brain"
 
 log(){ printf '\n\033[1;36m> %s\033[0m\n' "$*"; }
@@ -38,7 +39,7 @@ mkdir -p "$WORKSPACE"
 echo "Config:    $OPENCLAW_JSON"
 echo "Workspace: $WORKSPACE"
 
-# ============ 1. CLONE the brain to a TEMP dir (never the wrong place) ============
+# ============ 1. CLONE the brain to a TEMP dir ============
 log "Cloning company brain..."
 rm -rf "$CLONE_DIR"
 if ! git clone --depth 1 "$REPO_URL" "$CLONE_DIR" 2>/tmp/oc_clone.err; then
@@ -49,16 +50,16 @@ fi
 
 # ============ 2. Load secrets (.env lives OUTSIDE git) ============
 if   [ -f "$OPENCLAW_HOME/.env" ]; then set -a; . "$OPENCLAW_HOME/.env"; set +a; echo ".env loaded";
-else echo "NOTE: ~/.openclaw/.env not found - MCP/secret steps (8) will be skipped."; fi
+else echo "NOTE: ~/.openclaw/.env not found - MCP secret servers (step 8) will be skipped."; fi
 
-# ============ 3. DEFAULT model: codex / gpt-5.5 / thinking=high (new agents inherit this) ============
+# ============ 3. DEFAULT model: codex / gpt-5.5 / thinking=high ============
 log "Setting company default model -> $MODEL via $RUNTIME_ID, thinkingDefault=$THINKING..."
 openclaw config set agents.defaults.model           "$MODEL"
 openclaw config set agents.defaults.models          "{\"$MODEL\":{\"agentRuntime\":{\"id\":\"$RUNTIME_ID\"}}}" --strict-json
 openclaw config set agents.defaults.thinkingDefault "$THINKING"
 openclaw config set agents.defaults.timeoutSeconds  "$TIMEOUT_SECONDS"
 
-# ============ 4. ADD each specialist agent (this scaffolds default workspace files) ============
+# ============ 4. ADD each specialist agent (scaffolds default workspace) ============
 log "Creating the 6 specialist agents..."
 EXISTING="$(openclaw config get agents.list 2>/dev/null || echo '')"
 for a in "${AGENTS[@]}"; do
@@ -71,9 +72,6 @@ for a in "${AGENTS[@]}"; do
 done
 
 # ============ 5. OVERLAY the REAL brain over the scaffolded default files ============
-#   agents add just wrote default AGENTS.md/SOUL.md/skills -> replace them with ours.
-#   (Hub/root files -> $WORKSPACE ; each agent -> $WORKSPACE/<agent>. No --delete:
-#    openclaw's own state/auth that it scaffolded stays intact.)
 log "Overlaying the real brain over scaffolded files..."
 rm -rf "$CLONE_DIR/.git"
 rm -f  "$CLONE_DIR/setup.sh" "$CLONE_DIR/README.md" "$CLONE_DIR/.gitignore" \
@@ -81,7 +79,7 @@ rm -f  "$CLONE_DIR/setup.sh" "$CLONE_DIR/README.md" "$CLONE_DIR/.gitignore" \
 cp -a "$CLONE_DIR/." "$WORKSPACE/"
 echo "  brain installed into $WORKSPACE"
 
-# ============ 6. FORCE the model on EVERY agent (explicit codex/gpt-5.5/high) ============
+# ============ 6. FORCE the model on EVERY agent (codex/gpt-5.5/high) ============
 log "Pinning model on every agent..."
 MODEL="$MODEL" RT="$RUNTIME_ID" THINK="$THINKING" FILE="$OPENCLAW_JSON" node <<'NODE'
 const fs = require('fs');
@@ -94,24 +92,63 @@ fs.writeFileSync(FILE, JSON.stringify(j, null, 2));
 console.log(`  every agent -> ${MODEL} via "${RT}", thinkingDefault=${THINK}`);
 NODE
 
-# ============ 7. Swarm allowlist (which workers main/Hub may spawn) ============
+# ============ 7. Swarm allowlist ============
 log "Setting swarm allowlist..."
 openclaw config set agents.defaults.subagents.allowAgents \
   '["research","fullstack-developer","designer-and-creatives","marketing","website-qa","evaluator"]' --strict-json
 
-# ============ 8. MCP servers - tokens from .env as ENV REFS (fill real endpoints) ============
-# Scaffold (repeat per server; secret stays in .env, never in git):
-#   openclaw config set mcp.servers.neon-postgres.token --ref-provider default --ref-source env --ref-id NEON_DATABASE_URL
-#   openclaw config set mcp.servers.hubspot.token       --ref-provider default --ref-source env --ref-id HUBSPOT_TOKEN
-#   ... ghl / higgsfield / nanobanana ...
+# ============ 8. MCP SERVERS (second-last) — exact live config; secrets from .env ============
+log "Adding the 5 MCP servers..."
 
-# ============ 9. VALIDATE + cleanup ============
+# context7 -> ALL 7 agents (no secret)
+openclaw config set mcp.servers.context7 \
+  "{\"command\":\"npx\",\"args\":[\"-y\",\"@upstash/context7-mcp\"],\"codex\":{\"agents\":$ALL7,\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
+  && echo "  - context7 (all 7)"
+
+# neon-postgres (read+write) -> ALL 7 agents  [needs NEON_DATABASE_URL]
+if [ -n "${NEON_DATABASE_URL:-}" ]; then
+  openclaw config set mcp.servers.neon-postgres \
+    "{\"command\":\"npx\",\"args\":[\"-y\",\"@yawlabs/postgres-mcp@latest\"],\"env\":{\"DATABASE_URL\":\"$NEON_DATABASE_URL\",\"ALLOW_WRITES\":\"1\",\"POSTGRES_STATEMENT_TIMEOUT_MS\":\"30000\",\"POSTGRES_MAX_ROWS\":\"1000\"},\"codex\":{\"agents\":$ALL7,\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
+    && echo "  - neon-postgres (all 7)"
+else echo "  ! neon-postgres SKIPPED (NEON_DATABASE_URL missing in .env)"; fi
+
+# higgsfield -> designer-and-creatives  [needs HIGGSFIELD_AUTH]
+if [ -n "${HIGGSFIELD_AUTH:-}" ]; then
+  openclaw config set mcp.servers.higgsfield \
+    "{\"url\":\"https://mcp.higgsfield.ai/mcp\",\"transport\":\"streamable-http\",\"headers\":{\"Authorization\":\"$HIGGSFIELD_AUTH\"},\"oauth\":{},\"codex\":{\"agents\":[\"designer-and-creatives\"],\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
+    && echo "  - higgsfield (designer-and-creatives)"
+else echo "  ! higgsfield SKIPPED (HIGGSFIELD_AUTH missing in .env)"; fi
+
+# hubspot -> main  [needs HUBSPOT_TOKEN]
+if [ -n "${HUBSPOT_TOKEN:-}" ]; then
+  openclaw config set mcp.servers.hubspot \
+    "{\"command\":\"npx\",\"args\":[\"-y\",\"@hubspot/mcp-server\"],\"env\":{\"PRIVATE_APP_ACCESS_TOKEN\":\"$HUBSPOT_TOKEN\"},\"codex\":{\"agents\":[\"main\"],\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
+    && echo "  - hubspot (main)"
+else echo "  ! hubspot SKIPPED (HUBSPOT_TOKEN missing in .env)"; fi
+
+# nanobanana -> designer-and-creatives + fullstack-developer  [needs GEMINI_API_KEY]
+if [ -n "${GEMINI_API_KEY:-}" ]; then
+  openclaw config set mcp.servers.nanobanana \
+    "{\"command\":\"npx\",\"args\":[\"-y\",\"nano-banana-2-mcp\"],\"env\":{\"GEMINI_API_KEY\":\"$GEMINI_API_KEY\"},\"codex\":{\"agents\":[\"designer-and-creatives\",\"fullstack-developer\"],\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
+    && echo "  - nanobanana (designer-and-creatives, fullstack-developer)"
+else echo "  ! nanobanana SKIPPED (GEMINI_API_KEY missing in .env)"; fi
+
+openclaw mcp reload 2>/dev/null || true
+
+# ============ 9. VALIDATE config ============
 log "Validating final config..."
-if openclaw config validate; then
-  rm -rf "$(dirname "$CLONE_DIR")"
-  echo
-  echo "DONE - Hub + 6 agents on codex / $MODEL / thinkingDefault=$THINKING."
-  echo "Brain installed at: $WORKSPACE"
-else
-  echo "config validate failed - review the errors above."; exit 1
-fi
+openclaw config validate || { echo "config validate failed - review above."; exit 1; }
+rm -rf "$(dirname "$CLONE_DIR")"
+echo "  config valid."
+
+# ============ 10. WAKEUP TEST (last) — every one of the 7 agents replies with its name ============
+log "Wakeup test - each of the 7 agents should reply 'Hi, I am <name>'..."
+for a in main research fullstack-developer designer-and-creatives marketing website-qa evaluator; do
+  echo "--- $a ---"
+  openclaw agent --agent "$a" --message "Wakeup check. Reply ONLY with: Hi, I am $a" --thinking low \
+    || echo "  ($a did not respond - is the gateway running?)"
+done
+
+echo
+echo "DONE - Hub + 6 agents on codex / $MODEL / thinkingDefault=$THINKING, 5 MCP servers wired."
+echo "Brain installed at: $WORKSPACE"
