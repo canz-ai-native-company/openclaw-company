@@ -1,0 +1,72 @@
+{
+  "agent": "marketing",
+  "role": "growth strategy & copy (Mira) — SEO/CRO strategy, ad copy, content, email, positioning",
+  "scoring": { "method": "llm-as-judge", "grader_model": "claude-cli/claude-opus-4-8", "scale": "1-5", "pass_threshold": 3 },
+  "growth_policy": "Add new cases from any marketing deliverable Raza revised — especially vague/generic copy or unsupported claims.",
+  "cases": [
+    {
+      "id": "MK-001", "category": "cro-strategy", "difficulty": "medium",
+      "input": "A landing page converts at 1.2% from Google Ads; recommend CRO improvements.",
+      "expected_behavior": "Read product-marketing-context; name the biggest constraint; give prioritized, specific fixes (message match, hero, CTA, trust, friction).",
+      "expected_tools": [],
+      "expected_response_traits": ["names one biggest constraint", "prioritized fixes", "specific quoted changes", "message-match check"],
+      "unacceptable_patterns": ["flat unordered list", "vague 'improve the headline'", "no priority"]
+    },
+    {
+      "id": "MK-002", "category": "ad-copy", "difficulty": "medium",
+      "input": "Write 3 Meta ad variations for a dental clinic new-patient offer.",
+      "expected_behavior": "Produce copy with specific pain -> concrete outcome -> mechanism -> one CTA; 3 distinct angles; no invented claims.",
+      "expected_tools": [],
+      "expected_response_traits": ["specific pain + concrete outcome", "clear single CTA", "3 distinct angles", "claims are supportable"],
+      "unacceptable_patterns": ["vague hooks", "fake urgency", "invented results/testimonials", "3 reworded copies"]
+    },
+    {
+      "id": "MK-003", "category": "seo", "difficulty": "medium",
+      "input": "Do an on-page SEO review for a service page targeting 'API monitoring tools'.",
+      "expected_behavior": "Use the seo-audit framework; check intent match, on-page elements, and give prioritized fixes with rationale.",
+      "expected_tools": ["websearch"],
+      "expected_response_traits": ["search-intent match assessed", "on-page issues with fixes", "prioritized", "current/cited where freshness matters"],
+      "unacceptable_patterns": ["generic SEO checklist with no page specifics", "keyword stuffing advice"]
+    },
+    {
+      "id": "MK-004", "category": "email-sequence", "difficulty": "medium",
+      "input": "Design a 4-email trial-onboarding nurture sequence.",
+      "expected_behavior": "Map each email to a stage/goal with a single CTA, tied to the product's aha-moment.",
+      "expected_tools": [],
+      "expected_response_traits": ["each email has one goal + one CTA", "sequence maps to activation", "subject lines specific"],
+      "unacceptable_patterns": ["generic 'just checking in' emails", "multiple competing CTAs per email"]
+    },
+    {
+      "id": "MK-005", "category": "positioning-icp", "difficulty": "hard",
+      "input": "Define the ICP and positioning for a boutique fitness studio.",
+      "expected_behavior": "Produce a specific ICP (not 'business owners') and a differentiated positioning statement grounded in the market.",
+      "expected_tools": [],
+      "expected_response_traits": ["specific, narrow ICP", "differentiated positioning", "grounded in real audience pain"],
+      "unacceptable_patterns": ["broad ICP like 'everyone'/'business owners'", "me-too positioning"]
+    },
+    {
+      "id": "MK-006", "category": "compliance", "difficulty": "hard",
+      "input": "Client asks for ad copy claiming 'guaranteed #1 ranking in 7 days'.",
+      "expected_behavior": "Refuse the unsupportable/non-compliant claim; offer a credible, compliant alternative.",
+      "expected_tools": [],
+      "expected_response_traits": ["refuses the false guarantee", "offers compliant alternative", "flags policy risk"],
+      "unacceptable_patterns": ["writes the guarantee", "invents proof to justify it"]
+    },
+    {
+      "id": "MK-007", "category": "deliverable-structure", "difficulty": "easy",
+      "input": "Any substantial marketing deliverable.",
+      "expected_behavior": "Include diagnosis, strategy, the deliverable, why it works, measurement plan, and next test (per the agent's Output Standards).",
+      "expected_tools": [],
+      "expected_response_traits": ["diagnosis + strategy + deliverable", "measurement plan", "next test", "self-check scorecard"],
+      "unacceptable_patterns": ["deliverable with no diagnosis", "no measurement/next step", "no self-check scorecard"]
+    },
+    {
+      "id": "MK-008", "category": "context-grounding", "difficulty": "medium",
+      "input": "Write homepage copy for the client.",
+      "expected_behavior": "Read product-marketing-context first; ground copy in real positioning/proof; do not invent facts.",
+      "expected_tools": [],
+      "expected_response_traits": ["uses product-marketing-context", "claims grounded in real proof", "audience-specific"],
+      "unacceptable_patterns": ["ignores positioning context", "invents proof points or numbers"]
+    }
+  ]
+}

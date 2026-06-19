@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Intelligence Report - Aesthetic & Wellness Clinics (Medical Weight Loss — Lead Generation & Booking Automation) (United States, USA)</title>
+    <style>
+
+:root {
+    --primary: #1b4f72;
+    --primary-light: #2874a6;
+    --text: #1f2933;
+    --text-muted: #6b7280;
+    --bg: #ffffff;
+    --bg-alt: #f8fafc;
+    --border: #e5e7eb;
+    --highlight: #f3f4ff;
+    --success: #10b981;
+    --success-bg: #d1fae5;
+    --warning: #f59e0b;
+    --warning-bg: #fef3c7;
+    --danger: #ef4444;
+    --danger-bg: #fee2e2;
+    --info: #3b82f6;
+    --info-bg: #dbeafe;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   HEADER - Same for all reports
+   ============================================ */
+.report-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.report-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.report-header .subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   META BAR - Niche, Location, Date, etc.
+   ============================================ */
+.meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.meta-item .label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.meta-item .value {
+    color: var(--text-muted);
+}
+
+.meta-item.freshness {
+    background: var(--success-bg);
+    border-color: var(--success);
+}
+
+.meta-item.freshness .value {
+    color: var(--success);
+    font-weight: 600;
+}
+
+/* ============================================
+   SECTIONS - Consistent spacing and headers
+   ============================================ */
+.section {
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+}
+
+.section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.section h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.section p {
+    margin-bottom: 12px;
+}
+
+.section ul, .section ol {
+    margin: 12px 0;
+    padding-left: 24px;
+}
+
+.section li {
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   TABLES - Standard table styling
+   ============================================ */
+.table-container {
+    overflow-x: auto;
+    margin: 16px 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--bg-alt);
+}
+
+thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+}
+
+tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: var(--highlight);
+}
+
+/* Table cell alignments */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* ============================================
+   CARDS - Info boxes and panels
+   ============================================ */
+.card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.card-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* ============================================
+   HIGHLIGHT PANELS - Key findings
+   ============================================ */
+.highlight-panel {
+    background: var(--highlight);
+    border-left: 4px solid var(--primary);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.highlight-panel.success {
+    background: var(--success-bg);
+    border-left-color: var(--success);
+}
+
+.highlight-panel.warning {
+    background: var(--warning-bg);
+    border-left-color: var(--warning);
+}
+
+.highlight-panel.danger {
+    background: var(--danger-bg);
+    border-left-color: var(--danger);
+}
+
+/* ============================================
+   SWOT GRID - 2x2 grid for SWOT analysis
+   ============================================ */
+.swot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.swot-card {
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.swot-card h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.swot-card.strengths {
+    background: #dcfce7;
+    border: 1px solid #86efac;
+}
+
+.swot-card.weaknesses {
+    background: #fee2e2;
+    border: 1px solid #fca5a5;
+}
+
+.swot-card.opportunities {
+    background: #dbeafe;
+    border: 1px solid #93c5fd;
+}
+
+.swot-card.threats {
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+}
+
+.swot-card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* ============================================
+   COMPETITOR TABS - Tabbed interface
+   ============================================ */
+.competitor-tabs {
+    margin: 20px 0;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+}
+
+.tab-button {
+    padding: 8px 16px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.2s;
+}
+
+.tab-button:hover {
+    background: var(--highlight);
+}
+
+.tab-button.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 0 8px 8px 8px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ============================================
+   SCORE BADGES - Rating indicators
+   ============================================ */
+.score-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.score-badge.excellent {
+    background: var(--success-bg);
+    color: #065f46;
+}
+
+.score-badge.good {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.score-badge.average {
+    background: var(--warning-bg);
+    color: #92400e;
+}
+
+.score-badge.poor {
+    background: var(--danger-bg);
+    color: #991b1b;
+}
+
+/* Rating stars */
+.rating {
+    color: #fbbf24;
+    font-size: 14px;
+}
+
+/* ============================================
+   DATA SIGNALS - Key metrics display
+   ============================================ */
+.data-signals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.signal-item {
+    background: var(--bg-alt);
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.signal-item .signal-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.signal-item .signal-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* ============================================
+   FEATURE MATRIX - Checkmarks/X marks
+   ============================================ */
+.feature-check {
+    color: var(--success);
+    font-weight: bold;
+}
+
+.feature-missing {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.feature-partial {
+    color: var(--warning);
+    font-weight: bold;
+}
+
+/* Row highlighting for feature tables */
+tr.universal { background: #f0fdf4; }
+tr.common { background: #fefce8; }
+tr.selective { background: #fef2f2; }
+tr.absent { background: #fef2f2; }
+
+/* ============================================
+   FOOTER - Same for all reports
+   ============================================ */
+.report-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.text-primary { color: var(--primary); }
+.text-muted { color: var(--text-muted); }
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-danger { color: var(--danger); }
+
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-4 { margin-top: 16px; }
+.mb-4 { margin-bottom: 16px; }
+
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-2 { gap: 8px; }
+.gap-4 { gap: 16px; }
+
+/* ============================================
+   RESPONSIVE - Mobile adjustments
+   ============================================ */
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+        font-size: 14px;
+    }
+
+    .report-header h1 {
+        font-size: 22px;
+    }
+
+    .section h2 {
+        font-size: 18px;
+    }
+
+    .meta-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .swot-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-buttons {
+        flex-direction: column;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .tab-buttons {
+        display: none;
+    }
+
+    .tab-content {
+        display: block !important;
+    }
+
+    /* Allow sections to break naturally across pages */
+    .section {
+        page-break-inside: auto;
+    }
+
+    /* Keep section headers with their content */
+    .section h2, .section h3, .section h4 {
+        page-break-after: avoid;
+    }
+
+    /* Small elements should not break */
+    .meta-bar, .meta-item, .signal-item, .highlight-panel {
+        page-break-inside: avoid;
+    }
+
+    /* Tables can break but rows should stay together */
+    table {
+        page-break-inside: auto;
+    }
+
+    tr {
+        page-break-inside: avoid;
+    }
+
+    /* Orphans/widows control */
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+}
+
+    </style>
+    
+</head>
+<body>
+    <header class="report-header">
+    <h1>Design Intelligence Report</h1>
+    <p class="subtitle">Aesthetic &amp; Wellness Clinics (Medical Weight Loss — Lead Generation &amp; Booking Automation) (United States, USA)</p>
+</header>
+    <div class="meta-bar">
+    <div class="meta-item">
+            <span class="label">Niche:&nbsp;</span>
+            <span class="value">Aesthetic &amp; Wellness Clinics (Medical Weight Loss — Lead Generation &amp; Booking Automation)</span>
+        </div><div class="meta-item">
+            <span class="label">Location:&nbsp;</span>
+            <span class="value">United States, USA</span>
+        </div><div class="meta-item">
+            <span class="label">Competitors Analyzed:&nbsp;</span>
+            <span class="value">4</span>
+        </div><div class="meta-item">
+        <span class="label">Date Generated:&nbsp;</span>
+        <span class="value">April 07, 2026</span>
+    </div><div class="meta-item freshness">
+        <span class="label">Data Freshness:&nbsp;</span>
+        <span class="value">CURRENT</span>
+    </div>
+</div>
+
+    <main>
+        <section class="section">
+    <h2>Executive Summary</h2>
+    <div class="highlight-panel">
+        <p>Across four audited aesthetic & wellness clinics focused on medical weight loss, overall design experience is constrained by weak trust signals, inconsistent navigation, and limited conversion-oriented assets. The average experience index is 4.2/10, with substantial variance across sites in navigation usability (average ~2.5/10) and mobile responsiveness (average ~2.75/10). Content organization tends to be relatively stronger (average ~6.25/10) than mobile UX and trust cues, indicating a clear opportunity to lift enterprise credibility through targeted UX improvements, robust trust signals, and a streamlined pricing/conversion flow. There is a consistent call for semantic structure, accessible navigation, and explicit pricing terms to reduce evaluation friction for enterprise buyers in Dallas, TX and broader USA markets.</p>
+    </div>
+    <div class="data-signals">
+            <div class="signal-item">
+                <div class="signal-value">4.2</div>
+                <div class="signal-label">Average experience index across audited sites (0-10)</div>
+            </div><div class="signal-item">
+                <div class="signal-value">4</div>
+                <div class="signal-label">Websites audited</div>
+            </div>
+        </div>
+    <div class="card">
+            <div class="card-header">Key Findings</div>
+            <ul><li>Average experience index across audited sites: 4.2/10</li><li>Average trust signals score: 3.75/10</li><li>Navigation usability highly inconsistent (average ~2.5/10)</li><li>Mobile responsiveness notably weak (average ~2.75/10)</li><li>Content organization relatively strong (average ~6.25/10)</li></ul>
+        </div>
+</section>
+<section class="section">
+    <h2>1. Design Quality Dashboard</h2>
+    <div class="table-container">
+    <table>
+        
+        <thead>
+            <tr><th>Competitor</th><th>Visual</th><th>Hierarchy</th><th>Brand</th><th>Mobile</th><th>Overall</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>MyAdv Clinic</td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge average">5.0/10</span></td></tr><tr><td>Atlantis Medical Center</td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">4.0/10</span></td></tr><tr><td>Aesthetics Beauty Laser</td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">3.0/10</span></td></tr><tr><td>E Weight Medical</td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge average">5.0/10</span></td></tr>
+        </tbody>
+    </table>
+</div>
+</section>
+<section class="section">
+    <h2>2. Detailed Design Analyses</h2>
+    <div class="competitor-tabs">
+    <div class="tab-buttons">
+        <button class="tab-button active" data-tab="tab-0">MyAdv Clinic</button><button class="tab-button " data-tab="tab-1">Atlantis Medical Center</button><button class="tab-button " data-tab="tab-2">Aesthetics Beauty Laser</button><button class="tab-button " data-tab="tab-3">E Weight Medical</button>
+    </div>
+    <div class="tab-content active" id="tab-0"><p><strong>URL:</strong> <a href="https://www.myadvclinic.com/">https://www.myadvclinic.com/</a></p><h4>Visual Hierarchy</h4><ul><li>Hero block is visually pronounced but lacks supporting subtitle</li><li>Pricing and policy sections are not visually distinct</li><li>Content sections (About/Services) rely on plain text blocks without card-based emphasis</li></ul><h4>Messaging Clarity</h4><ul><li>headline</li><li>clarity_level</li><li>specificity</li><li>target<em>audience</em>clear</li></ul><h4>Trust Infrastructure</h4><ul><li>customer_logos</li><li>testimonials</li><li>review_badges</li><li>security_badges</li><li>proof<em>of</em>scale</li></ul><div class="highlight-panel success">
+    <h4>Design Strengths</h4><ul><li>Clear content organization</li><li>Distinct services taxonomy</li></ul>
+</div><div class="highlight-panel warning">
+    <h4>Areas for Improvement</h4><ul><li>Missing trust signals</li><li>Low navigation visibility</li><li>Pricing clarity needs consolidation</li></ul>
+</div></div><div class="tab-content " id="tab-1"><p><strong>URL:</strong> <a href="https://atlantismedcenter.com/">https://atlantismedcenter.com/</a></p><h4>Visual Hierarchy</h4><ul><li>Lack of prominent visual hierarchy; sections feel evenly weighted</li><li>Pricing/Services sections are not card-styled; readability could improve</li></ul><h4>Messaging Clarity</h4><ul><li>headline</li><li>clarity_level</li><li>specificity</li><li>target<em>audience</em>clear</li></ul><h4>Trust Infrastructure</h4><ul><li>customer_logos</li><li>testimonials</li><li>review_badges</li><li>security_badges</li><li>proof<em>of</em>scale</li></ul><div class="highlight-panel success">
+    <h4>Design Strengths</h4><ul><li>Visible trust signals (testimonials, certifications)</li><li>Clear section labeling</li></ul>
+</div><div class="highlight-panel warning">
+    <h4>Areas for Improvement</h4><ul><li>No global navigation</li><li>Mobile responsiveness needs a responsive pattern</li></ul>
+</div></div><div class="tab-content " id="tab-2"><p><strong>URL:</strong> <a href="https://aestheticsbeautylaser.com/">https://aestheticsbeautylaser.com/</a></p><h4>Visual Hierarchy</h4><ul><li>Weak visual emphasis; hero lacks action cue</li><li>Content sections are text-heavy with limited hierarchy</li></ul><h4>Messaging Clarity</h4><ul><li>headline</li><li>clarity_level</li><li>specificity</li><li>target<em>audience</em>clear</li></ul><h4>Trust Infrastructure</h4><ul><li>customer_logos</li><li>testimonials</li><li>review_badges</li><li>security_badges</li><li>proof<em>of</em>scale</li></ul><div class="highlight-panel success">
+    <h4>Design Strengths</h4><ul><li>Basic content organization</li><li>Service-focused messaging</li></ul>
+</div><div class="highlight-panel warning">
+    <h4>Areas for Improvement</h4><ul><li>Missing navigation and CTAs</li><li>Limited trust signals</li><li>No pricing visibility</li></ul>
+</div></div><div class="tab-content " id="tab-3"><p><strong>URL:</strong> <a href="https://eweightmedical.com/">https://eweightmedical.com/</a></p><h4>Visual Hierarchy</h4><ul><li>Strong sectioning; hero CTA missing</li><li>Clear headings but limited visual emphasis on key benefits</li></ul><h4>Messaging Clarity</h4><ul><li>headline</li><li>clarity_level</li><li>specificity</li><li>target<em>audience</em>clear</li></ul><h4>Trust Infrastructure</h4><ul><li>customer_logos</li><li>testimonials</li><li>review_badges</li><li>security_badges</li><li>proof<em>of</em>scale</li></ul><div class="highlight-panel success">
+    <h4>Design Strengths</h4><ul><li>Good content organization</li><li>Visible trust signals</li></ul>
+</div><div class="highlight-panel warning">
+    <h4>Areas for Improvement</h4><ul><li>Hero CTA missing</li><li>Need for semantic anchors and responsive enhancements</li></ul>
+</div></div>
+</div>
+<script>
+document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    });
+});
+</script>
+</section>
+<section class="section">
+    <h2>3. Design Trends in This Market</h2>
+    <ul><li>High variance in navigation usability (1-6/10) - diverse approaches in market</li><li>Industry-wide weakness in mobile responsiveness (avg 2.8/10) - major differentiation opportunity</li><li>High variance in content organization (4-8/10) - diverse approaches in market</li><li>Industry-wide weakness in trust signals (avg 3.8/10) - major differentiation opportunity</li><li>Industry-wide design weakness (avg EI: 4.2/10) - significant opportunity to differentiate with superior design</li></ul>
+</section>
+<section class="section">
+    <h2>Strategic Recommendations</h2>
+    <ol class="recommendations-list">
+        <li>Add a persistent top navigation with anchor links to sections (e.g., #hero, #about, #services, #features, #pricing, #faqs, #contact) for quick, intuitive browsing.</li><li>Enhance the hero with a supporting subtitle and a primary call-to-action (CTA) such as “Get Started” or “View Pricing” to convert attention into action.</li><li>Reformat the pricing area into clear, consistent cards or a table that shows plan name, audience (age range), price, commitment terms, and a prominent CTA (e.g., “Join” or “Learn More”). Separate any long policy notes from core plan details for readability.</li><li>Clarify pricing terms and membership commitments by consolidating them into a dedicated Pricing Terms block or page, reducing confusion between plans and non-member fees.</li><li>Incorporate clear trust signals: prominently display contact information (phone/email), an address block, and consider adding testimonials or case-study snippets to bolster credibility.</li><li>Improve accessibility and semantics by using semantic HTML (e.g., header, nav, main, footer) and ensuring consistent heading hierarchy; add aria-labels where needed for navigation and interactive elements.</li><li>Add a concise footer with contact details, hours, and quick links to improve site stability and trust across pages.</li>
+    </ol>
+</section>
+    </main>
+
+    <footer class="report-footer">
+    <p>Generated: April 07, 2026 | Design Intelligence Report</p>
+    <p>CANZ Intelligence Platform</p>
+</footer>
+    
+</body>
+</html>

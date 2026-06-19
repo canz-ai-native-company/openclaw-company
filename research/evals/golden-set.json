@@ -1,0 +1,88 @@
+{
+  "agent": "research",
+  "role": "client-specific marketing-grade research (Atlas) — feeds website, creatives, marketing",
+  "scoring": { "method": "llm-as-judge", "grader_model": "claude-cli/claude-opus-4-8", "scale": "1-5", "pass_threshold": 3 },
+  "growth_policy": "Add new cases from rejected/revised research reports, from weak-hook or weak-creative complaints, and from any niche/location where local data was thin.",
+  "cases": [
+    {
+      "id": "RS-001", "category": "competitor-analysis", "difficulty": "medium",
+      "input": "workflow_step_id=<uuid> for a dental clinic in Houston, TX (client data already in the Neon clients table).",
+      "expected_behavior": "Read the client from the Neon clients table (CRM-synced) — NOT Radar/S3. Websearch and analyze AT LEAST 10 real, named local competitors; for each capture service, USPs/positioning, reviews (rating + count + recurring praise AND complaints), and website notes; then synthesize the positioning gap and the proof bar; write each competitor to the Neon competitors table.",
+      "expected_tools": ["neon-postgres", "websearch"],
+      "expected_response_traits": ["10+ real named competitors", "each with service + USPs + reviews (praise AND complaints)", "Houston-local first (USA labeled if used)", "a synthesized positioning gap", "competitors written to Neon", "websearch-cited"],
+      "unacceptable_patterns": ["fewer than 10 competitors", "invented competitors/ratings/reviews", "only national brands", "no complaints captured", "uses or asks for Radar/S3 reports"]
+    },
+    {
+      "id": "RS-002", "category": "positioning-gap", "difficulty": "medium",
+      "input": "workflow_step_id=<uuid> for a boutique fitness studio in Miami, FL.",
+      "expected_behavior": "From the clients data + competitor analysis, find a differentiated positioning gap that none of the competitors own, and recommend a one-line positioning + primary CTA, grounded in evidence.",
+      "expected_tools": ["neon-postgres", "websearch"],
+      "expected_response_traits": ["positioning gap tied to the real Miami market", "clear one-line positioning", "recommended primary CTA", "evidence for the gap (from competitor reviews/market)"],
+      "unacceptable_patterns": ["generic 'be the best gym' positioning", "no local grounding", "vague adjectives without proof", "me-too positioning a competitor already owns"]
+    },
+    {
+      "id": "RS-003", "category": "hooks-strength", "difficulty": "hard",
+      "input": "workflow_step_id=<uuid>. Produce the hooks & angles for a dental clinic targeting new patients.",
+      "expected_behavior": "Produce AT LEAST 10 hooks across DISTINCT angles. Each hook must be specific/concrete (real number+outcome+timeframe), emotionally driven (tied to a real audience pain from reviews/research), mechanism-based where possible, differentiated (exploits the positioning gap), and proof-backed. Give per hook: line + angle + emotional driver + proof + why it beats competitors.",
+      "expected_tools": ["websearch"],
+      "expected_response_traits": ["10+ hooks across distinct angles (not 10 versions of one)", "each specific with a real number/outcome/timeframe", "each tied to a real emotional driver/pain", "mechanism hinted where possible", "each paired with proof and a 'why it beats competitors'"],
+      "unacceptable_patterns": ["'best dentist in town' / 'your trusted partner' / vague hooks", "reworded duplicates of one idea", "hooks not tied to audience pain", "hype with no proof", "fewer than 10"]
+    },
+    {
+      "id": "RS-004", "category": "website-direction", "difficulty": "medium",
+      "input": "workflow_step_id=<uuid>. Give the website direction for the dental clinic.",
+      "expected_behavior": "Produce a buildable page direction: a specific color theme (with why it fits + how it differentiates from competitors), purposeful motion/animation, typography, and content with the chosen hook in the hero plus supporting angles, objection-handling built from real competitor complaints, a proof architecture, and ONE conversion goal — framed knowing the page will be marketed (mobile-first, message-match).",
+      "expected_tools": ["neon-postgres", "websearch"],
+      "expected_response_traits": ["specific color palette + rationale + differentiation", "purposeful motion (guides to CTA)", "hooks/angles built into the content", "objection handling from real competitor complaints", "one clear conversion goal", "mobile-first / marketing-aware"],
+      "unacceptable_patterns": ["'use a modern design' / generic visual advice", "motion as decoration only", "hooks bolted on, not in the content", "no conversion goal"]
+    },
+    {
+      "id": "RS-005", "category": "creatives-direction", "difficulty": "hard",
+      "input": "workflow_step_id=<uuid>. Give the creatives (ad images/videos) direction for the dental clinic, matched to the website theme.",
+      "expected_behavior": "Specify premium, scroll-stopping ad creatives that match the website's color theme and are designed to drive purchases: real/premium visuals (no stock), short video (<15s) with the hook in the first ~3s, and a STRONG on-image/on-video text style (first overlay carries the hook, large/bold/high-contrast/centred, ~5-7 words, brand fonts+theme colors). For each creative give the concept, format, the exact overlay hook line, the angle it serves, and why this audience will BUY.",
+      "expected_tools": ["websearch"],
+      "expected_response_traits": ["premium, non-stock, theme-matched visuals", "short video with hook in first ~3s", "strong on-image text style spec (size/bold/contrast/placement/word-count)", "each creative: concept + format + overlay hook line + angle + why it sells", "ties back to the brief's hooks + the website theme"],
+      "unacceptable_patterns": ["generic stock-image direction", "decorative creative with no text hook", "off-theme colors (ad doesn't match the site)", "weak/small/low-contrast text guidance", "no 'why it sells' rationale"]
+    },
+    {
+      "id": "RS-006", "category": "edge-invalid-client", "difficulty": "hard",
+      "input": "A direct request whose whole message is a malformed / non-UUID client id.",
+      "expected_behavior": "Detect the invalid client_id, do NOT fabricate data, ask for a valid UUID or mark intake blocked.",
+      "expected_tools": ["neon-postgres"],
+      "expected_response_traits": ["flags invalid id", "requests valid UUID", "no fabricated client data"],
+      "unacceptable_patterns": ["proceeds with made-up client info", "silently guesses the client"]
+    },
+    {
+      "id": "RS-007", "category": "edge-thin-local-data", "difficulty": "hard",
+      "input": "workflow_step_id=<uuid>. Niche+location with very little local online presence.",
+      "expected_behavior": "Note the local-data gap, expand to metro/state/USA-wide, and clearly label what is local vs inferred — still delivering 10+ competitors and strong hooks.",
+      "expected_tools": ["websearch"],
+      "expected_response_traits": ["acknowledges thin local data", "uses labeled USA/regional fallback", "still reaches 10+ competitors", "transparent about local vs inferred"],
+      "unacceptable_patterns": ["pretends rich local data exists", "no transparency", "drops below 10 competitors silently"]
+    },
+    {
+      "id": "RS-008", "category": "landing-variations", "difficulty": "hard",
+      "input": "workflow_step_id=<uuid>. Produce 5 synchronized landing-page variations with 15+ sections each.",
+      "expected_behavior": "Deliver 5 variations sharing one core message but meaningfully different angles, each with 15+ coherent sections (no clashing colors/tones across sections), each carrying a distinct hook.",
+      "expected_tools": ["neon-postgres", "websearch"],
+      "expected_response_traits": ["5 variations", "15+ sections each", "synchronized core message", "meaningfully different angles", "each variation carries a distinct strong hook"],
+      "unacceptable_patterns": ["fewer than 5 or under 15 sections", "near-identical copies", "inconsistent core message", "clashing visuals across sections"]
+    },
+    {
+      "id": "RS-009", "category": "system-of-record", "difficulty": "easy",
+      "input": "Any research job with a workflow_step_id.",
+      "expected_behavior": "Save the brief to the workspace, write research_reports + the >=10 competitor rows + the pending research_approval to Neon per the Worker Contract, store the self-check in agent_runs.self_check_score, and return the file path + handoff summary. Do NOT contact Slack.",
+      "expected_tools": ["neon-postgres"],
+      "expected_response_traits": ["brief saved with path", "research_reports + competitors (>=10) + approval written to Neon", "self_check_score stored", "handoff summary returned"],
+      "unacceptable_patterns": ["returns only chat text, nothing saved", "no Neon write", "fewer than 10 competitor rows", "agent contacts Slack itself"]
+    },
+    {
+      "id": "RS-010", "category": "marketing-framing", "difficulty": "medium",
+      "input": "workflow_step_id=<uuid>. Any full research brief.",
+      "expected_behavior": "Frame the ENTIRE brief for marketing/conversion: the research exists to market the client's service and make more people buy. Every section (competitors, hooks, website, creatives) should serve get-found / get-chosen / get-bought, and use ONLY the clients data + websearch (no Radar/S3).",
+      "expected_tools": ["neon-postgres", "websearch"],
+      "expected_response_traits": ["conversion-first framing throughout", "hooks + website + creatives all aligned to selling the service", "uses clients data + websearch only", "no Radar/S3 anywhere"],
+      "unacceptable_patterns": ["academic/neutral research with no marketing intent", "uses or references Radar/S3", "sections that don't serve conversion"]
+    }
+  ]
+}

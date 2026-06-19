@@ -1,0 +1,27 @@
+# ===== SECRETS — never commit =====
+.env
+*.env
+openclaw.json
+!.env.example
+
+# ===== backups =====
+*.bak
+*.bak.*
+*.bak-*
+*.pre-*-bak
+*-backup.md
+AGENTS-backup.md
+*~
+*Zone.Identifier
+
+# ===== runtime / heavy / generated (NOT the brain) =====
+node_modules/
+.venv/
+**/projects/
+/output/
+/generated_imgs/
+/state/
+*.zip
+
+# ===== nested git (this repo is flattened into one) =====
+**/.git/

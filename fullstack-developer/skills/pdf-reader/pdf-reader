@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+# pdf-reader — CLI wrapper around poppler-utils for PDF extraction
+set -euo pipefail
+
+PROG="pdf-reader"
+
+usage() {
+  cat <<EOF
+Usage: $PROG <command> [options] [file]
+
+Commands:
+  extract <file> [--layout]   Extract text from a PDF file
+  fetch <url> [--layout]      Download a PDF from a URL and extract text
+  info <file>                 Show PDF metadata and page count
+  list                        List all PDF files in the current directory tree
+
+Options:
+  --layout    Preserve original layout (tables, columns)
+  --help      Show this help message
+
+Examples:
+  $PROG extract report.pdf
+  $PROG extract report.pdf --layout
+  $PROG fetch https://example.com/doc.pdf
+  $PROG info report.pdf
+  $PROG list
+EOF
+  exit 0
+}
+
+die() { echo "$PROG: error: $*" >&2; exit 1; }
+
+# Require at least one argument
+[[ $# -lt 1 ]] && usage
+
+CMD="$1"; shift
+
+case "$CMD" in
+  extract)
+    [[ $# -lt 1 ]] && die "extract requires a file argument"
+    FILE="$1"; shift
+    [[ -f "$FILE" ]] || die "file not found: $FILE"
+
+    LAYOUT=""
+    for arg in "$@"; do
+      [[ "$arg" == "--layout" ]] && LAYOUT="-layout"
+    done
+
+    pdftotext $LAYOUT "$FILE" - 2>/dev/null || die "pdftotext failed on $FILE"
+    ;;
+
+  fetch)
+    [[ $# -lt 1 ]] && die "fetch requires a URL argument"
+    URL="$1"; shift
+
+    LAYOUT=""
+    for arg in "$@"; do
+      [[ "$arg" == "--layout" ]] && LAYOUT="-layout"
+    done
+
+    TMPFILE="$(mktemp /tmp/pdf-reader-XXXXXX.pdf)"
+    trap 'rm -f "$TMPFILE"' EXIT
+
+    curl -fsSL -o "$TMPFILE" "$URL" 2>/dev/null || die "failed to download: $URL"
+    pdftotext $LAYOUT "$TMPFILE" - 2>/dev/null || die "pdftotext failed on downloaded PDF"
+    ;;
+
+  info)
+    [[ $# -lt 1 ]] && die "info requires a file argument"
+    FILE="$1"
+    [[ -f "$FILE" ]] || die "file not found: $FILE"
+
+    pdfinfo "$FILE" 2>/dev/null || die "pdfinfo failed on $FILE"
+    echo ""
+    SIZE=$(du -h "$FILE" | cut -f1)
+    echo "File size: $SIZE"
+    ;;
+
+  list)
+    find . -iname '*.pdf' -type f 2>/dev/null | sort || true
+    ;;
+
+  --help|-h|help)
+    usage
+    ;;
+
+  *)
+    die "unknown command: $CMD (try --help)"
+    ;;
+esac

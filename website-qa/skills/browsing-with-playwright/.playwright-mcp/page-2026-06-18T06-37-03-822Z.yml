@@ -1,0 +1,585 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e5]:
+        - link "LUMIÈRE" [ref=e6] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e7]:
+          - link "Services" [ref=e8] [cursor=pointer]:
+            - /url: "#services"
+          - link "Results" [ref=e9] [cursor=pointer]:
+            - /url: "#results"
+          - link "About" [ref=e10] [cursor=pointer]:
+            - /url: "#team"
+          - link "Reviews" [ref=e11] [cursor=pointer]:
+            - /url: "#reviews"
+          - link "FAQ" [ref=e12] [cursor=pointer]:
+            - /url: "#faq"
+        - generic [ref=e13]:
+          - link "+1 (619) 614-7810" [ref=e14] [cursor=pointer]:
+            - /url: tel:+16196147810
+            - img [ref=e15]
+            - text: +1 (619) 614-7810
+          - link "Book Consultation" [ref=e17] [cursor=pointer]:
+            - /url: "#booking"
+    - generic [ref=e18]:
+      - img "Lumière Med Spa — Scottsdale Arizona" [ref=e20]
+      - generic [ref=e23]:
+        - paragraph [ref=e24]: Scottsdale’s Premier Aesthetic Studio
+        - heading "The art of looking like you, only more radiant." [level=1] [ref=e25]:
+          - text: The art of looking
+          - text: like you,
+          - text: only more radiant.
+        - paragraph [ref=e26]: Scottsdale’s premier aesthetic studio — where refined technique meets your natural beauty. No cookie-cutter results. No overdone looks. Just you, luminous.
+        - generic [ref=e27]:
+          - link "Book Your Complimentary Consultation" [ref=e28] [cursor=pointer]:
+            - /url: "#booking"
+          - link "See Our Work" [ref=e29] [cursor=pointer]:
+            - /url: "#results"
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - img [ref=e32]
+            - generic [ref=e35]: No-pressure consultation
+          - generic [ref=e36]:
+            - img [ref=e37]
+            - generic [ref=e40]: Licensed & insured providers
+          - generic [ref=e41]:
+            - img [ref=e42]
+            - generic [ref=e45]: 500+ five-star reviews
+      - generic [ref=e47]: Scroll
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - generic [ref=e55]: "0"
+            - generic [ref=e56]: +
+          - generic [ref=e57]: Google Reviews
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - img [ref=e61]
+            - generic [ref=e63]: "0.0"
+            - generic [ref=e64]: ★
+          - generic [ref=e65]: Average Rating
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: "0"
+            - generic [ref=e70]: +
+          - generic [ref=e71]: Treatments Completed
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e75]: "0"
+            - generic [ref=e76]: +
+          - generic [ref=e77]: Years Combined Experience
+      - paragraph [ref=e79]: Lumière Med Spa · Scottsdale, AZ · All providers are licensed aesthetic professionals
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - paragraph [ref=e83]: Our Services
+        - heading "Every treatment, beautifully considered." [level=2] [ref=e84]
+        - paragraph [ref=e85]: From your first Botox to an advanced laser protocol — each service is customized to your unique anatomy and aesthetic goals.
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - img [ref=e89]
+          - paragraph [ref=e96]: INJECTABLES
+          - heading "Natural movement. Zero frozen." [level=3] [ref=e97]
+          - paragraph [ref=e98]: The art of less.
+          - list [ref=e100]:
+            - listitem [ref=e101]: Botox & Dysport
+            - listitem [ref=e103]: Lip filler
+            - listitem [ref=e105]: Cheek & jawline contouring
+            - listitem [ref=e107]: Under-eye filler
+            - listitem [ref=e109]: PRP (platelet-rich plasma)
+          - link "Book a Consultation" [ref=e111] [cursor=pointer]:
+            - /url: "#booking"
+            - text: Book a Consultation
+            - img [ref=e112]
+        - generic [ref=e114]:
+          - img [ref=e116]
+          - paragraph [ref=e119]: FACIAL TREATMENTS
+          - heading "Medical-grade results, spa-level experience." [level=3] [ref=e120]
+          - paragraph [ref=e121]: Your skin, reimagined.
+          - list [ref=e123]:
+            - listitem [ref=e124]: HydraFacial
+            - listitem [ref=e126]: Chemical peels
+            - listitem [ref=e128]: Microneedling
+            - listitem [ref=e130]: Dermaplaning
+            - listitem [ref=e132]: LED light therapy
+          - link "Book a Consultation" [ref=e134] [cursor=pointer]:
+            - /url: "#booking"
+            - text: Book a Consultation
+            - img [ref=e135]
+        - generic [ref=e137]:
+          - img [ref=e139]
+          - paragraph [ref=e141]: LASER & LIGHT
+          - heading "Precision technology. Visible results." [level=3] [ref=e142]
+          - paragraph [ref=e143]: Science meets artistry.
+          - list [ref=e145]:
+            - listitem [ref=e146]: Laser skin resurfacing
+            - listitem [ref=e148]: IPL photofacial
+            - listitem [ref=e150]: Laser hair removal
+            - listitem [ref=e152]: BBL BroadBand Light
+            - listitem [ref=e154]: Vascular treatment
+          - link "Book a Consultation" [ref=e156] [cursor=pointer]:
+            - /url: "#booking"
+            - text: Book a Consultation
+            - img [ref=e157]
+        - generic [ref=e159]:
+          - img [ref=e161]
+          - paragraph [ref=e163]: BODY CONTOURING
+          - heading "Sculpt and define — without downtime." [level=3] [ref=e164]
+          - paragraph [ref=e165]: Results worth showing off.
+          - list [ref=e167]:
+            - listitem [ref=e168]: Non-invasive fat reduction
+            - listitem [ref=e170]: RF skin tightening
+            - listitem [ref=e172]: Cellulite treatment
+            - listitem [ref=e174]: Body wraps & hydration
+            - listitem [ref=e176]: Skin tone evening
+          - link "Book a Consultation" [ref=e178] [cursor=pointer]:
+            - /url: "#booking"
+            - text: Book a Consultation
+            - img [ref=e179]
+    - generic [ref=e182]:
+      - generic [ref=e183]:
+        - paragraph [ref=e184]: Results
+        - generic [ref=e185]:
+          - heading "Real people. Real results." [level=2] [ref=e186]:
+            - text: Real people.
+            - text: Real results.
+          - paragraph [ref=e187]: Every transformation represents a real Lumière client and a customized treatment plan. Results are authentic — never altered.
+      - generic [ref=e188]:
+        - generic [ref=e189]:
+          - img "Natural lip enhancement + cheek filler result" [ref=e191]
+          - paragraph [ref=e192]: Jennifer, 47
+          - paragraph [ref=e193]: Natural lip enhancement + cheek filler
+          - paragraph [ref=e194]: “Balanced, soft, completely natural-looking results.”
+        - generic [ref=e195]:
+          - img "Botox brow lift + under-eye filler result" [ref=e197]
+          - paragraph [ref=e198]: Sarah, 39
+          - paragraph [ref=e199]: Botox brow lift + under-eye filler
+          - paragraph [ref=e200]: “Refreshed and rested — colleagues asked if she'd been on vacation.”
+        - generic [ref=e201]:
+          - img "Laser resurfacing + HydraFacial series result" [ref=e203]
+          - paragraph [ref=e204]: Michelle, 52
+          - paragraph [ref=e205]: Laser resurfacing + HydraFacial series
+          - paragraph [ref=e206]: “Sun damage reversed, texture smoothed, confidence restored.”
+      - generic [ref=e207]:
+        - img "Natural radiant skin results" [ref=e208]
+        - paragraph [ref=e210]:
+          - text: “I look like myself, but better.”
+          - generic [ref=e211]: — Amanda K., North Scottsdale
+      - generic [ref=e212]:
+        - paragraph [ref=e213]: Individual results vary. All images shown with client permission.
+        - link "Book Your Transformation Consultation" [ref=e214] [cursor=pointer]:
+          - /url: "#booking"
+    - generic [ref=e216]:
+      - generic [ref=e217]:
+        - paragraph [ref=e218]: Our Team
+        - heading "Expert hands. Artistic eyes." [level=2] [ref=e219]
+        - paragraph [ref=e220]: Every Lumière provider is a licensed aesthetic professional with specialized training in facial anatomy and natural enhancement.
+      - generic [ref=e221]:
+        - generic [ref=e222]:
+          - img "Dr. Sofia Laurent, MD" [ref=e224]
+          - heading "Dr. Sofia Laurent, MD" [level=3] [ref=e226]
+          - paragraph [ref=e227]: Medical Director & Lead Aesthetic Practitioner
+          - generic [ref=e228]:
+            - generic [ref=e231]: Board-Certified Physician
+            - generic [ref=e234]: 10+ years injectable experience
+            - generic [ref=e237]: 3,000+ clients treated
+          - paragraph [ref=e238]: Specializing in natural injectables and facial harmony
+          - blockquote [ref=e240]: "“My philosophy: enhance what's already beautiful.”"
+        - generic [ref=e241]:
+          - img "Emma Reyes, RN, BSN" [ref=e243]
+          - heading "Emma Reyes, RN, BSN" [level=3] [ref=e245]
+          - paragraph [ref=e246]: Senior Aesthetic Nurse
+          - generic [ref=e247]:
+            - generic [ref=e250]: Registered Nurse
+            - generic [ref=e253]: Certified Injectable Specialist
+            - generic [ref=e256]: 6 years aesthetic practice
+          - paragraph [ref=e257]: Expert in laser treatments and advanced facials
+          - blockquote [ref=e259]: “Every face tells a story. I help it shine.”
+        - generic [ref=e260]:
+          - img "Claire Chen, PA-C" [ref=e262]
+          - heading "Claire Chen, PA-C" [level=3] [ref=e264]
+          - paragraph [ref=e265]: Physician Associate — Aesthetics
+          - generic [ref=e266]:
+            - generic [ref=e269]: Licensed Physician Associate
+            - generic [ref=e272]: Arizona Board Certified
+            - generic [ref=e275]: Body contouring specialist
+          - paragraph [ref=e276]: Body contouring and comprehensive skin health protocols
+          - blockquote [ref=e278]: “Results you'll love. A process you'll trust.”
+    - generic [ref=e280]:
+      - generic [ref=e281]:
+        - paragraph [ref=e282]: The Lumière Experience
+        - heading "Your journey to radiance, step by step." [level=2] [ref=e283]:
+          - text: Your journey to radiance,
+          - text: step by step.
+      - generic [ref=e284]:
+        - generic [ref=e285]:
+          - generic [ref=e286]:
+            - generic [ref=e287]: "01"
+            - img [ref=e289]
+          - heading "Consultation" [level=3] [ref=e291]
+          - paragraph [ref=e292]: Complimentary & No Pressure
+          - paragraph [ref=e293]: We start with a conversation, not a sales pitch. Tell us your goals, share your concerns, ask anything. We'll listen first — always.
+          - paragraph [ref=e295]: It's free. And there's zero obligation.
+          - generic [ref=e296]: →
+        - generic [ref=e297]:
+          - generic [ref=e298]:
+            - generic [ref=e299]: "02"
+            - img [ref=e301]
+          - heading "Your Custom Plan" [level=3] [ref=e304]
+          - paragraph [ref=e305]: Designed For Your Face
+          - paragraph [ref=e306]: No two faces are the same. Your provider will design a personalized treatment plan that matches your anatomy, lifestyle, and results goals — not a menu.
+          - paragraph [ref=e308]: Completely personalized to you.
+          - generic [ref=e309]: →
+        - generic [ref=e310]:
+          - generic [ref=e311]:
+            - generic [ref=e312]: "03"
+            - img [ref=e314]
+          - heading "Treatment & Glow" [level=3] [ref=e317]
+          - paragraph [ref=e318]: Expert Hands. Visible Results.
+          - paragraph [ref=e319]: Whether it's your first Botox or your fifth laser series — you're in expert hands every step of the way. Walk in feeling unsure. Walk out glowing.
+          - paragraph [ref=e321]: You're going to love the mirror.
+      - link "Start With A Free Consultation" [ref=e323] [cursor=pointer]:
+        - /url: "#booking"
+    - generic [ref=e325]:
+      - generic [ref=e326]:
+        - paragraph [ref=e327]: What Clients Say
+        - heading "500+ five-star experiences." [level=2] [ref=e328]
+        - generic [ref=e329]:
+          - generic [ref=e330]:
+            - img [ref=e331]
+            - img [ref=e333]
+            - img [ref=e335]
+            - img [ref=e337]
+            - img [ref=e339]
+          - generic [ref=e341]: 4.9 · 500+ reviews
+        - generic [ref=e342]:
+          - link "See our Google reviews" [ref=e343] [cursor=pointer]:
+            - /url: "#reviews"
+            - img [ref=e344]
+            - generic [ref=e349]:
+              - paragraph [ref=e350]: Google
+              - paragraph [ref=e351]: 4.9 ★ · 500+ reviews
+          - link "See our Yelp reviews" [ref=e352] [cursor=pointer]:
+            - /url: "#reviews"
+            - img [ref=e353]
+            - generic [ref=e355]:
+              - paragraph [ref=e356]: Yelp
+              - paragraph [ref=e357]: 4.8 ★ · 200+ reviews
+        - paragraph [ref=e358]: Real reviews from real Scottsdale clients.
+      - generic [ref=e359]:
+        - generic [ref=e360]:
+          - generic [ref=e361]:
+            - img [ref=e362]
+            - img [ref=e364]
+            - img [ref=e366]
+            - img [ref=e368]
+            - img [ref=e370]
+          - blockquote [ref=e372]: “I was SO nervous for my first Botox, but the team at Lumière made me feel completely at ease. The results are incredible — I look refreshed, not frozen. I'm a client for life.”
+          - generic [ref=e373]:
+            - generic [ref=e374]:
+              - paragraph [ref=e375]: Jennifer M.
+              - paragraph [ref=e376]: Scottsdale
+            - generic [ref=e377]:
+              - paragraph [ref=e378]: Botox — First Timer
+              - paragraph [ref=e379]: 2 weeks ago
+        - generic [ref=e380]:
+          - generic [ref=e381]:
+            - img [ref=e382]
+            - img [ref=e384]
+            - img [ref=e386]
+            - img [ref=e388]
+            - img [ref=e390]
+          - blockquote [ref=e392]: “Best med spa in Scottsdale, full stop. I've tried three others and none compare to the level of skill and care here. My lip filler looks so natural. People ask if I've just been 'resting' more.”
+          - generic [ref=e393]:
+            - generic [ref=e394]:
+              - paragraph [ref=e395]: Rachel T.
+              - paragraph [ref=e396]: Paradise Valley
+            - generic [ref=e397]:
+              - paragraph [ref=e398]: Lip Filler
+              - paragraph [ref=e399]: 1 month ago
+        - generic [ref=e400]:
+          - generic [ref=e401]:
+            - img [ref=e402]
+            - img [ref=e404]
+            - img [ref=e406]
+            - img [ref=e408]
+            - img [ref=e410]
+          - blockquote [ref=e412]: “The HydraFacial series changed my skin. After three treatments my hyperpigmentation is almost completely gone. Worth every penny — and the team is genuinely lovely.”
+          - generic [ref=e413]:
+            - generic [ref=e414]:
+              - paragraph [ref=e415]: Amanda K.
+              - paragraph [ref=e416]: North Scottsdale
+            - generic [ref=e417]:
+              - paragraph [ref=e418]: HydraFacial Series
+              - paragraph [ref=e419]: 3 weeks ago
+      - generic [ref=e420]:
+        - generic [ref=e421]:
+          - generic [ref=e422]:
+            - img [ref=e423]
+            - img [ref=e425]
+            - img [ref=e427]
+            - img [ref=e429]
+            - img [ref=e431]
+          - blockquote [ref=e433]: “I came in skeptical about fillers and left with a personalized plan that made total sense for my face. No upsell pressure. Just honest expertise. Already booked my next appointment.”
+          - generic [ref=e434]:
+            - generic [ref=e435]:
+              - paragraph [ref=e436]: Lisa C.
+              - paragraph [ref=e437]: Scottsdale
+            - generic [ref=e438]:
+              - paragraph [ref=e439]: Consultation + Filler Plan
+              - paragraph [ref=e440]: 5 weeks ago
+        - generic [ref=e441]:
+          - generic [ref=e442]:
+            - img [ref=e443]
+            - img [ref=e445]
+            - img [ref=e447]
+            - img [ref=e449]
+            - img [ref=e451]
+          - blockquote [ref=e453]: “Finally a med spa that feels luxurious without being stuffy. The laser resurfacing results on my sun damage were beyond what I expected. Arizona skin has met its match.”
+          - generic [ref=e454]:
+            - generic [ref=e455]:
+              - paragraph [ref=e456]: Karen S.
+              - paragraph [ref=e457]: Old Town Scottsdale
+            - generic [ref=e458]:
+              - paragraph [ref=e459]: Laser Resurfacing
+              - paragraph [ref=e460]: 2 months ago
+      - link "Join Our 5-Star Community — Book Today" [ref=e462] [cursor=pointer]:
+        - /url: "#booking"
+    - generic [ref=e463]:
+      - img "Scottsdale desert landscape" [ref=e465]
+      - generic [ref=e468]:
+        - generic [ref=e469]:
+          - paragraph [ref=e470]: Arizona Skin Expertise
+          - heading "We know what Scottsdale sun does to your skin." [level=2] [ref=e471]:
+            - text: We know what
+            - text: Scottsdale sun does
+            - text: to your skin.
+          - paragraph [ref=e472]: Arizona’s UV index is among the highest in the country. Phoenix/Scottsdale averages 299 sunny days per year. Your skin deserves protocols designed for desert living — not borrowed from a rainy climate.
+          - link "Get Your Desert Skin Assessment" [ref=e473] [cursor=pointer]:
+            - /url: "#booking"
+        - generic [ref=e474]:
+          - generic [ref=e475]:
+            - img [ref=e477]
+            - generic [ref=e483]:
+              - heading "Sun Damage Reversal" [level=3] [ref=e484]
+              - paragraph [ref=e485]: IPL photofacials and laser resurfacing targeted at Arizona-specific sun damage, hyperpigmentation, and vascular damage caused by Scottsdale's 299+ sunny days per year.
+          - generic [ref=e486]:
+            - img [ref=e488]
+            - generic [ref=e491]:
+              - heading "Desert Hydration Protocols" [level=3] [ref=e492]
+              - paragraph [ref=e493]: Medical-grade treatments engineered for low-humidity climates — restoring moisture barriers and glow lost to Scottsdale's dry desert heat.
+          - generic [ref=e494]:
+            - img [ref=e496]
+            - generic [ref=e498]:
+              - heading "Year-Round Skin Strategy" [level=3] [ref=e499]
+              - paragraph [ref=e500]: From summer UV repair to winter skin prep — we plan treatments around the Scottsdale calendar, not a one-size protocol designed for another climate.
+    - generic [ref=e503]:
+      - generic [ref=e504]:
+        - paragraph [ref=e505]: The Lumière Circle
+        - heading "Your glow, on subscription." [level=2] [ref=e506]:
+          - text: Your glow,
+          - text: on subscription.
+        - paragraph [ref=e507]: Join our exclusive membership and make radiance part of your monthly rhythm — not a rare occasion. Members who maintain regular treatments consistently achieve and sustain better results.
+        - generic [ref=e508]:
+          - paragraph [ref=e509]: Membership from
+          - generic [ref=e510]:
+            - generic [ref=e511]: $199
+            - generic [ref=e512]: /month
+          - paragraph [ref=e513]: Cancel anytime. No long-term contracts.
+        - link "Inquire About Membership" [ref=e514] [cursor=pointer]:
+          - /url: "#booking"
+      - generic [ref=e515]:
+        - generic [ref=e516]:
+          - img [ref=e518]
+          - heading "Monthly Treatment Credit" [level=3] [ref=e521]
+          - paragraph [ref=e522]: A facial or treatment credit included every month — yours to use as you please.
+        - generic [ref=e523]:
+          - img [ref=e525]
+          - heading "15% Off All Injectables" [level=3] [ref=e527]
+          - paragraph [ref=e528]: Members receive an exclusive 15% discount on all injectable treatments and add-ons.
+        - generic [ref=e529]:
+          - img [ref=e531]
+          - heading "Priority Booking" [level=3] [ref=e534]
+          - paragraph [ref=e535]: Members book appointments 48 hours before the calendar opens to the public.
+        - generic [ref=e536]:
+          - img [ref=e538]
+          - heading "Annual Beauty Review" [level=3] [ref=e540]
+          - paragraph [ref=e541]: A full skin assessment each year — we track your progress and optimize your plan.
+        - generic [ref=e542]:
+          - img [ref=e544]
+          - heading "Members-Only Events" [level=3] [ref=e549]
+          - paragraph [ref=e550]: Exclusive access to member events, product launches, and educational evenings.
+        - generic [ref=e551]:
+          - img [ref=e553]
+          - heading "Quarterly Touch-Up" [level=3] [ref=e557]
+          - paragraph [ref=e558]: A complimentary enhancement touch-up each quarter, so your results are always fresh.
+    - generic [ref=e561]:
+      - generic [ref=e562]:
+        - paragraph [ref=e564]: New to Med Spa?
+        - heading "Never done this before? Perfect." [level=2] [ref=e565]:
+          - text: Never done
+          - text: this before?
+          - text: Perfect.
+        - paragraph [ref=e566]: We love first-timers. No judgment, no pressure, no jargon. Just honest answers and a plan that makes sense for you.
+        - link "Book My First Consultation — It's Free" [ref=e567] [cursor=pointer]:
+          - /url: "#booking"
+        - paragraph [ref=e568]: No commitment required. Just a conversation.
+      - generic [ref=e569]:
+        - generic [ref=e571]:
+          - img [ref=e573]
+          - generic [ref=e575]:
+            - heading "Does it hurt?" [level=3] [ref=e576]
+            - paragraph [ref=e577]: Most clients describe Botox as a tiny pinch. We offer topical numbing for comfort — just ask. Your comfort is our priority, always.
+        - generic [ref=e579]:
+          - img [ref=e581]
+          - generic [ref=e584]:
+            - heading "Will I look overdone?" [level=3] [ref=e585]
+            - paragraph [ref=e586]: Our philosophy is enhancement, not alteration. We use less product to achieve more natural results. You'll look like yourself — just refreshed.
+        - generic [ref=e588]:
+          - img [ref=e590]
+          - generic [ref=e592]:
+            - heading "What if I don't like it?" [level=3] [ref=e593]
+            - paragraph [ref=e594]: We want you to love your results. We always start conservative — and we can adjust at your follow-up. You're always in control.
+        - generic [ref=e596]:
+          - generic [ref=e598]: $
+          - generic [ref=e599]:
+            - heading "How much does it cost?" [level=3] [ref=e600]
+            - paragraph [ref=e601]: Treatment costs vary based on your goals. We'll discuss everything transparently at your free consultation — no surprises, no hidden fees, no pressure.
+    - generic [ref=e603]:
+      - generic [ref=e604]:
+        - paragraph [ref=e605]: Frequently Asked
+        - heading "We've got answers." [level=2] [ref=e606]
+      - generic [ref=e607]:
+        - button "How long does Botox last?" [ref=e609]:
+          - generic [ref=e610]: How long does Botox last?
+          - img [ref=e612]
+        - button "What's the difference between Botox and fillers?" [ref=e614]:
+          - generic [ref=e615]: What's the difference between Botox and fillers?
+          - img [ref=e617]
+        - button "Is there downtime after treatments?" [ref=e619]:
+          - generic [ref=e620]: Is there downtime after treatments?
+          - img [ref=e622]
+        - button "Do you offer payment plans?" [ref=e624]:
+          - generic [ref=e625]: Do you offer payment plans?
+          - img [ref=e627]
+        - button "How do I know which treatment is right for me?" [ref=e629]:
+          - generic [ref=e630]: How do I know which treatment is right for me?
+          - img [ref=e632]
+        - button "Are your providers licensed?" [ref=e634]:
+          - generic [ref=e635]: Are your providers licensed?
+          - img [ref=e637]
+        - button "Where are you located in Scottsdale?" [ref=e639]:
+          - generic [ref=e640]: Where are you located in Scottsdale?
+          - img [ref=e642]
+        - button "Can I combine treatments?" [ref=e644]:
+          - generic [ref=e645]: Can I combine treatments?
+          - img [ref=e647]
+      - generic [ref=e648]:
+        - paragraph [ref=e649]: Still have questions? We love chatting.
+        - link "Ask Us Anything — Book A Free Call" [ref=e650] [cursor=pointer]:
+          - /url: "#booking"
+    - generic [ref=e653]:
+      - generic [ref=e654]:
+        - paragraph [ref=e655]: Ready to Glow?
+        - heading "Your complimentary consultation is waiting." [level=2] [ref=e656]:
+          - text: Your complimentary
+          - text: consultation is waiting.
+        - paragraph [ref=e657]: Take the first step toward the radiance you deserve. No pressure. No commitment. Just expert guidance, personalized to you.
+        - generic [ref=e658]:
+          - generic [ref=e659]:
+            - textbox "Your name" [ref=e660]
+            - textbox "Email address" [ref=e661]
+          - textbox "Phone number" [ref=e662]
+          - generic [ref=e663]:
+            - generic [ref=e664]: Service Interest (optional)
+            - combobox "Service Interest (optional)" [ref=e665]:
+              - option "Select a service…" [selected]
+              - option "Injectables (Botox/Filler)"
+              - option "Facial Treatments"
+              - option "Laser & Light"
+              - option "Body Contouring"
+              - option "Membership Inquiry"
+              - option "Not sure — need advice"
+          - textbox "Any questions or notes for us? (optional)" [ref=e666]
+          - button "Book My Consultation" [ref=e667]:
+            - img [ref=e668]
+            - text: Book My Consultation
+          - paragraph [ref=e671]: No commitment required. We'll reach out within 24 hours.
+      - generic [ref=e672]:
+        - img "Lumière Med Spa Treatment Room" [ref=e674]
+        - generic [ref=e676]:
+          - generic [ref=e677]:
+            - img [ref=e679]
+            - generic [ref=e681]:
+              - paragraph [ref=e682]: Call Us
+              - link "+1 (619) 614-7810" [ref=e683] [cursor=pointer]:
+                - /url: tel:+16196147810
+          - generic [ref=e684]:
+            - img [ref=e686]
+            - generic [ref=e689]:
+              - paragraph [ref=e690]: Location
+              - paragraph [ref=e691]:
+                - text: North Scottsdale, Arizona
+                - text: Exact address provided upon booking
+          - generic [ref=e692]:
+            - img [ref=e694]
+            - generic [ref=e697]:
+              - paragraph [ref=e698]: Hours
+              - paragraph [ref=e699]:
+                - text: "Monday – Friday: 9am – 6pm"
+                - text: "Saturday: 9am – 4pm"
+                - text: "Sunday: Closed"
+    - generic [ref=e701]:
+      - generic [ref=e702]:
+        - generic [ref=e703]:
+          - link "LUMIÈRE" [ref=e704] [cursor=pointer]:
+            - /url: "#"
+          - paragraph [ref=e705]: Scottsdale’s premier aesthetic studio — where refined technique meets your natural beauty. The art of looking like you, only more radiant.
+          - generic [ref=e706]:
+            - link "Instagram" [ref=e707] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e708]
+            - link "Facebook" [ref=e714] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e715]
+        - generic [ref=e718]:
+          - paragraph [ref=e719]: Navigation
+          - list [ref=e720]:
+            - listitem [ref=e721]:
+              - link "Services" [ref=e722] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e723]:
+              - link "Results" [ref=e724] [cursor=pointer]:
+                - /url: "#results"
+            - listitem [ref=e725]:
+              - link "About" [ref=e726] [cursor=pointer]:
+                - /url: "#team"
+            - listitem [ref=e727]:
+              - link "Reviews" [ref=e728] [cursor=pointer]:
+                - /url: "#reviews"
+            - listitem [ref=e729]:
+              - link "Membership" [ref=e730] [cursor=pointer]:
+                - /url: "#membership"
+            - listitem [ref=e731]:
+              - link "FAQ" [ref=e732] [cursor=pointer]:
+                - /url: "#faq"
+        - generic [ref=e733]:
+          - paragraph [ref=e734]: Get Started
+          - paragraph [ref=e735]: Your complimentary consultation is just one step away. No pressure. Just expert guidance, personalized to you.
+          - link "Book Free Consultation" [ref=e736] [cursor=pointer]:
+            - /url: "#booking"
+          - link "+1 (619) 614-7810" [ref=e737] [cursor=pointer]:
+            - /url: tel:+16196147810
+            - img [ref=e738]
+            - text: +1 (619) 614-7810
+      - generic [ref=e740]:
+        - paragraph [ref=e741]: © 2026 Lumière Med Spa. All rights reserved. · Scottsdale, Arizona
+        - generic [ref=e742]:
+          - link "Privacy Policy" [ref=e743] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms of Service" [ref=e744] [cursor=pointer]:
+            - /url: "#"
+          - link "Accessibility" [ref=e745] [cursor=pointer]:
+            - /url: "#"
+  - alert [ref=e746]

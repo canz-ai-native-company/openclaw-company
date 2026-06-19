@@ -1,0 +1,298 @@
+// Content Management System (CMS) Schema Template
+// Includes: Posts, Categories, Tags, Media, Comments, Revisions
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// CONTENT
+// ============================================
+
+model Post {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  title       String
+  excerpt     String?     @db.Text
+  content     String      @db.Text
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?  @db.Text
+  ogImage         String?
+
+  // Status
+  status      PostStatus  @default(DRAFT)
+  publishedAt DateTime?
+
+  // Featured
+  featured    Boolean     @default(false)
+  pinned      Boolean     @default(false)
+
+  // Timestamps
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // Relations
+  author      User        @relation("PostAuthor", fields: [authorId], references: [id])
+  authorId    String
+
+  editor      User?       @relation("PostEditor", fields: [editorId], references: [id])
+  editorId    String?
+
+  categories  CategoriesOnPosts[]
+  tags        TagsOnPosts[]
+  comments    Comment[]
+  revisions   Revision[]
+  featuredImage Media?    @relation(fields: [featuredImageId], references: [id])
+  featuredImageId String?
+
+  @@index([slug])
+  @@index([status, publishedAt])
+  @@index([authorId])
+  @@map("posts")
+}
+
+model Page {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  title       String
+  content     String      @db.Text
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?  @db.Text
+
+  // Hierarchy
+  parent      Page?       @relation("PageHierarchy", fields: [parentId], references: [id])
+  parentId    String?
+  children    Page[]      @relation("PageHierarchy")
+  order       Int         @default(0)
+
+  // Status
+  status      PostStatus  @default(DRAFT)
+  publishedAt DateTime?
+
+  // Template
+  template    String      @default("default")
+
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([slug])
+  @@index([parentId])
+  @@map("pages")
+}
+
+// ============================================
+// TAXONOMY
+// ============================================
+
+model Category {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  description String?   @db.Text
+
+  // Hierarchy
+  parent      Category? @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  parentId    String?
+  children    Category[] @relation("CategoryHierarchy")
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+
+  posts       CategoriesOnPosts[]
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([parentId])
+  @@map("categories")
+}
+
+model Tag {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+
+  posts       TagsOnPosts[]
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+  @@map("tags")
+}
+
+// Many-to-Many junction tables
+model CategoriesOnPosts {
+  post       Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId     String
+  category   Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId String
+  assignedAt DateTime  @default(now())
+
+  @@id([postId, categoryId])
+  @@map("categories_on_posts")
+}
+
+model TagsOnPosts {
+  post       Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId     String
+  tag        Tag       @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId      String
+  assignedAt DateTime  @default(now())
+
+  @@id([postId, tagId])
+  @@map("tags_on_posts")
+}
+
+// ============================================
+// MEDIA LIBRARY
+// ============================================
+
+model Media {
+  id          String    @id @default(cuid())
+  filename    String
+  originalName String
+  mimeType    String
+  size        Int       // bytes
+  url         String
+
+  // Image specific
+  width       Int?
+  height      Int?
+  alt         String?
+  caption     String?
+
+  // Organization
+  folder      String    @default("/")
+
+  // Metadata
+  metadata    Json?
+
+  posts       Post[]
+
+  uploadedBy  User      @relation(fields: [uploadedById], references: [id])
+  uploadedById String
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([folder])
+  @@index([mimeType])
+  @@map("media")
+}
+
+// ============================================
+// COMMENTS
+// ============================================
+
+model Comment {
+  id          String        @id @default(cuid())
+  content     String        @db.Text
+
+  // Status
+  status      CommentStatus @default(PENDING)
+
+  // Relations
+  post        Post          @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId      String
+
+  author      User?         @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  authorId    String?
+
+  // Guest comments
+  guestName   String?
+  guestEmail  String?
+
+  // Nested comments
+  parent      Comment?      @relation("CommentReplies", fields: [parentId], references: [id])
+  parentId    String?
+  replies     Comment[]     @relation("CommentReplies")
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([postId, status])
+  @@index([authorId])
+  @@map("comments")
+}
+
+// ============================================
+// REVISIONS
+// ============================================
+
+model Revision {
+  id          String    @id @default(cuid())
+  title       String
+  content     String    @db.Text
+
+  post        Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId      String
+
+  author      User      @relation(fields: [authorId], references: [id])
+  authorId    String
+
+  createdAt   DateTime  @default(now())
+
+  @@index([postId])
+  @@map("revisions")
+}
+
+// ============================================
+// USER (Simplified for CMS)
+// ============================================
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  role          UserRole  @default(AUTHOR)
+
+  // Relations
+  authoredPosts Post[]    @relation("PostAuthor")
+  editedPosts   Post[]    @relation("PostEditor")
+  comments      Comment[]
+  media         Media[]
+  revisions     Revision[]
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("users")
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum PostStatus {
+  DRAFT
+  PENDING_REVIEW
+  SCHEDULED
+  PUBLISHED
+  ARCHIVED
+}
+
+enum CommentStatus {
+  PENDING
+  APPROVED
+  SPAM
+  TRASH
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR
+  AUTHOR
+  CONTRIBUTOR
+}

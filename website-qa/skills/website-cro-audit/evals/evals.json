@@ -1,0 +1,85 @@
+{
+  "skill_name": "website-cro-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run a live CRO audit of https://example.com — it's a SaaS landing page we send Google Ads traffic to, and the goal is free-trial signups. Test it properly in a browser.",
+      "expected_output": "Should check for product-marketing-context.md first. Should drive a live browser via browsing-with-playwright: navigate to the URL, take a full-page desktop screenshot, capture the DOM/accessibility snapshot, and re-test at a mobile viewport (390px). Should run DOM measurements (above-the-fold CTA, contrast, tap targets, page performance/Web Vitals, form fields, trust signals). Should score all 7 dimensions per scoring-criteria.md and compute a weighted score out of 100 with a grade. Should do a hero-section breakdown including the 5-second test, and check message match between the Google Ads promise and the hero. Output should include an Executive summary, the Biggest constraint, a score card, Quick Wins, High-Impact Changes, Test Ideas, and 2-3 Copy Alternatives for headline and CTA. Findings should cite evidence (screenshot or DOM value).",
+      "assertions": [
+        "Checks for product-marketing-context.md",
+        "Uses browsing-with-playwright to open the live URL",
+        "Captures a full-page desktop screenshot",
+        "Re-tests at a mobile viewport (resize ~390px)",
+        "Measures above-the-fold CTA visibility via the DOM",
+        "Scores all 7 dimensions and computes a weighted score with grade",
+        "Performs a hero-section breakdown with the 5-second test",
+        "Notes message match between Google Ads and the hero",
+        "Output has a score card",
+        "Output has Quick Wins, High-Impact Changes, and Test Ideas sections",
+        "Provides 2-3 headline or CTA copy alternatives",
+        "Findings cite evidence from the live page"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Audit https://example.com/signup for conversions and actually walk the form. Test data is fine, just don't complete any payment.",
+      "expected_output": "Should open the page in a live browser, snapshot to get field refs, and walk the signup form: count fields (recipe 6), fill with obvious test data, observe inline validation and the post-submit state, and screenshot each step. Should stop before any irreversible or payment action. Should defer form/flow specifics to form-cro and signup-flow-cro. Should score Friction & Flow with the field-cost rule (3 baseline, 7+ heavy drop) and report required fields, input types (mobile keyboard), and autofill. Output follows the report template.",
+      "assertions": [
+        "Opens the page in a live browser",
+        "Snapshots to obtain form field refs",
+        "Counts form fields via the DOM",
+        "Fills the form with test data and observes validation",
+        "Stops before payment / irreversible actions",
+        "References form-cro and/or signup-flow-cro",
+        "Scores Friction & Flow with the field-cost rule",
+        "Reports input types and autofill for mobile"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "QA our whole funnel for conversions: the landing page, the pricing page, and the trial signup. Links: https://example.com, https://example.com/pricing, https://example.com/trial",
+      "expected_output": "Should treat this as a multi-page audit: run the live-capture pass on each of the three pages (desktop + mobile screenshots, DOM measurements), and explicitly check message-match consistency across the funnel (does pricing/trial keep the landing-page promise?). Should score each page and call out the weakest step. Should apply the pricing-page calibration (recommended tier, anchoring) and walk the trial signup form. Output is a consolidated report with per-page findings and a prioritized action plan.",
+      "assertions": [
+        "Audits all three pages live (not just the first)",
+        "Captures desktop and mobile screenshots per page",
+        "Checks message-match consistency across the funnel",
+        "Identifies the weakest funnel step",
+        "Applies pricing-page-specific calibration",
+        "Walks the trial signup form",
+        "Produces a consolidated prioritized action plan"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Is my hero section any good? https://example.com — be specific about mobile.",
+      "expected_output": "Should open the page, screenshot the hero full-page on desktop AND mobile (390px), and evaluate the hero against hero-breakdown.md: the 7 components (eyebrow, headline, subheadline, primary CTA, secondary CTA, visual, trust strip), the 5-second test, and the spec sheet. Should confirm whether H1 + subheadline + primary CTA are above the fold on both viewports using DOM measurement, check tap-target sizes and body font on mobile, and flag conversion-killers (autoplay-with-sound, carousels). Should give 2-3 headline alternatives and concrete fixes.",
+      "assertions": [
+        "Captures hero screenshots on desktop and mobile",
+        "Evaluates the 7 hero components",
+        "Performs the 5-second test",
+        "Confirms above-the-fold H1/sub/CTA via the DOM on both viewports",
+        "Checks mobile tap targets and body font size",
+        "Flags autoplay-with-sound or carousels if present",
+        "Provides 2-3 headline alternatives"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Can you CRO-audit our landing page? The browser won't be able to reach it — it's behind our VPN. I can paste the HTML.",
+      "expected_output": "Should recognize the live browser cannot reach the target and degrade gracefully: state the limitation, accept pasted HTML (or a user screenshot), and run the page-cro analysis framework over it while clearly flagging which dimensions are assumption-based rather than observed. Should still produce the structured report, and note in Limitations that performance, mobile rendering, and JS-rendered content could not be measured live.",
+      "assertions": [
+        "Recognizes the live browser cannot reach the target",
+        "Degrades gracefully and states the limitation",
+        "Works from pasted HTML or a screenshot",
+        "Flags which dimensions are assumption-based",
+        "Still produces the structured report",
+        "Notes measurement limits in the Limitations section"
+      ],
+      "files": []
+    }
+  ]
+}

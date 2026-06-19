@@ -1,0 +1,967 @@
+{
+  "url": "https://web-paqbwgcv2-rrizwan1998-2036s-projects.vercel.app",
+  "desktop": {
+    "aboveFold": {
+      "viewport": {
+        "vw": 1280,
+        "vh": 900
+      },
+      "h1": "The art of looking\nlike you,\nonly more radiant.",
+      "subhead": "Scottsdale’s premier aesthetic studio — where refined technique meets your natural beauty. No cookie-cutter results. No overdone looks. Just you, luminous.",
+      "ctasAboveFold": [
+        {
+          "text": "LUMIÈRE",
+          "tag": "A",
+          "top": 24,
+          "w": 132,
+          "h": 32,
+          "aboveFold": true
+        },
+        {
+          "text": "Services",
+          "tag": "A",
+          "top": 30,
+          "w": 61,
+          "h": 20,
+          "aboveFold": true
+        },
+        {
+          "text": "Results",
+          "tag": "A",
+          "top": 30,
+          "w": 49,
+          "h": 20,
+          "aboveFold": true
+        },
+        {
+          "text": "About",
+          "tag": "A",
+          "top": 30,
+          "w": 41,
+          "h": 20,
+          "aboveFold": true
+        },
+        {
+          "text": "Reviews",
+          "tag": "A",
+          "top": 30,
+          "w": 58,
+          "h": 20,
+          "aboveFold": true
+        },
+        {
+          "text": "FAQ",
+          "tag": "A",
+          "top": 30,
+          "w": 28,
+          "h": 20,
+          "aboveFold": true
+        },
+        {
+          "text": "Book Consultation",
+          "tag": "A",
+          "top": 20,
+          "w": 175,
+          "h": 40,
+          "aboveFold": true
+        },
+        {
+          "text": "Book Your Complimentary Consultation",
+          "tag": "A",
+          "top": 638,
+          "w": 338,
+          "h": 54,
+          "aboveFold": true
+        },
+        {
+          "text": "See Our Work",
+          "tag": "A",
+          "top": 638,
+          "w": 161,
+          "h": 54,
+          "aboveFold": true
+        }
+      ],
+      "ctaTotal": 41
+    },
+    "tapTargets": {
+      "failingCount": 24,
+      "items": [
+        {
+          "text": "LUMIÈRE",
+          "w": 132,
+          "h": 32
+        },
+        {
+          "text": "Services",
+          "w": 61,
+          "h": 20
+        },
+        {
+          "text": "Results",
+          "w": 49,
+          "h": 20
+        },
+        {
+          "text": "About",
+          "w": 41,
+          "h": 20
+        },
+        {
+          "text": "Reviews",
+          "w": 58,
+          "h": 20
+        },
+        {
+          "text": "FAQ",
+          "w": 28,
+          "h": 20
+        },
+        {
+          "text": "Book Consultation",
+          "w": 175,
+          "h": 40
+        },
+        {
+          "text": "Book a Consultation",
+          "w": 220,
+          "h": 20
+        },
+        {
+          "text": "Book a Consultation",
+          "w": 220,
+          "h": 20
+        },
+        {
+          "text": "Book a Consultation",
+          "w": 220,
+          "h": 20
+        },
+        {
+          "text": "Book a Consultation",
+          "w": 220,
+          "h": 20
+        },
+        {
+          "text": "(480) 555-0000",
+          "w": 118,
+          "h": 24
+        },
+        {
+          "text": "LUMIÈRE",
+          "w": 132,
+          "h": 32
+        },
+        {
+          "text": "Instagram",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "text": "Facebook",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "text": "Services",
+          "w": 58,
+          "h": 17
+        },
+        {
+          "text": "Results",
+          "w": 47,
+          "h": 17
+        },
+        {
+          "text": "About",
+          "w": 39,
+          "h": 17
+        },
+        {
+          "text": "Reviews",
+          "w": 56,
+          "h": 17
+        },
+        {
+          "text": "Membership",
+          "w": 82,
+          "h": 17
+        },
+        {
+          "text": "FAQ",
+          "w": 27,
+          "h": 17
+        },
+        {
+          "text": "Privacy Policy",
+          "w": 82,
+          "h": 16
+        },
+        {
+          "text": "Terms of Service",
+          "w": 102,
+          "h": 16
+        },
+        {
+          "text": "Accessibility",
+          "w": 75,
+          "h": 16
+        }
+      ]
+    },
+    "contrast": {
+      "failingAA": 24,
+      "samples": [
+        {
+          "tag": "A",
+          "text": "LUMIÈRE",
+          "fontPx": 24,
+          "ratio": 14.8,
+          "passAA": true
+        },
+        {
+          "tag": "A",
+          "text": "Services",
+          "fontPx": 14,
+          "ratio": 4.22,
+          "passAA": false
+        },
+        {
+          "tag": "A",
+          "text": "Results",
+          "fontPx": 14,
+          "ratio": 4.22,
+          "passAA": false
+        },
+        {
+          "tag": "A",
+          "text": "About",
+          "fontPx": 14,
+          "ratio": 4.22,
+          "passAA": false
+        },
+        {
+          "tag": "A",
+          "text": "Reviews",
+          "fontPx": 14,
+          "ratio": 4.22,
+          "passAA": false
+        },
+        {
+          "tag": "A",
+          "text": "FAQ",
+          "fontPx": 14,
+          "ratio": 4.22,
+          "passAA": false
+        },
+        {
+          "tag": "A",
+          "text": "Book Consultation",
+          "fontPx": 14,
+          "ratio": 7.78,
+          "passAA": true
+        },
+        {
+          "tag": "BUTTON",
+          "text": "",
+          "fontPx": 16,
+          "ratio": 14.8,
+          "passAA": true
+        },
+        {
+          "tag": "P",
+          "text": "SCOTTSDALE’S PREMIER AESTHETIC STUDIO",
+          "fontPx": 11,
+          "ratio": 1.9,
+          "passAA": false
+        },
+        {
+          "tag": "H1",
+          "text": "The art of looking\nlike you,\nonly more r",
+          "fontPx": 72,
+          "ratio": 1.18,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "Scottsdale’s premier aesthetic studio — ",
+          "fontPx": 18,
+          "ratio": 17.84,
+          "passAA": true
+        },
+        {
+          "tag": "A",
+          "text": "Book Your Complimentary Consultation",
+          "fontPx": 14,
+          "ratio": 7.78,
+          "passAA": true
+        },
+        {
+          "tag": "A",
+          "text": "See Our Work",
+          "fontPx": 14,
+          "ratio": 1.18,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "Lumière Med Spa · Scottsdale, AZ · All p",
+          "fontPx": 12,
+          "ratio": 1.21,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "OUR SERVICES",
+          "fontPx": 11,
+          "ratio": 1.9,
+          "passAA": false
+        },
+        {
+          "tag": "H2",
+          "text": "Every treatment, beautifully considered.",
+          "fontPx": 48,
+          "ratio": 14.8,
+          "passAA": true
+        },
+        {
+          "tag": "P",
+          "text": "From your first Botox to an advanced las",
+          "fontPx": 16,
+          "ratio": 4.22,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "INJECTABLES",
+          "fontPx": 11,
+          "ratio": 2.24,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "The art of less.",
+          "fontPx": 14,
+          "ratio": 4.96,
+          "passAA": true
+        },
+        {
+          "tag": "A",
+          "text": "Book a Consultation",
+          "fontPx": 14,
+          "ratio": 2.24,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "FACIAL TREATMENTS",
+          "fontPx": 11,
+          "ratio": 2.24,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "Your skin, reimagined.",
+          "fontPx": 14,
+          "ratio": 4.96,
+          "passAA": true
+        },
+        {
+          "tag": "A",
+          "text": "Book a Consultation",
+          "fontPx": 14,
+          "ratio": 2.24,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "LASER & LIGHT",
+          "fontPx": 11,
+          "ratio": 2.24,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "Science meets artistry.",
+          "fontPx": 14,
+          "ratio": 4.96,
+          "passAA": true
+        },
+        {
+          "tag": "A",
+          "text": "Book a Consultation",
+          "fontPx": 14,
+          "ratio": 2.24,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "BODY CONTOURING",
+          "fontPx": 11,
+          "ratio": 2.24,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "Results worth showing off.",
+          "fontPx": 14,
+          "ratio": 4.96,
+          "passAA": true
+        },
+        {
+          "tag": "A",
+          "text": "Book a Consultation",
+          "fontPx": 14,
+          "ratio": 2.24,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "RESULTS",
+          "fontPx": 11,
+          "ratio": 6.61,
+          "passAA": true
+        },
+        {
+          "tag": "H2",
+          "text": "Real people.\nReal results.",
+          "fontPx": 48,
+          "ratio": 1.18,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "Every transformation represents a real L",
+          "fontPx": 14,
+          "ratio": 2.98,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "BEFORE / AFTER",
+          "fontPx": 12,
+          "ratio": 4.22,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "Available in consultation",
+          "fontPx": 14,
+          "ratio": 17.65,
+          "passAA": true
+        },
+        {
+          "tag": "P",
+          "text": "Jennifer, 47",
+          "fontPx": 18,
+          "ratio": 17.4,
+          "passAA": true
+        },
+        {
+          "tag": "P",
+          "text": "NATURAL LIP ENHANCEMENT + CHEEK FILLER",
+          "fontPx": 11,
+          "ratio": 2.24,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "“Balanced, soft, completely natural-look",
+          "fontPx": 14,
+          "ratio": 4.96,
+          "passAA": true
+        },
+        {
+          "tag": "P",
+          "text": "BEFORE / AFTER",
+          "fontPx": 12,
+          "ratio": 4.22,
+          "passAA": false
+        },
+        {
+          "tag": "P",
+          "text": "Available in consultation",
+          "fontPx": 14,
+          "ratio": 17.65,
+          "passAA": true
+        },
+        {
+          "tag": "P",
+          "text": "Sarah, 39",
+          "fontPx": 18,
+          "ratio": 17.4,
+          "passAA": true
+        }
+      ]
+    },
+    "perf": {
+      "ttfbMs": 315,
+      "domContentLoadedMs": 433,
+      "loadMs": 1535,
+      "transferKB": 16,
+      "firstContentfulPaintMs": 556
+    },
+    "forms": {
+      "formCount": 1,
+      "forms": [
+        {
+          "action": null,
+          "fieldCount": 5,
+          "fields": [
+            {
+              "type": "text",
+              "name": null,
+              "required": true,
+              "hasLabel": true,
+              "autocomplete": null,
+              "inputmode": null
+            },
+            {
+              "type": "email",
+              "name": null,
+              "required": true,
+              "hasLabel": true,
+              "autocomplete": null,
+              "inputmode": null
+            },
+            {
+              "type": "tel",
+              "name": null,
+              "required": false,
+              "hasLabel": true,
+              "autocomplete": null,
+              "inputmode": null
+            },
+            {
+              "type": "select-one",
+              "name": null,
+              "required": false,
+              "hasLabel": false,
+              "autocomplete": null,
+              "inputmode": null
+            },
+            {
+              "type": "textarea",
+              "name": null,
+              "required": false,
+              "hasLabel": true,
+              "autocomplete": null,
+              "inputmode": null
+            }
+          ]
+        }
+      ]
+    },
+    "trust": {
+      "mentionsCustomers": true,
+      "hasTestimonialWords": true,
+      "hasRating": true,
+      "hasRiskReversal": true,
+      "logoLikeImages": 0,
+      "securityBadges": 0
+    },
+    "headings": {
+      "h1Count": 1,
+      "outline": [
+        {
+          "level": 1,
+          "text": "The art of looking\nlike you,\nonly more radiant."
+        },
+        {
+          "level": 2,
+          "text": "Every treatment, beautifully considered."
+        },
+        {
+          "level": 3,
+          "text": "Natural movement. Zero frozen."
+        },
+        {
+          "level": 3,
+          "text": "Medical-grade results, spa-level experience."
+        },
+        {
+          "level": 3,
+          "text": "Precision technology. Visible results."
+        },
+        {
+          "level": 3,
+          "text": "Sculpt and define — without downtime."
+        },
+        {
+          "level": 2,
+          "text": "Real people.\nReal results."
+        },
+        {
+          "level": 2,
+          "text": "Expert hands. Artistic eyes."
+        },
+        {
+          "level": 3,
+          "text": "Dr. Sofia Laurent, MD"
+        },
+        {
+          "level": 3,
+          "text": "Emma Reyes, RN, BSN"
+        },
+        {
+          "level": 3,
+          "text": "Claire Chen, PA-C"
+        },
+        {
+          "level": 2,
+          "text": "Your journey to radiance,\nstep by step."
+        },
+        {
+          "level": 3,
+          "text": "Consultation"
+        },
+        {
+          "level": 3,
+          "text": "Your Custom Plan"
+        },
+        {
+          "level": 3,
+          "text": "Treatment & Glow"
+        },
+        {
+          "level": 2,
+          "text": "500+ five-star experiences."
+        },
+        {
+          "level": 2,
+          "text": "We know what\nScottsdale sun does\nto your skin."
+        },
+        {
+          "level": 3,
+          "text": "Sun Damage Reversal"
+        },
+        {
+          "level": 3,
+          "text": "Desert Hydration Protocols"
+        },
+        {
+          "level": 3,
+          "text": "Year-Round Skin Strategy"
+        },
+        {
+          "level": 2,
+          "text": "Your glow,\non subscription."
+        },
+        {
+          "level": 3,
+          "text": "Monthly Treatment Credit"
+        },
+        {
+          "level": 3,
+          "text": "15% Off All Injectables"
+        },
+        {
+          "level": 3,
+          "text": "Priority Booking"
+        },
+        {
+          "level": 3,
+          "text": "Annual Beauty Review"
+        },
+        {
+          "level": 3,
+          "text": "Members-Only Events"
+        },
+        {
+          "level": 3,
+          "text": "Quarterly Touch-Up"
+        },
+        {
+          "level": 2,
+          "text": "Never done\nthis before?\nPerfect."
+        },
+        {
+          "level": 3,
+          "text": "Does it hurt?"
+        },
+        {
+          "level": 3,
+          "text": "Will I look overdone?"
+        }
+      ],
+      "imagesMissingAlt": 0,
+      "imageTotal": 5
+    },
+    "mobileStruct": {
+      "hasViewportMeta": true,
+      "viewportContent": "width=device-width, initial-scale=1",
+      "horizontalScroll": false,
+      "scrollWidth": 1280,
+      "innerWidth": 1280,
+      "bodyFontPx": 16,
+      "bodyFontTooSmall": false
+    },
+    "killers": {
+      "autoplayWithSound": 0,
+      "carousels": 0,
+      "intrusiveModalsVisible": 0
+    },
+    "msgMatch": {
+      "title": "Lumière Med Spa | Scottsdale's Premier Aesthetic Studio",
+      "metaDescription": "The art of looking like you, only more radiant. Scottsdale's premier aesthetic studio offering injectables, facials, laser treatments, and body contouring. Book your complimentary consultation.",
+      "h1": "The art of looking\nlike you,\nonly more radiant.",
+      "firstCtaText": "LUMIÈRE"
+    },
+    "clickToCall": {
+      "clickToCallLinks": 1,
+      "tapToMapLinks": 0,
+      "phoneNumbersInText": 1,
+      "addressLikelyPresent": false,
+      "flag_phone_not_tappable": false,
+      "flag_address_not_tappable": false
+    },
+    "hoverOnly": {
+      "hoverRevealMenusWithoutClickAffordance": 0
+    },
+    "stickyCta": {
+      "stickyOrFixedElements": 1,
+      "stickyCtaPresent": true,
+      "samples": [
+        {
+          "position": "fixed",
+          "text": "LUMIÈRE\nServices\nResults\nAbout\nReviews\nFAQ\nBook Consultation"
+        }
+      ]
+    },
+    "heroSpec": {
+      "headlineWords": 9,
+      "headlineInSpec": true,
+      "subheadlineWords": 21,
+      "subInSpec": true,
+      "eyebrowWords": 0,
+      "eyebrowInSpec": true,
+      "ctaWords": 0,
+      "ctaInSpec": false
+    },
+    "analytics": {
+      "ga4_or_gtag": false,
+      "gtm": false,
+      "metaPixel": false,
+      "tiktokPixel": false,
+      "anyTrackingDetected": false
+    },
+    "persuasion": {
+      "hasFAQ": false,
+      "hasPricing": true,
+      "hasGuaranteeOrRiskReversal": true,
+      "hasUrgency": false,
+      "hasCountdownTimer": false
+    },
+    "vitals": {
+      "lcp": 1652,
+      "cls": 0.021
+    }
+  },
+  "mobile": {
+    "aboveFold": {
+      "viewport": {
+        "vw": 390,
+        "vh": 844
+      },
+      "h1": "The art of looking\nlike you,\nonly more radiant.",
+      "subhead": "Scottsdale’s premier aesthetic studio — where refined technique meets your natural beauty. No cookie-cutter results. No overdone looks. Just you, luminous.",
+      "ctasAboveFold": [
+        {
+          "text": "LUMIÈRE",
+          "tag": "A",
+          "top": 24,
+          "w": 132,
+          "h": 32,
+          "aboveFold": true
+        },
+        {
+          "text": "Book Your Complimentary Consultation",
+          "tag": "A",
+          "top": 503,
+          "w": 342,
+          "h": 52,
+          "aboveFold": true
+        },
+        {
+          "text": "See Our Work",
+          "tag": "A",
+          "top": 571,
+          "w": 342,
+          "h": 54,
+          "aboveFold": true
+        }
+      ],
+      "ctaTotal": 41
+    },
+    "tapTargets": {
+      "failingCount": 21,
+      "items": [
+        {
+          "text": "LUMIÈRE",
+          "w": 132,
+          "h": 32
+        },
+        {
+          "text": "Toggle menu",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "text": "Book a Consultation",
+          "w": 276,
+          "h": 20
+        },
+        {
+          "text": "Book a Consultation",
+          "w": 276,
+          "h": 20
+        },
+        {
+          "text": "Book a Consultation",
+          "w": 276,
+          "h": 20
+        },
+        {
+          "text": "Book a Consultation",
+          "w": 276,
+          "h": 20
+        },
+        {
+          "text": "Previous review",
+          "w": 40,
+          "h": 40
+        },
+        {
+          "text": "Next review",
+          "w": 40,
+          "h": 40
+        },
+        {
+          "text": "(480) 555-0000",
+          "w": 118,
+          "h": 24
+        },
+        {
+          "text": "LUMIÈRE",
+          "w": 132,
+          "h": 32
+        },
+        {
+          "text": "Instagram",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "text": "Facebook",
+          "w": 36,
+          "h": 36
+        },
+        {
+          "text": "Services",
+          "w": 58,
+          "h": 17
+        },
+        {
+          "text": "Results",
+          "w": 47,
+          "h": 17
+        },
+        {
+          "text": "About",
+          "w": 39,
+          "h": 17
+        },
+        {
+          "text": "Reviews",
+          "w": 56,
+          "h": 17
+        },
+        {
+          "text": "Membership",
+          "w": 82,
+          "h": 17
+        },
+        {
+          "text": "FAQ",
+          "w": 27,
+          "h": 17
+        },
+        {
+          "text": "Privacy Policy",
+          "w": 82,
+          "h": 16
+        },
+        {
+          "text": "Terms of Service",
+          "w": 102,
+          "h": 16
+        },
+        {
+          "text": "Accessibility",
+          "w": 75,
+          "h": 16
+        }
+      ]
+    },
+    "mobileStruct": {
+      "hasViewportMeta": true,
+      "viewportContent": "width=device-width, initial-scale=1",
+      "horizontalScroll": false,
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "bodyFontPx": 16,
+      "bodyFontTooSmall": false
+    },
+    "clickToCall": {
+      "clickToCallLinks": 1,
+      "tapToMapLinks": 0,
+      "phoneNumbersInText": 1,
+      "addressLikelyPresent": false,
+      "flag_phone_not_tappable": false,
+      "flag_address_not_tappable": false
+    },
+    "hoverOnly": {
+      "hoverRevealMenusWithoutClickAffordance": 0
+    },
+    "stickyCta": {
+      "stickyOrFixedElements": 1,
+      "stickyCtaPresent": true,
+      "samples": [
+        {
+          "position": "fixed",
+          "text": "LUMIÈRE"
+        }
+      ]
+    }
+  },
+  "console": [],
+  "network": {
+    "totalRequests": 15,
+    "totalKB": 247,
+    "byType": {
+      "document": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stylesheet": {
+        "count": 1,
+        "bytes": 0
+      },
+      "image": {
+        "count": 2,
+        "bytes": 127624
+      },
+      "script": {
+        "count": 8,
+        "bytes": 282
+      },
+      "font": {
+        "count": 3,
+        "bytes": 125512
+      }
+    },
+    "failed": []
+  },
+  "httpStatus": 200,
+  "pageErrors": []
+}

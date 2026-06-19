@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRO & Content Audit Report - Aesthetic & Wellness Clinics (Medical Weight Loss — Lead Generation & Booking Automation) (United States, USA)</title>
+    <style>
+
+:root {
+    --primary: #1b4f72;
+    --primary-light: #2874a6;
+    --text: #1f2933;
+    --text-muted: #6b7280;
+    --bg: #ffffff;
+    --bg-alt: #f8fafc;
+    --border: #e5e7eb;
+    --highlight: #f3f4ff;
+    --success: #10b981;
+    --success-bg: #d1fae5;
+    --warning: #f59e0b;
+    --warning-bg: #fef3c7;
+    --danger: #ef4444;
+    --danger-bg: #fee2e2;
+    --info: #3b82f6;
+    --info-bg: #dbeafe;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   HEADER - Same for all reports
+   ============================================ */
+.report-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.report-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.report-header .subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   META BAR - Niche, Location, Date, etc.
+   ============================================ */
+.meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.meta-item .label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.meta-item .value {
+    color: var(--text-muted);
+}
+
+.meta-item.freshness {
+    background: var(--success-bg);
+    border-color: var(--success);
+}
+
+.meta-item.freshness .value {
+    color: var(--success);
+    font-weight: 600;
+}
+
+/* ============================================
+   SECTIONS - Consistent spacing and headers
+   ============================================ */
+.section {
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+}
+
+.section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.section h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.section p {
+    margin-bottom: 12px;
+}
+
+.section ul, .section ol {
+    margin: 12px 0;
+    padding-left: 24px;
+}
+
+.section li {
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   TABLES - Standard table styling
+   ============================================ */
+.table-container {
+    overflow-x: auto;
+    margin: 16px 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--bg-alt);
+}
+
+thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+}
+
+tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: var(--highlight);
+}
+
+/* Table cell alignments */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* ============================================
+   CARDS - Info boxes and panels
+   ============================================ */
+.card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.card-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* ============================================
+   HIGHLIGHT PANELS - Key findings
+   ============================================ */
+.highlight-panel {
+    background: var(--highlight);
+    border-left: 4px solid var(--primary);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.highlight-panel.success {
+    background: var(--success-bg);
+    border-left-color: var(--success);
+}
+
+.highlight-panel.warning {
+    background: var(--warning-bg);
+    border-left-color: var(--warning);
+}
+
+.highlight-panel.danger {
+    background: var(--danger-bg);
+    border-left-color: var(--danger);
+}
+
+/* ============================================
+   SWOT GRID - 2x2 grid for SWOT analysis
+   ============================================ */
+.swot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.swot-card {
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.swot-card h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.swot-card.strengths {
+    background: #dcfce7;
+    border: 1px solid #86efac;
+}
+
+.swot-card.weaknesses {
+    background: #fee2e2;
+    border: 1px solid #fca5a5;
+}
+
+.swot-card.opportunities {
+    background: #dbeafe;
+    border: 1px solid #93c5fd;
+}
+
+.swot-card.threats {
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+}
+
+.swot-card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* ============================================
+   COMPETITOR TABS - Tabbed interface
+   ============================================ */
+.competitor-tabs {
+    margin: 20px 0;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+}
+
+.tab-button {
+    padding: 8px 16px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.2s;
+}
+
+.tab-button:hover {
+    background: var(--highlight);
+}
+
+.tab-button.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 0 8px 8px 8px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ============================================
+   SCORE BADGES - Rating indicators
+   ============================================ */
+.score-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.score-badge.excellent {
+    background: var(--success-bg);
+    color: #065f46;
+}
+
+.score-badge.good {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.score-badge.average {
+    background: var(--warning-bg);
+    color: #92400e;
+}
+
+.score-badge.poor {
+    background: var(--danger-bg);
+    color: #991b1b;
+}
+
+/* Rating stars */
+.rating {
+    color: #fbbf24;
+    font-size: 14px;
+}
+
+/* ============================================
+   DATA SIGNALS - Key metrics display
+   ============================================ */
+.data-signals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.signal-item {
+    background: var(--bg-alt);
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.signal-item .signal-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.signal-item .signal-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* ============================================
+   FEATURE MATRIX - Checkmarks/X marks
+   ============================================ */
+.feature-check {
+    color: var(--success);
+    font-weight: bold;
+}
+
+.feature-missing {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.feature-partial {
+    color: var(--warning);
+    font-weight: bold;
+}
+
+/* Row highlighting for feature tables */
+tr.universal { background: #f0fdf4; }
+tr.common { background: #fefce8; }
+tr.selective { background: #fef2f2; }
+tr.absent { background: #fef2f2; }
+
+/* ============================================
+   FOOTER - Same for all reports
+   ============================================ */
+.report-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.text-primary { color: var(--primary); }
+.text-muted { color: var(--text-muted); }
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-danger { color: var(--danger); }
+
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-4 { margin-top: 16px; }
+.mb-4 { margin-bottom: 16px; }
+
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-2 { gap: 8px; }
+.gap-4 { gap: 16px; }
+
+/* ============================================
+   RESPONSIVE - Mobile adjustments
+   ============================================ */
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+        font-size: 14px;
+    }
+
+    .report-header h1 {
+        font-size: 22px;
+    }
+
+    .section h2 {
+        font-size: 18px;
+    }
+
+    .meta-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .swot-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-buttons {
+        flex-direction: column;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .tab-buttons {
+        display: none;
+    }
+
+    .tab-content {
+        display: block !important;
+    }
+
+    /* Allow sections to break naturally across pages */
+    .section {
+        page-break-inside: auto;
+    }
+
+    /* Keep section headers with their content */
+    .section h2, .section h3, .section h4 {
+        page-break-after: avoid;
+    }
+
+    /* Small elements should not break */
+    .meta-bar, .meta-item, .signal-item, .highlight-panel {
+        page-break-inside: avoid;
+    }
+
+    /* Tables can break but rows should stay together */
+    table {
+        page-break-inside: auto;
+    }
+
+    tr {
+        page-break-inside: avoid;
+    }
+
+    /* Orphans/widows control */
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+}
+
+    </style>
+    
+</head>
+<body>
+    <header class="report-header">
+    <h1>CRO &amp; Content Audit Report</h1>
+    <p class="subtitle">Aesthetic &amp; Wellness Clinics (Medical Weight Loss — Lead Generation &amp; Booking Automation) (United States, USA)</p>
+</header>
+    <div class="meta-bar">
+    <div class="meta-item">
+            <span class="label">Niche:&nbsp;</span>
+            <span class="value">Aesthetic &amp; Wellness Clinics (Medical Weight Loss — Lead Generation &amp; Booking Automation)</span>
+        </div><div class="meta-item">
+            <span class="label">Location:&nbsp;</span>
+            <span class="value">United States, USA</span>
+        </div><div class="meta-item">
+            <span class="label">Competitors Analyzed:&nbsp;</span>
+            <span class="value">4</span>
+        </div><div class="meta-item">
+        <span class="label">Date Generated:&nbsp;</span>
+        <span class="value">April 07, 2026</span>
+    </div><div class="meta-item freshness">
+        <span class="label">Data Freshness:&nbsp;</span>
+        <span class="value">CURRENT</span>
+    </div>
+</div>
+
+    <main>
+        <section class="section">
+    <h2>Executive Summary</h2>
+    <div class="highlight-panel">
+        <p>CRO audit of 4 US-based aesthetic & wellness clinics offering medical weight loss (GLP-1 and lipotropic options) was completed to assess messaging clarity, value proposition, CTA effectiveness, social proof, and content quality. The aggregate Content Effectiveness Index (CEI) across sites is 4.5/10. Messaging clarity scores range up to 8/10 but CTA effectiveness remains markedly under-optimized (average 2.25/10). Social proof shows wide dispersion (1–7/10) and content quality sits mid-range (3–6/10). The data point to a cross-site gap in conversion architecture, with the highest leverage coming from (a) CTA optimization, (b) visible social proof, and (c) pricing transparency. The primary opportunity is to implement conversion-focused CTAs paired with credible social proof and clear pricing to align buyer intent with the on-site path to schedule a visit or engagement.
+</p>
+    </div>
+    <div class="data-signals">
+            <div class="signal-item">
+                <div class="signal-value">4</div>
+                <div class="signal-label">Competitors Audited</div>
+            </div><div class="signal-item">
+                <div class="signal-value">6.0</div>
+                <div class="signal-label">Average Messaging Clarity</div>
+            </div><div class="signal-item">
+                <div class="signal-value">5.25</div>
+                <div class="signal-label">Average Value Proposition</div>
+            </div><div class="signal-item">
+                <div class="signal-value">2.25</div>
+                <div class="signal-label">Average CTA Effectiveness</div>
+            </div><div class="signal-item">
+                <div class="signal-value">3.25</div>
+                <div class="signal-label">Average Social Proof</div>
+            </div><div class="signal-item">
+                <div class="signal-value">5.25</div>
+                <div class="signal-label">Average Content Quality</div>
+            </div><div class="signal-item">
+                <div class="signal-value">4.55</div>
+                <div class="signal-label">Overall CRO Content Effectiveness Index</div>
+            </div>
+        </div>
+    <div class="card">
+            <div class="card-header">Key Findings</div>
+            <ul><li>CTA effectiveness across all sites averages 2.25/10, with distributions of [5, 2, 1, 1] across the four audits (25% at 5/10, 50% at 1/10, 25% at 2/10).</li><li>Social proof scores range from 1 to 7, averaging 3.25/10; distribution is [1, 7, 1, 4].</li><li>Content quality averages 5.25/10 with site-level scores [6, 6, 4, 5], indicating mid-range readability and scannability but room for structured, outcome-driven content gains.</li><li>Messaging clarity averages 6.0/10 with site scores [8, 5, 5, 6], showing a path to improve positioning without sacrificing top-of-funnel clarity.</li><li>Value proposition scores average 5.25/10 with site scores [7, 6, 3, 5], revealing a need for stronger, more explicit differentiation.</li><li>CEI across sites is 4.5/10, signaling overall content effectiveness opportunities relative to B2B CRO benchmarks.</li></ul>
+        </div>
+</section>
+<section class="section">
+    <h2>1. Content Effectiveness Dashboard</h2>
+    <div class="table-container">
+    <table>
+        
+        <thead>
+            <tr><th>Competitor</th><th>CRO Score</th><th>Content Score</th><th>UX Score</th><th>Overall</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>MyAdv Clinic</td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">4.8/10</span></td></tr><tr><td>Atlantis Medical Wellness Center</td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge average">5.0/10</span></td></tr><tr><td>Aesthetics Beauty Laser</td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">2.8/10</span></td></tr><tr><td>eWeight Medical</td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge poor">0/10</span></td><td><span class="score-badge average">5.0/10</span></td></tr>
+        </tbody>
+    </table>
+</div>
+</section>
+<section class="section">
+    <h2>2. Detailed Website Audits</h2>
+    <div class="competitor-tabs">
+    <div class="tab-buttons">
+        <button class="tab-button active" data-tab="tab-0">MyAdv Clinic</button><button class="tab-button " data-tab="tab-1">Atlantis Medical Wellness Center</button><button class="tab-button " data-tab="tab-2">Aesthetics Beauty Laser</button><button class="tab-button " data-tab="tab-3">eWeight Medical</button>
+    </div>
+    <div class="tab-content active" id="tab-0"><p><strong>URL:</strong> <a href="https://www.myadvclinic.com/">https://www.myadvclinic.com/</a></p><div class="highlight-panel warning">
+    <h4>Improvement Opportunities</h4><ul><li>Add prominent, action-oriented CTAs in the hero and key pages (e.g., &#x27;Join Now&#x27;, &#x27;View Plans&#x27;, &#x27;Schedule a Visit&#x27;) with contrasting colors and clear next steps.</li><li>Create a clear pricing and plan comparison section that explains what is included in each plan, the non-member visit fee, and the minimum commitment, to reduce pricing friction.</li><li>Introduce social proof elements (testimonials, patient stories, or logos) to build credibility and demonstrate outcomes.</li><li>Sharpen the value proposition messaging to emphasize outcomes (faster access, unlimited visits, predictable pricing) and differentiate from standard clinics/hybrid DPC.</li><li>Improve content structure for scannability: add service-specific benefit statements, outcomes, and short bullet lists; ensure headings/subheadings guide readers.</li><li>Add guided next steps and contact options across pages to reduce friction and improve CTA clarity.</li><li>Expand the FAQ with common objections and clarifications about insurance pairing and cancellation terms.</li></ul>
+</div></div><div class="tab-content " id="tab-1"><p><strong>URL:</strong> <a href="https://atlantismedcenter.com/">https://atlantismedcenter.com/</a></p><div class="highlight-panel warning">
+    <h4>Improvement Opportunities</h4><ul><li>Develop a clear, benefit-focused hero headline and value proposition on the homepage to communicate the core offering in under 5 seconds.</li><li>Articulate a unique value proposition that differentiates Atlantis Medical Wellness Center from competitors and emphasizes outcomes (e.g., weight loss, skin health) rather than just services.</li><li>Add clear, prominent CTAs across the site (e.g., &#x27;Book a Consultation&#x27;, &#x27;View Success Stories&#x27;) placed above the fold and within service sections.</li><li>Enhance social proof by curating credible testimonials with full names, photos, and concrete results; consider case studies for weight loss and cosmetic procedures.</li><li>Improve content quality with scannable formatting (headings, bullets) and outcome-focused copy that explains benefits and expected results.</li><li>Strengthen trust with visible doctor bios, credentials, and team photos to reinforce 20+ years of expertise.</li></ul>
+</div></div><div class="tab-content " id="tab-2"><p><strong>URL:</strong> <a href="https://aestheticsbeautylaser.com/">https://aestheticsbeautylaser.com/</a></p><div class="highlight-panel warning">
+    <h4>Improvement Opportunities</h4><ul><li>1) Rewrite the hero to clearly state the service category and the concrete benefit to the visitor (e.g., what outcome they can expect and for whom). Use a specific, value-driven headline that goes beyond generic promotions.</li><li>2) Introduce strong, prominent CTAs above the fold with action-oriented copy (e.g., Claim Offer, Book a Consultation, See Terms). Include a visible CTA next to the hero offer.</li><li>3) Add credible social proof (customer testimonials, brief case studies, or trusted logos) to establish trust and substantiate the promotions.</li><li>4) Clarify the value proposition by differentiating from competitors (e.g., unique benefits of selecting this provider, outcomes, guarantees) rather than only listing promotions.</li><li>5) Improve content quality and scannability with structured sections, bullet points for promo details, and clear headings that guide the user through the offer and next steps.</li><li>6) Add promo terms and accessibility: specify expiry date/time, eligibility, and any limitations to reduce friction and set clear expectations.</li><li>7) Enhance trust signals (license/certifications, service area, hours, contact options) to support credibility and reduce hesitation.</li></ul>
+</div></div><div class="tab-content " id="tab-3"><p><strong>URL:</strong> <a href="https://eweightmedical.com/">https://eweightmedical.com/</a></p><div class="highlight-panel warning">
+    <h4>Improvement Opportunities</h4><ul><li>1) Sharpen the hero with a benefit-driven, differentiating value proposition that communicates medical oversight and tangible outcomes (e.g., &#x27;Medical weight loss with personalized plans and proven results&#x27;). Rework the main headline/subhead to be explicit about outcomes and authority.</li><li>2) Increase CTA visibility and clarity by adding a prominent primary CTA (e.g., &#x27;Book Free Consultation&#x27; or &#x27;Start Now&#x27;) and a secondary CTA (e.g., &#x27;Call Now&#x27;) in the hero and key sections to create a clear conversion path.</li><li>3) Expand social proof with multiple testimonials and quantified results, plus case studies or before/after visuals, to build credibility and trust.</li><li>4) Deepen service content with benefit-focused descriptions and scannable bullets for each listed service (Body Contouring, B12/Lipotropics, NAD+/Glutathione) to translate features into outcomes.</li><li>5) Introduce trust signals and clinician credentials (medical oversight, certifications) and add a brief FAQ to address common objections and questions.</li><li>6) Improve site structure for conversion: optimize GLP-1 and LOCATIONS pages with concrete details (clinic locations, hours, contact options) and ensure navigation aligns with the conversion path, reducing friction.</li></ul>
+</div></div>
+</div>
+<script>
+document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    });
+});
+</script>
+</section>
+<section class="section">
+    <h2>4. Best Practices Identified</h2>
+    <div class="highlight-panel success">
+    <ul><li>Prominent, action-oriented CTAs placed in hero and service sections with clear next steps</li><li>Pricing transparency through plan comparisons and clear inclusions</li><li>Visible social proof including testimonials and case studies</li><li>Doctor bios and credentials displayed to reinforce credibility</li><li>Content structured for scannability with outcome-focused bullets and distinct buyer-journey sections</li></ul>
+</div>
+</section>
+<section class="section">
+    <h2>Strategic Recommendations</h2>
+    <ol class="recommendations-list">
+        <li>Add prominent, action-oriented CTAs in the hero and key pages (e.g., 'Join Now', 'View Plans', 'Schedule a Visit') with contrasting colors and clear next steps</li><li>Create a clear pricing and plan comparison section that explains what is included in each plan, the non-member visit fee, and the minimum commitment, to reduce pricing friction</li><li>Introduce social proof elements (testimonials, patient stories, or logos) to build credibility and demonstrate outcomes</li><li>Sharpen the value proposition messaging to emphasize outcomes (faster access, unlimited visits, predictable pricing) and differentiate from standard clinics/hybrid DPC</li><li>Improve content structure for scannability: add service-specific benefit statements, outcomes, and short bullet lists; ensure headings/subheadings guide readers</li><li>Add guided next steps and contact options (scheduling, phone/email) across pages to reduce friction and improve CTA clarity</li><li>Expand the FAQ with common objections and clarifications about insurance pairing and cancellation terms</li>
+    </ol>
+</section>
+    </main>
+
+    <footer class="report-footer">
+    <p>Generated: April 07, 2026 | CRO &amp; Content Audit Report</p>
+    <p>CANZ Intelligence Platform</p>
+</footer>
+    
+</body>
+</html>

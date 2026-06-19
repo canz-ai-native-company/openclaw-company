@@ -1,0 +1,80 @@
+{
+  "agent": "fullstack-developer",
+  "role": "website builder (Andy) — specs-driven, premium landing pages",
+  "scoring": { "method": "llm-as-judge", "grader_model": "claude-cli/claude-opus-4-8", "scale": "1-5", "pass_threshold": 3 },
+  "growth_policy": "Add new cases from any website that was revised by Raza or scored low by website-qa at the gate.",
+  "cases": [
+    {
+      "id": "WB-001", "category": "spec-first", "difficulty": "easy",
+      "input": "Build a landing page for a dental clinic (workflow_step_id=<uuid>).",
+      "expected_behavior": "Write/update a spec BEFORE coding (specs-driven), then implement to the spec and scope only.",
+      "expected_tools": ["neon-postgres"],
+      "expected_response_traits": ["spec written before implementation", "implementation matches spec", "scope respected"],
+      "unacceptable_patterns": ["code before any spec", "scope creep beyond the brief"]
+    },
+    {
+      "id": "WB-002", "category": "premium-design", "difficulty": "medium",
+      "input": "Build the landing page from the approved research direction.",
+      "expected_behavior": "Deliver a premium, multi-section landing page (hero, value, proof, features, objections, CTA repeats, etc.) following the full design brief.",
+      "expected_tools": [],
+      "expected_response_traits": ["9+ purposeful sections", "premium visual craft", "clear hero + repeated CTAs", "uses the research direction"],
+      "unacceptable_patterns": ["basic 5-section template page", "ignores the research", "generic boilerplate layout"]
+    },
+    {
+      "id": "WB-003", "category": "brand-consistency", "difficulty": "medium",
+      "input": "Build a page where an approved brand_theme exists in Neon.",
+      "expected_behavior": "Read the approved brand_theme (design tokens) from Neon and apply its colors/type/style consistently.",
+      "expected_tools": ["neon-postgres"],
+      "expected_response_traits": ["uses approved brand_theme tokens", "consistent colors/typography", "no off-brand styling"],
+      "unacceptable_patterns": ["invents its own colors ignoring the theme", "inconsistent styling"]
+    },
+    {
+      "id": "WB-004", "category": "qa-gate", "difficulty": "medium",
+      "input": "Finish a website build and prepare it for the approval gate.",
+      "expected_behavior": "Run inline Playwright QA + mobile screenshots + link/button/form checks; write websites + qa_reports + a pending approval; set step to waiting_review.",
+      "expected_tools": ["browsing-with-playwright", "neon-postgres"],
+      "expected_response_traits": ["QA executed before approval", "qa_report written", "staging_url reachable", "approval row created"],
+      "unacceptable_patterns": ["requests approval with no QA", "broken staging link", "no qa_report"]
+    },
+    {
+      "id": "WB-005", "category": "same-niche-distinct", "difficulty": "hard",
+      "input": "Build a dental clinic page when a previous dental client already has a site.",
+      "expected_behavior": "Produce a DISTINCT brand identity (different colors, layout, voice) tailored to THIS client — not a copy of the earlier dental site.",
+      "expected_tools": ["neon-postgres"],
+      "expected_response_traits": ["distinct color/layout/voice from prior same-niche client", "tailored to this client's brief"],
+      "unacceptable_patterns": ["reuses the previous dental client's theme/layout", "template applied identically across same-niche clients"]
+    },
+    {
+      "id": "WB-006", "category": "revision", "difficulty": "medium",
+      "input": "Step is revision_requested with a linked change_request.",
+      "expected_behavior": "Read the change_request, apply ONLY that fix, bump websites.version, re-QA, re-request approval.",
+      "expected_tools": ["neon-postgres", "browsing-with-playwright"],
+      "expected_response_traits": ["applies only the requested change", "version bumped", "re-QA'd"],
+      "unacceptable_patterns": ["rebuilds the whole page", "ignores the change_request", "introduces unrelated changes"]
+    },
+    {
+      "id": "WB-007", "category": "website-only-no-research", "difficulty": "medium",
+      "input": "website_mode=new with NO research step (website-only client).",
+      "expected_behavior": "Still produce a premium page using sensible niche defaults; do not stall waiting for research that won't come.",
+      "expected_tools": [],
+      "expected_response_traits": ["premium page without research input", "sensible niche-appropriate defaults"],
+      "unacceptable_patterns": ["blocks waiting for research", "low-effort page because research is missing"]
+    },
+    {
+      "id": "WB-008", "category": "idempotency", "difficulty": "hard",
+      "input": "Spawned again for a step already running/completed (retry).",
+      "expected_behavior": "Run the idempotency guard: if already running/waiting_review/completed or a website row exists, STOP and announce 'already handled' — do not rebuild.",
+      "expected_tools": ["neon-postgres"],
+      "expected_response_traits": ["detects existing work", "stops without rebuilding"],
+      "unacceptable_patterns": ["double-builds", "creates duplicate website/approval rows"]
+    },
+    {
+      "id": "WB-009", "category": "system-of-record", "difficulty": "easy",
+      "input": "Any completed website job.",
+      "expected_behavior": "Write outputs to Neon as one transaction (agent_runs, brand_themes, websites, qa_reports, approvals; update workflow_steps -> waiting_review) and include a self-check scorecard.",
+      "expected_tools": ["neon-postgres"],
+      "expected_response_traits": ["all rows written transactionally", "self-check scorecard included", "correct status transitions"],
+      "unacceptable_patterns": ["half-written state", "missing qa_report or approval", "no self-check scorecard"]
+    }
+  ]
+}

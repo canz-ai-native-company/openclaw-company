@@ -1,0 +1,4 @@
+interface:
+  display_name: "Website CRO Audit"
+  short_description: "Live-browser conversion audit of any landing page or site"
+  default_prompt: "Use $website-cro-audit to open the given URL in a real browser via $browsing-with-playwright, capture the hero/above-the-fold on desktop and mobile, measure the DOM, walk any signup form, score the 7 CRO dimensions, and produce a prioritized audit report. Read .agents/product-marketing-context.md first if it exists."

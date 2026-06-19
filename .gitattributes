@@ -1,0 +1,2 @@
+# Keep shell scripts LF so they run on Linux/WSL regardless of who commits.
+*.sh text eol=lf

@@ -1,0 +1,199 @@
+# Docker CD Workflow
+# Build, push, and deploy Docker containers
+#
+# Required secrets:
+#   - DOCKER_USERNAME: Docker Hub username
+#   - DOCKER_PASSWORD: Docker Hub token
+#
+# Optional secrets (for cloud deployments):
+#   - STAGING_HOST, STAGING_USER, STAGING_SSH_KEY
+#   - PRODUCTION_HOST, PRODUCTION_USER, PRODUCTION_SSH_KEY
+
+name: Docker CD
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # ============================================
+  # BUILD - Build and push Docker image
+  # ============================================
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image-tag: ${{ steps.meta.outputs.tags }}
+      image-digest: ${{ steps.build.outputs.digest }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha,prefix=sha-
+
+      - name: Build and push
+        id: build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ============================================
+  # SCAN - Security scanning
+  # ============================================
+  scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name != 'pull_request'
+    steps:
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # ============================================
+  # DEPLOY STAGING - Auto-deploy to staging
+  # ============================================
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [build, scan]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment:
+      name: staging
+      url: https://staging.example.com
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          script: |
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+            docker stop app || true
+            docker rm app || true
+            docker run -d --name app \
+              -p 8080:8080 \
+              --env-file /opt/app/.env \
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+
+  # ============================================
+  # DEPLOY PRODUCTION - Manual approval required
+  # ============================================
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [deploy-staging]
+    if: startsWith(github.ref, 'refs/tags/v')
+    environment:
+      name: production
+      url: https://example.com
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.PRODUCTION_HOST }}
+          username: ${{ secrets.PRODUCTION_USER }}
+          key: ${{ secrets.PRODUCTION_SSH_KEY }}
+          script: |
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+            docker stop app-blue || true
+            docker rm app-blue || true
+            docker rename app app-blue || true
+            docker run -d --name app \
+              -p 8080:8080 \
+              --env-file /opt/app/.env.production \
+              --restart unless-stopped \
+              ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+            # Health check
+            for i in {1..10}; do
+              if curl -f http://localhost:8080/health; then
+                echo "Deployment successful!"
+                docker rm app-blue || true
+                exit 0
+              fi
+              sleep 5
+            done
+            # Rollback on failure
+            echo "Rolling back..."
+            docker stop app || true
+            docker rm app || true
+            docker rename app-blue app
+            docker start app
+            exit 1
+
+  # ============================================
+  # HEALTH CHECK - Post-deployment verification
+  # ============================================
+  health-check:
+    name: Production Health Check
+    runs-on: ubuntu-latest
+    needs: deploy-production
+    steps:
+      - name: Verify deployment
+        run: |
+          for i in {1..12}; do
+            if curl -f https://example.com/health; then
+              echo "Production is healthy!"
+              exit 0
+            fi
+            echo "Waiting... ($i/12)"
+            sleep 10
+          done
+          echo "Health check failed!"
+          exit 1
