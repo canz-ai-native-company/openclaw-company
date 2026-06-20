@@ -3,10 +3,9 @@
 # ONE-FILE company provisioner.
 #
 # ── ONE-TIME PREP (admin, per laptop) ──────────────────────────────────────
-#   1. Install openclaw 2026.6.8 + Node v24.15.0 + `sudo npx playwright install-deps`
+#   1. Install OpenClaw 2026.6.8 + Node v24.15.0 + `sudo npx playwright install-deps`
 #   2. Authenticate openclaw to the model provider (codex/openai login)  [interactive]
-#   3. Give this laptop READ access to the private repo:
-#        a read-only Deploy Key, OR run `gh auth login` once
+#   3. Give this laptop READ access to the repo (deploy key, or `gh auth login`, or public repo)
 #   4. Put real secrets in  ~/.openclaw/.env  (use the company .env file you were given)
 #
 # ── THEN the non-technical user runs ONLY this: ────────────────────────────
@@ -21,6 +20,7 @@ OPENCLAW_HOME="${OPENCLAW_HOME:-$HOME/.openclaw}"
 WORKSPACE="$OPENCLAW_HOME/workspace"
 AGENTS=(research fullstack-developer designer-and-creatives marketing website-qa evaluator)
 ALL7='["main","research","fullstack-developer","designer-and-creatives","marketing","website-qa","evaluator"]'
+SPECIALISTS='["research","fullstack-developer","designer-and-creatives","marketing","website-qa","evaluator"]'
 MODEL="openai/gpt-5.5"
 RUNTIME_ID="codex"
 THINKING="high"
@@ -43,7 +43,7 @@ echo "Workspace: $WORKSPACE"
 log "Cloning company brain..."
 rm -rf "$CLONE_DIR"
 if ! git clone --depth 1 "$REPO_URL" "$CLONE_DIR" 2>/tmp/oc_clone.err; then
-  echo "ERROR: could not clone the private repo. This laptop needs read access:"
+  echo "ERROR: could not clone the repo. If private, this laptop needs read access:"
   echo "   - a read-only Deploy Key,  OR   - run: gh auth login   (one time)"
   cat /tmp/oc_clone.err; exit 1
 fi
@@ -92,41 +92,50 @@ fs.writeFileSync(FILE, JSON.stringify(j, null, 2));
 console.log(`  every agent -> ${MODEL} via "${RT}", thinkingDefault=${THINK}`);
 NODE
 
-# ============ 7. Swarm allowlist ============
-log "Setting swarm allowlist..."
-openclaw config set agents.defaults.subagents.allowAgents \
-  '["research","fullstack-developer","designer-and-creatives","marketing","website-qa","evaluator"]' --strict-json
+# ============ 7. Swarm allowlist + agent-to-agent messaging ============
+#   Sets the swarm allowlist (sessions_spawn), agent-to-agent messaging (sessions_send),
+#   AND aligns any per-agent override (e.g. a pre-existing main) so it can't block delegation.
+log "Setting swarm allowlist + agent-to-agent permissions..."
+FILE="$OPENCLAW_JSON" node <<'NODE'
+const fs = require('fs');
+const FILE = process.env.FILE;
+const A = ["research","fullstack-developer","designer-and-creatives","marketing","website-qa","evaluator"];
+const j = JSON.parse(fs.readFileSync(FILE, 'utf8'));
+j.agents = j.agents || {}; j.agents.defaults = j.agents.defaults || {};
+j.agents.defaults.subagents = j.agents.defaults.subagents || {};
+j.agents.defaults.subagents.allowAgents = A;                 // swarm allowlist (sessions_spawn)
+j.tools = j.tools || {}; j.tools.agentToAgent = j.tools.agentToAgent || {};
+j.tools.agentToAgent.allow = A;                              // agent-to-agent messaging (sessions_send)
+for (const a of (j.agents.list || [])) if (a.subagents && a.subagents.allowAgents) a.subagents.allowAgents = A; // fix per-agent overrides
+fs.writeFileSync(FILE, JSON.stringify(j, null, 2));
+console.log("  swarm allowlist + agent-to-agent set; per-agent overrides aligned");
+NODE
 
 # ============ 8. MCP SERVERS (second-last) — exact live config; secrets from .env ============
 log "Adding the 5 MCP servers..."
 
-# context7 -> ALL 7 agents (no secret)
 openclaw config set mcp.servers.context7 \
   "{\"command\":\"npx\",\"args\":[\"-y\",\"@upstash/context7-mcp\"],\"codex\":{\"agents\":$ALL7,\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
   && echo "  - context7 (all 7)"
 
-# neon-postgres (read+write) -> ALL 7 agents  [needs NEON_DATABASE_URL]
 if [ -n "${NEON_DATABASE_URL:-}" ]; then
   openclaw config set mcp.servers.neon-postgres \
     "{\"command\":\"npx\",\"args\":[\"-y\",\"@yawlabs/postgres-mcp@latest\"],\"env\":{\"DATABASE_URL\":\"$NEON_DATABASE_URL\",\"ALLOW_WRITES\":\"1\",\"POSTGRES_STATEMENT_TIMEOUT_MS\":\"30000\",\"POSTGRES_MAX_ROWS\":\"1000\"},\"codex\":{\"agents\":$ALL7,\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
     && echo "  - neon-postgres (all 7)"
 else echo "  ! neon-postgres SKIPPED (NEON_DATABASE_URL missing in .env)"; fi
 
-# higgsfield -> designer-and-creatives  [needs HIGGSFIELD_AUTH]
 if [ -n "${HIGGSFIELD_AUTH:-}" ]; then
   openclaw config set mcp.servers.higgsfield \
     "{\"url\":\"https://mcp.higgsfield.ai/mcp\",\"transport\":\"streamable-http\",\"headers\":{\"Authorization\":\"$HIGGSFIELD_AUTH\"},\"oauth\":{},\"codex\":{\"agents\":[\"designer-and-creatives\"],\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
     && echo "  - higgsfield (designer-and-creatives)"
 else echo "  ! higgsfield SKIPPED (HIGGSFIELD_AUTH missing in .env)"; fi
 
-# hubspot -> main  [needs HUBSPOT_TOKEN]
 if [ -n "${HUBSPOT_TOKEN:-}" ]; then
   openclaw config set mcp.servers.hubspot \
     "{\"command\":\"npx\",\"args\":[\"-y\",\"@hubspot/mcp-server\"],\"env\":{\"PRIVATE_APP_ACCESS_TOKEN\":\"$HUBSPOT_TOKEN\"},\"codex\":{\"agents\":[\"main\"],\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
     && echo "  - hubspot (main)"
 else echo "  ! hubspot SKIPPED (HUBSPOT_TOKEN missing in .env)"; fi
 
-# nanobanana -> designer-and-creatives + fullstack-developer  [needs GEMINI_API_KEY]
 if [ -n "${GEMINI_API_KEY:-}" ]; then
   openclaw config set mcp.servers.nanobanana \
     "{\"command\":\"npx\",\"args\":[\"-y\",\"nano-banana-2-mcp\"],\"env\":{\"GEMINI_API_KEY\":\"$GEMINI_API_KEY\"},\"codex\":{\"agents\":[\"designer-and-creatives\",\"fullstack-developer\"],\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
@@ -141,7 +150,10 @@ openclaw config validate || { echo "config validate failed - review above."; exi
 rm -rf "$(dirname "$CLONE_DIR")"
 echo "  config valid."
 
-# ============ 10. WAKEUP TEST (last) — every one of the 7 agents replies with its name ============
+# Apply the new permissions (config was edited directly above)
+openclaw gateway restart 2>/dev/null || true
+
+# ============ 10. WAKEUP TEST — every agent replies directly with its name ============
 log "Wakeup test - each of the 7 agents should reply 'Hi, I am <name>'..."
 for a in main research fullstack-developer designer-and-creatives marketing website-qa evaluator; do
   echo "--- $a ---"
@@ -149,6 +161,15 @@ for a in main research fullstack-developer designer-and-creatives marketing webs
     || echo "  ($a did not respond - is the gateway running?)"
 done
 
+# ============ 11. SWARM TEST (final) — ask the Hub to roll-call every agent via the swarm ============
+log "Swarm test - asking the Hub to roll-call all agents (this exercises agent-to-agent delegation)..."
+openclaw agent --agent main \
+  --message "Quick roll call - have every agent reply with one line: Hi, I'm <name>, ready to work." --thinking low \
+  || echo "  (Hub did not respond - start the gateway, then re-run this command)"
 echo
-echo "DONE - Hub + 6 agents on codex / $MODEL / thinkingDefault=$THINKING, 5 MCP servers wired."
+echo "Manual swarm check (optional) - send this to the Hub on Slack:"
+echo "  Quick roll call - have every agent reply with one line: Hi, I'm <name>, ready to work."
+
+echo
+echo "DONE - Hub + 6 agents on codex / $MODEL / thinkingDefault=$THINKING, 5 MCP servers, swarm enabled."
 echo "Brain installed at: $WORKSPACE"
