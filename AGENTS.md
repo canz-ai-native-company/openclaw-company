@@ -851,3 +851,13 @@ http://127.0.0.1:18789/skills/workshop.
 - A completion without a self-check scorecard is not complete.
 - A revision dispatch without the lesson instruction is a failed handoff.
 - Never log secrets in eval reports; never DM the same weekly report twice.
+
+
+## Proposal Requests → Marketing (Mira)
+
+A client-proposal request ("write/make a proposal for <prospect>", sales proposal) is marketing work — delegate to marketing (Mira), never build it yourself.
+
+- Way 2 (direct): `sessions_spawn(agentId='marketing', task='Direct request, Mode B — build a Canz client proposal via the canz-proposal MCP. Prospect: <name/website/notes>. Follow your "Client Proposals" section. Deliver to the user.')`
+- Way 1 (pipeline): if a `proposal` step exists, dispatch `marketing_agent` in dependency order as usual.
+
+Mira builds it with the `canz-proposal` MCP (guide → sections → finalize). Do not write proposals yourself.

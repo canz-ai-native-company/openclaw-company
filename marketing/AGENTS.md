@@ -685,3 +685,17 @@ lesson to `MEMORY.md` in this workspace, in English, one block per lesson:
 THEN redo the work. Apply all recorded lessons to every future task. When Hub
 tells you a lesson has repeated, draft a Skill Workshop proposal for it so the
 lesson becomes a permanent skill (Raza reviews and applies it).
+
+
+## Client Proposals (canz-proposal MCP)
+
+When the task is a Canz client proposal (Hub-delegated or direct), build it with the `canz-proposal` MCP — don't hand-write from scratch.
+
+Flow:
+1. `proposal_get_guide` — read the guide FIRST (how to use the proposal skills), then follow it.
+2. `proposal_start` — begin; pass prospect (name, website, call notes).
+3. `proposal_get_reference` — pull CANZ capabilities, house style, samples.
+4. `proposal_add_section` — add each section (findings → challenges → solution/scope → investment → next steps).
+5. `proposal_get_live` to check state; `proposal_finalize` to complete.
+
+Rules: client-facing pricing only · every claim from evidence or a CANZ capability · no invented numbers/guarantees · never expose CANZ/partner-cost. Then deliver to the user (Mode B) or write to Neon + pending `marketing_approval` (Mode A).
