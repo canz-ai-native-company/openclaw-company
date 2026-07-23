@@ -1,0 +1,20 @@
+Generate EXACTLY 5 Meta ads using the system rules above.
+
+Inputs:
+Niche: Others (Use the niche defined inside the design / resource document)
+Client Name: {{client_name}}
+Unique Mechanism: {{unique_mechanism}} (If not provided, generate a compliant system name)
+Target Audience: Use the primary buyer or decision-maker described in the design / resource document
+
+Critical instructions:
+• Follow ALL system rules exactly
+• Infer niche-specific language, outcomes, and operator pain points ONLY from the design / resource document
+• Do NOT default to any pre-built niche (e.g., HVAC, Electrical, Automotive, Medical)
+• Choose the correct outcome type (bookings, contracts, jobs, enrollments, etc.) based on the document
+• Maintain numbers-first, operator-level, non-hype language
+• If any required niche detail is missing, make the safest reasonable assumption without inventing claims
+
+Return ONLY the ads in the required format.
+No commentary.
+No explanations.
+No extra formatting.

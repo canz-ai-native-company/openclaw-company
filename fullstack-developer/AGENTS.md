@@ -80,6 +80,63 @@ For any landing page, marketing site, or website task:
    no relevant information; the layout and structure are outdated."*
    This must never be valid feedback again.
 
+## LMA Build Method (Landing Pages & Websites)
+
+**This section changes ONLY the build behaviour — the page STRUCTURE. It changes
+NOTHING about how tasks arrive, the Modes, the 9-phase workflow, the quality
+gates, the Worker Contract, Neon writes, or approvals — all of that stays exactly
+as written in this handbook.**
+
+For every CLIENT landing-page or website build, the page structure follows the
+**LMA blueprint**, delivered through three skills (in `skills/`, loaded on
+demand — see `skills/SKILLS_INDEX.md`):
+
+| Skill | What it defines | Feeds which phase |
+|---|---|---|
+| `lma-lp-structure` | The 10+ section LMA landing-page flow (Hero → Pain → Promise → Mechanism → How it works → Benefits → Proof → Offer/CTA → Objections/FAQ → Risk reversal → Final CTA), alternating visual rhythm, hero/form/CTA conventions, standard pages (Privacy & Terms) | Phase 4 (`04-sections-and-copy.md`) |
+| `lma-website-structure` | The 4-page premium website architecture (Home · Services/Offer · About/Proof · Contact) + per-page flows + cross-page consistency | Phase 4 |
+| `lma-visual-implementation` | Turning the LMA visual-guide format (rated variants, typography, palette roles, imagery mood) into concrete design tokens | Phase 5 (`05-visual-system.md`) |
+| `design-language-protocol` | **MANDATORY design discipline for every design task** — extract-never-copy, locked tokens, skeleton-first, one-page-first, designer feedback, purposeful animations | All phases (load BEFORE Phase 1) |
+
+Rules:
+- LP task → `lma-lp-structure`; multi-page site → `lma-website-structure`; both
+  use `lma-visual-implementation` at Phase 5.
+- **Study at least 2 reference examples** in the skill's `references/examples/`
+  (closest niche + one other) BEFORE blueprinting.
+- **Examples give SHAPE — the approved research gives WORDS.** Never reuse an
+  example's client copy, claims, or numbers.
+- The palette/typography must be justified against the research's competitor
+  analysis (differentiation is part of positioning).
+- Everything still ships through the existing 9-phase workflow, hero 12/12 gate,
+  QA gates, and the Canz static implementation standard.
+
+## Design Language Protocol (MANDATORY — every design task)
+
+For EVERY design task — client landing page, website, page addition, or redesign,
+in Mode A AND Mode B — load `design-language-protocol` BEFORE Phase 1 and apply
+its 8 rules across all phases. Non-negotiable core:
+
+1. **References before AI** — pick a real aesthetic reference first (Phase 2).
+2. **Extract, never copy** — pull the reference's design LANGUAGE (palette, type,
+   spacing, density, shadows), never clone the design.
+3. **Lock the tokens** in `05-visual-system.md` — real hex/type/spacing table;
+   the shipped CSS must use ONLY these tokens.
+4. **Rules persist** — locked tokens govern every page and every revision.
+5. **Unconventional briefs** — compile the audience profile (who, age, mindset,
+   tech level) and present 2–3 concepts + a layout skeleton in `03-direction.md`;
+   get the pick BEFORE any code.
+6. **One page first** — finalize the whole token system on `index.html`; inner
+   pages receive content only.
+7. **Designer feedback, not client feedback** — never "make it more beautiful";
+   state like/don't-like + tokens; loop-stuck → "Think deep. Think different."
+8. **Animations with purpose** — every animation's purpose written in
+   `07-motion.md`; purposeless animation is noise.
+
+Implementation stack for client websites/LPs: **semantic HTML + modern CSS using
+the locked tokens + vanilla JavaScript (the Canz static standard — no frameworks
+or build steps for client sites).** The `nextjs-*` skills remain for apps/
+dashboards/product work.
+
 ## Browser QA — Tool Priority (chrome-devtools-mcp FIRST, Playwright fallback)
 
 Whenever you QA or verify your built site in a **live browser** — screenshots, DOM/CSS checks, mobile breakpoints, link/button/form checks, console/network errors, performance, visual regression — use the **`chrome-devtools-mcp`** tools **first**. It is your default browser engine for all browser QA.
@@ -182,6 +239,10 @@ in 4 hours beats a basic page in 30 minutes that gets rejected.
 
 **Mandatory skills (load all):**
 - `premium-landing-page` — orchestrator, load FIRST
+- `design-language-protocol` — **MANDATORY design discipline (load with the orchestrator, BEFORE Phase 1)**
+- `lma-lp-structure` — LMA landing-page blueprint (client LP builds — Phase 4)
+- `lma-website-structure` — LMA 4-page website blueprint (client website builds — Phase 4)
+- `lma-visual-implementation` — LMA visual guide → design tokens (Phase 5)
 - `design-direction` — discovery + creative direction (Phases 1, 3)
 - `competitor-research` — reference research (Phase 2)
 - `conversion-copywriting` — copy strategy (Phase 4)
@@ -422,6 +483,7 @@ When asked about past dev work: read shared timeline first, then daily log, then
 - Do not pretend tests passed.
 - Do not invent APIs, SDK methods, tool behavior, or file contents.
 - Do not bypass specs to "move faster" unless emergency patching is explicitly requested; write a mini-spec after.
+- Do not reuse LMA reference-example copy, claims, or numbers for a different client — examples are structure-only.
 
 ## External vs Internal
 
@@ -534,7 +596,7 @@ INSERT INTO agent_runs (workflow_id, workflow_step_id, client_id, worker_key, ru
 ```
 
 ### Step 4 — BUILD
-Premium-landing-page 9-phase + Playwright QA + mobile screenshots + link/button/form checks. Save large files to `output/`/project; store only URLs/summaries in Neon. If status was `revision_requested`: read the linked `change_requests`, apply only that fix, bump `websites.version`.
+Premium-landing-page 9-phase + the **LMA Build Method** (structure via `lma-lp-structure` / `lma-website-structure`, visual tokens via `lma-visual-implementation` — copy always from the APPROVED research) + Playwright QA + mobile screenshots + link/button/form checks. Save large files to `output/`/project; store only URLs/summaries in Neon. If status was `revision_requested`: read the linked `change_requests`, apply only that fix, bump `websites.version`.
 
 ### Step 5 — WRITE BACK (do as ONE transaction so a crash can't half-write)
 ```sql

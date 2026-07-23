@@ -57,6 +57,34 @@ After workspace brain-file edits, remind the user to run `/reset` and verify wit
 - Deliver URLs, file paths, and concise summaries. No raw JSON, internal job dumps, or unnecessary model IDs.
 - Maintain memory after every creative job so Hub and specialists can recall what was created, when, for whom, and where it was saved.
 
+## LMA Design Method (Brand Kit · DRD)
+
+**This section changes ONLY how these two client deliverables are produced. It
+changes NOTHING about how tasks arrive, the Modes, the Worker Contract, Neon
+writes, approvals, Higgsfield creative production, memory, or timeline — all of
+that stays exactly as written in this handbook.**
+
+For LMA pipeline clients, two design deliverables are produced with the
+**verbatim LMA production prompts** (in each skill's `references/` — loaded on
+demand like every other skill):
+
+| Skill | Deliverable | Notes |
+|---|---|---|
+| `lma-brand-kit` | The Brand Kit — visual identity variants (palette roles + hex, font pairing, tone/voice, vibe, references) | **Runs FIRST** — needs the chosen offer (from marketing); its chosen kit feeds everything |
+| `lma-drd` | The Design Resource Document (HTML, CANZ report theme — pairs with the CRD) | Needs the chosen brand kit; consumes offer + design-audit (DRO) research |
+
+Rules:
+- Chain: **chosen offer (marketing) → `lma-brand-kit` → `lma-drd`** — then the
+  kit + DRD feed the website visual system, social profiles, and every creative.
+- The reference prompts are **law** — read them IN FULL, never paraphrase, trim,
+  or "improve" them.
+- `references/examples/` in these skills are shape/quality reference ONLY —
+  another client's palette, fonts, or content never leak into new work.
+- The DRD and CRD are one document family (shared CANZ theme) — keep them
+  consistent.
+- Higgsfield image/video production stays exactly as this handbook says — these
+  skills only add the brand-kit + DRD deliverables.
+
 ## Core Workflow
 
 For every non-trivial creative task:
@@ -82,6 +110,13 @@ Higgsfield skills use the Higgsfield CLI and account auth. If CLI/auth fails:
 - Remember Higgsfield uses account credits. Do not run large batches or repeated experiments without user approval.
 
 ## Skill Routing
+
+### LMA Client Deliverables (LMA pipeline clients — load FIRST)
+
+Use:
+
+- `lma-brand-kit` for the client Brand Kit (visual identity variants — runs first)
+- `lma-drd` for the Design Resource Document (after the brand kit exists)
 
 ### `higgsfield-generate`
 
@@ -324,6 +359,8 @@ Use one line only. No secrets, raw IDs, private media details, or long URLs if n
 - Do not store private images/faces in memory.
 - Do not ignore failed auth/expired sessions.
 - Do not ask many questions when a sensible default is enough.
+- Do not paraphrase or "improve" the LMA reference prompts — use them verbatim.
+- Do not reuse LMA example-client palettes, fonts, or content for another client — examples are shape-only.
 
 ## Long Output Handling
 
@@ -391,7 +428,7 @@ INSERT INTO agent_runs (workflow_id, workflow_step_id, client_id, worker_key, ru
 ```
 
 ### Step 4 — CREATE (your normal Higgsfield handbook)
-Generate the assets the job asks for, USING the brand_theme colors + image_style + tone so they match the website. Run your creative QA. Save assets; store URLs in Neon.
+Generate the assets the job asks for, USING the brand_theme colors + image_style + tone so they match the website. **If the job asks for the client Brand Kit or the DRD, produce it via the LMA Design Method skills (`lma-brand-kit` / `lma-drd`).** Run your creative QA. Save assets; store URLs in Neon.
 - If `revision_requested`: read linked `change_requests`, apply only that fix, bump version.
 
 ### Step 5 — WRITE BACK (ONE transaction)

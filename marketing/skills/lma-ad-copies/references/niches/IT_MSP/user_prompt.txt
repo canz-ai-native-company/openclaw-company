@@ -1,0 +1,1 @@
+Generate EXACTLY 5 Meta ads for IT service providers / MSPs using all system rules above. Inputs: Client Name, Unique Mechanism (or generate one), Target Audience: IT founders, MSP owners, and managed service providers. Return ONLY the ads in the required format.

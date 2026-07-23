@@ -1,0 +1,82 @@
+{
+  "competitor_count": <number>,
+  "executive_summary": {
+    "overview": "<2-3 paragraphs with quantified feature gap overview>",
+    "key_findings": ["<feature finding with exact coverage %>", ...],
+    "data_signals": [
+      {"value": "<value>", "label": "<metric>"},
+      ...
+    ]
+  },
+  "feature_matrix": {
+    "headers": ["Category", "Feature", "Comp 1", "Comp 2", ...],
+    "rows": [
+      {
+        "category": "<category>",
+        "feature": "<feature name>",
+        "competitors": [true, false, "partial", true, ...],
+        "coverage_percent": <number>
+      },
+      ...
+    ]
+  },
+  "feature_distribution": {
+    "universal": {
+      "features": ["<feature with 70-100% coverage>", ...],
+      "count": <number>,
+      "interpretation": "Table stakes—required for market credibility"
+    },
+    "common": {
+      "features": ["<feature with 40-69% coverage>", ...],
+      "count": <number>,
+      "interpretation": "Expected capabilities—moderate differentiation potential"
+    },
+    "selective": {
+      "features": ["<feature with 15-39% coverage>", ...],
+      "count": <number>,
+      "interpretation": "Competitive advantages—high differentiation potential"
+    },
+    "rare": {
+      "features": ["<feature with <15% coverage>", ...],
+      "count": <number>,
+      "interpretation": "Deep specialization or early-stage innovation"
+    }
+  },
+  "critical_gaps": [
+    {
+      "feature": "<feature name>",
+      "coverage_percent": <number>,
+      "gap_type": "<execution|sophistication|integration|absence>",
+      "implied_buyer_need": "<job-to-be-done not well-served>",
+      "opportunity": "<opportunity description with evidence>"
+    },
+    ...
+  ],
+  "roadmap_implications": {
+    "must_build": {
+      "features": ["<universal feature your product lacks>", ...],
+      "rationale": "Required for market credibility",
+      "timeline": "Pre-launch or immediate post-launch"
+    },
+    "should_build": {
+      "features": ["<selective feature aligned with positioning>", ...],
+      "rationale": "Defensible competitive edge",
+      "timeline": "First 6 months post-launch"
+    },
+    "could_build": {
+      "features": ["<rare feature serving high-value niche>", ...],
+      "rationale": "Niche domination or premium positioning",
+      "timeline": "12-18 months, if niche validation succeeds"
+    },
+    "avoid_building": {
+      "features": ["<absent feature likely absent for good reason>", ...],
+      "rationale": "Technical cost, misaligned economics, or no demand signal",
+      "timeline": "Deprioritize unless strong evidence emerges"
+    }
+  },
+  "recommendations": [
+    "<feature recommendation 1 with expected impact>",
+    "<feature recommendation 2 with expected impact>",
+    ...
+  ]
+}

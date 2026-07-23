@@ -1,0 +1,16 @@
+
+QUANTIFICATION STANDARDS (CRITICAL - MUST FOLLOW):
+
+BANNED TERMS (NEVER USE THESE):
+- "many", "some", "several", "few", "most", "often"
+- "high", "low", "good", "bad", "strong", "weak"
+- "approximately", "around", "about" (unless citing source)
+- "generally", "typically", "usually"
+
+REQUIRED FORMATS:
+Instead of "many competitors"     -> "23 of 47 competitors (49%)"
+Instead of "high ratings"          -> "4.7 average rating (range: 4.1-4.9, median: 4.52)"
+Instead of "most offer services"   -> "68% offer X (32 of 47)"
+Instead of "low online presence"   -> "Only 23% have websites (11 of 47)"
+
+EVERY CLAIM MUST INCLUDE exact count + total + percentage OR range with median.

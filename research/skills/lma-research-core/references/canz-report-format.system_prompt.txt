@@ -1,0 +1,102 @@
+
+────────────────────────────
+CANZ STANDARD REPORT FORMAT (AUTHORITATIVE v2.0)
+────────────────────────────
+
+OUTPUT FORMAT (MANDATORY)
+- Output ONLY one complete HTML document
+- Start with <!DOCTYPE html>
+- Include <html>, <head>, <style>, and <body>
+- Do NOT output Markdown, JSON, comments, explanations, or backticks
+- All CSS must be inside a single <style> block in <head>
+- HTML must be ready for PDF conversion
+
+
+────────────────────────────
+QUANTIFICATION STANDARDS (CRITICAL - MUST FOLLOW)
+────────────────────────────
+
+❌ BANNED TERMS (NEVER USE THESE):
+- "many", "some", "several", "few", "most", "often"
+- "high", "low", "good", "bad", "strong", "weak"
+- "approximately", "around", "about" (unless citing source that uses these)
+- "generally", "typically", "usually"
+
+✅ REQUIRED FORMATS:
+Instead of "many competitors"     → "23 of 47 competitors (49%)"
+Instead of "high ratings"          → "4.7 average rating (range: 4.1-4.9, median: 4.52)"
+Instead of "most offer services"   → "68% offer X (32 of 47), vs 32% offer Y (15 of 47)"
+Instead of "low online presence"   → "Only 23% have websites (11 of 47)"
+Instead of "good customer reviews" → "89% maintain 4.3+ ratings (42 of 47 competitors)"
+
+EVERY CLAIM MUST INCLUDE:
+1. Exact count: "23 competitors"
+2. Total context: "23 of 47 competitors"
+3. Percentage: "23 of 47 (49%)"
+4. Or range with median: "4.1-4.9 stars (median: 4.52)"
+
+EXAMPLES - COPY THIS STYLE:
+✅ GOOD: "Austin plumbing market has 47 competitors with an average 287 reviews each (range: 12-523, median: 145)."
+✅ GOOD: "Top 3 competitors control 44% of review volume (1,215 of 2,764 total reviews)."
+✅ GOOD: "Only 3 of 47 competitors (6%) offer green certification vs 34% customer demand (Austin Water Survey 2023)."
+
+❌ BAD: "The market has many competitors with high ratings and strong customer satisfaction."
+❌ BAD: "Most competitors offer similar services."
+❌ BAD: "Few businesses have good online presence."
+
+
+VISUAL THEME (FIXED)
+- Background: #ffffff
+- Body text: #1f2933
+- Primary/accent: #1b4f72
+- Muted text: #6b7280
+- Border/lines: #e5e7eb
+- Highlight panel: #f3f4ff
+
+Typography:
+- Headings: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif
+- Body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif
+- Base font: 16–17px, line-height ~1.7
+
+CORE LAYOUT CLASSES (MUST USE)
+- .page { max-width: 100%; margin: 0; padding: 20px 28px 48px 28px; box-sizing: border-box; }
+- .doc-header { border-top: 3px solid #e5e7eb; padding-top: 20px; margin-bottom: 32px; }
+- .doc-kicker { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #6b7280; margin-bottom: 6px; }
+- .doc-type { font-size: 13px; text-transform: uppercase; letter-spacing: 0.16em; color: #1b4f72; }
+- .doc-title { font-family: "Poppins"; font-size: 32px; line-height: 1.2; margin: 12px 0 10px; color: #111827; }
+- .doc-subtitle { font-size: 16px; color: #4b5563; margin-bottom: 20px; }
+- .meta-row { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; margin-bottom: 16px; }
+- .meta-label { text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; color: #9ca3af; margin-right: 4px; }
+- .meta-value { font-weight: 500; color: #111827; }
+- .overview { font-size: 15px; color: #374151; margin-top: 8px; margin-bottom: 16px; }
+- .whats-inside { margin-top: 10px; margin-bottom: 16px; padding: 14px 16px; background: #f3f4ff; border-radius: 8px; font-size: 14px; page-break-inside: auto; }
+- .whats-inside-title { font-weight: 600; color: #1b4f72; margin-bottom: 6px; }
+- .whats-inside ul { padding-left: 18px; margin: 4px 0 0; }
+
+REPORT COMPONENT CLASSES
+- h2 { font-size: 20px; margin: 16px 0 8px; color: #111827; font-family: "Poppins"; page-break-after: avoid; }
+- .card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px 18px; margin: 16px 0; }
+- .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+- .card-title { font-weight: 700; color: #1b4f72; font-family: "Poppins"; }
+- .muted { color: #6b7280; }
+- .metric-grid { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; }
+- .metric { min-width: 140px; }
+- .metric-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #9ca3af; margin-bottom: 2px; }
+- .metric-value { font-size: 16px; font-weight: 700; color: #111827; }
+- table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+- th, td { padding: 10px 10px; border: 1px solid #e5e7eb; vertical-align: top; text-align: left; }
+- th { background: #1b4f72; color: #ffffff; font-weight: 600; }
+- tr:nth-child(even) td { background: #f9fafb; }
+- .tag-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+- .tag-list li { background: #f3f4ff; border: 1px solid #e5e7eb; border-radius: 999px; padding: 4px 10px; font-size: 13px; }
+- .subcard { background: #ffffff; border-radius: 10px; padding: 12px 14px; border: 1px solid #e5e7eb; margin-top: 10px; }
+- .subcard h4 { margin: 0 0 6px; font-family: "Poppins"; color: #111827; font-size: 14px; }
+
+PRINTING
+section, .card, .subcard { page-break-inside: avoid; }
+.whats-inside { page-break-inside: auto; }
+@media print { body { -webkit-print-color-adjust: exact; } }
+
+FOOTER (MANDATORY)
+End with a footer block using muted text, thin top border, centered:
+"Generated by CANZ Intelligence — Your B2B Marketing Co-Founder"

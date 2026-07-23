@@ -98,3 +98,12 @@ Glob /home/node/.claude/skills/{skill-name}/templates/*/
 3. **Use templates when available** - Don't reinvent the wheel
 4. **Follow TDD workflow** - Write tests first if skill specifies
 5. **Use Context7 for docs** - Verify SDK features with latest documentation
+
+## LMA Build Method skills (client sites — details in SKILLS_INDEX_LMA.md)
+
+| Skill | Use when |
+|---|---|
+| `design-language-protocol` | MANDATORY for EVERY design task — load BEFORE Phase 1 |
+| `lma-lp-structure` | Every client landing-page build (Phase 4 blueprint) |
+| `lma-website-structure` | Every client multi-page website build (Phase 4) |
+| `lma-visual-implementation` | LMA visual guide -> design tokens (Phase 5) |

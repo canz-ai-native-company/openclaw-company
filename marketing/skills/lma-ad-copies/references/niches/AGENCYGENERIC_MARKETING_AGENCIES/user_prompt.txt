@@ -1,0 +1,20 @@
+Generate EXACTLY 5 Meta ads using the system rules above.
+
+Inputs:
+Niche: Generic Marketing Agencies
+Client Name: {{client_name}}
+Unique Mechanism: {{unique_mechanism}} (If not provided, generate a compliant agency system name)
+Target Audience: Business owners, founders, CMOs, and decision-makers at companies seeking marketing services on monthly retainers
+
+Critical instructions:
+• Follow ALL system rules exactly
+• Focus ONLY on signed client retainers or secured agency contracts
+• Do NOT make income guarantees or ROI claims
+• Use agency-operator language (pipeline, proposals, retainers, sales calls, close rate)
+• Do NOT reference consumer services or unrelated industries
+• Maintain professional, B2B-safe, non-hype language
+
+Return ONLY the ads in the required format.
+No commentary.
+No explanations.
+No extra formatting.

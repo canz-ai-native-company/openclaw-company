@@ -1,0 +1,1 @@
+Generate EXACTLY 5 Meta ads for healthcare and wellness businesses using all system rules above. Inputs: Client Name, Unique Mechanism (or generate one), Target Audience: Healthcare and wellness business owners, clinic directors, and practice managers. Return ONLY the ads in the required format.

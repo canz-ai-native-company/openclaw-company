@@ -1,0 +1,65 @@
+{
+  "competitor_count": <number>,
+  "executive_summary": {
+    "overview": "<2-3 paragraphs with quantified pricing overview>",
+    "key_findings": ["<pricing finding with exact data>", ...],
+    "data_signals": [
+      {"value": "<value>", "label": "<metric>"},
+      ...
+    ]
+  },
+  "pricing_architecture": {
+    "dominant_models": [
+      {"model": "per-user", "percentage": <number>, "competitors": ["<name>", ...]},
+      {"model": "tiered", "percentage": <number>, "competitors": ["<name>", ...]},
+      ...
+    ],
+    "transparency_landscape": {
+      "public_pricing": ["<competitor>", ...],
+      "partial_disclosure": ["<competitor>", ...],
+      "contact_only": ["<competitor>", ...]
+    },
+    "free_tier_patterns": {
+      "freemium": ["<competitor>", ...],
+      "free_trial": ["<competitor>", ...],
+      "paid_only": ["<competitor>", ...]
+    }
+  },
+  "pricing_tiers": {
+    "headers": ["Tier", "Price Range", "Competitors", "Characteristics"],
+    "rows": [
+      ["Budget/SMB", "$X-$Y/mo", "N of M (X%)", "<characteristics>"],
+      ["Mid-Market", "$X-$Y/mo", "N of M (X%)", "<characteristics>"],
+      ["Premium/Enterprise", "$X+/mo or Contact", "N of M (X%)", "<characteristics>"]
+    ]
+  },
+  "pricing_comparison": {
+    "headers": ["Competitor", "Price Tier", "Est. Price Range", "Value Signals", "Transparency"],
+    "rows": [
+      ["<name>", "<tier>", "<range>", "<value signals>", "<public|partial|contact>"],
+      ...
+    ]
+  },
+  "pricing_gaps": {
+    "clusters": ["<price point where 3+ competitors cluster>", ...],
+    "gaps": ["<price range with 0 competitors>", ...],
+    "outliers_high": [
+      {"competitor": "<name>", "price": "<value>", "hypothesis": "<why premium>", "evidence": "<supporting/refuting>"}
+    ],
+    "outliers_low": [
+      {"competitor": "<name>", "price": "<value>", "hypothesis": "<why budget>", "evidence": "<supporting/refuting>"}
+    ]
+  },
+  "strategic_implications": {
+    "credible_price_floor": {"value": "<$/month>", "evidence": "<rationale>"},
+    "competitive_price_ceiling": {"value": "<$/month>", "evidence": "<rationale>"},
+    "optimal_tier_count": {"value": <number>, "evidence": "<market standard>"},
+    "transparency_recommendation": "<based on market majority>",
+    "monetization_recommendation": "<based on dominant model>"
+  },
+  "recommendations": [
+    "<pricing strategy recommendation 1 with rationale>",
+    "<pricing strategy recommendation 2 with rationale>",
+    ...
+  ]
+}

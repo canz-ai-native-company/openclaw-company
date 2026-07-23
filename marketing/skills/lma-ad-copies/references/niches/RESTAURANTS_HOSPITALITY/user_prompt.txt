@@ -1,0 +1,1 @@
+Generate EXACTLY 5 Meta ads for restaurants/hospitality businesses using all system rules above. Inputs: Client Name, Unique Mechanism (or generate one), Target Audience: Restaurant owners, hospitality managers, venue operators. Return ONLY the ads in the required format.

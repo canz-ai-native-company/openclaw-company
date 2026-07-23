@@ -1,0 +1,19 @@
+Generate EXACTLY 5 Meta ads using the system rules above.
+
+Inputs:
+Niche: Event Planning (General)
+Client Name: {{client_name}}
+Unique Mechanism: {{unique_mechanism}} (If not provided, generate a compliant system name)
+Target Audience: Individuals and businesses planning events, including corporate teams, brands, organizations, and private clients seeking professional event planning services
+
+Critical instructions:
+• Follow ALL system rules exactly
+• Use event-planner operator language (bookings, confirmations, calendars, dates)
+• Focus ONLY on confirmed event bookings and secured planning projects
+• Avoid vague marketing claims or hype language
+• Do NOT reference unrelated industries or audiences
+
+Return ONLY the ads in the required format.
+No commentary.
+No explanations.
+No extra formatting.

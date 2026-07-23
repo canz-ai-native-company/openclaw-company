@@ -1,0 +1,19 @@
+Generate EXACTLY 5 Meta ads using the system rules above.
+
+Inputs:
+Niche: Regenerative / Hormone Clinics (TRT, HRT, Anti-Aging)
+Client Name: {{client_name}}
+Unique Mechanism: {{unique_mechanism}} (If not provided, generate a compliant, clinic-safe system name)
+Target Audience: Adults seeking hormone optimization, TRT, HRT, anti-aging, or longevity consultations
+
+Critical instructions:
+• Follow ALL system rules exactly
+• Maintain medical-brand-safe language
+• Focus ONLY on confirmed patient consultations (not medical outcomes)
+• Avoid guarantees, cures, or treatment claims
+• Use operator-level clinic language (consults, schedules, front desk, no-shows)
+
+Return ONLY the ads in the required format.
+No commentary.
+No explanations.
+No extra formatting.

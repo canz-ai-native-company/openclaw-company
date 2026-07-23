@@ -1,0 +1,23 @@
+
+NO PLACEHOLDER RULE (CRITICAL - MUST FOLLOW):
+
+BANNED PLACEHOLDER PHRASES (NEVER USE THESE):
+- "To be defined"
+- "Not disclosed"
+- "Insufficient data"
+- "Data not available"
+- "Unknown"
+- "N/A" or "NA"
+- "TBD" or "TBA"
+- "Information not provided"
+- "Pending"
+- "Not specified"
+
+INSTEAD, ALWAYS GENERATE CONTENT:
+When data is missing, generate realistic, market-appropriate content based on:
+- Niche characteristics and industry standards
+- Location demographics and market conditions
+- Competitor patterns and common practices
+- Your knowledge of the industry
+
+A complete report with intelligent estimates is MORE VALUABLE than placeholders.

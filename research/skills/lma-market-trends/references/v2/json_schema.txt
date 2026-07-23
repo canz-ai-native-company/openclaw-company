@@ -1,0 +1,70 @@
+{
+  "competitor_count": <number>,
+  "executive_summary": {
+    "overview": "<2-3 paragraphs with quantified market trends overview>",
+    "key_findings": ["<trend finding with exact data>", ...],
+    "data_signals": [
+      {"value": "<value>", "label": "<metric>"},
+      ...
+    ],
+    "market_maturity": "<Mature|Growing|Emerging>",
+    "competitive_intensity": "<Fragmented|Consolidating|Concentrated>"
+  },
+  "market_structure": {
+    "items": [
+      {"title": "Market Maturity Assessment", "content": "<detailed analysis with thresholds>"},
+      {"title": "Competitive Density", "content": "<fragmentation analysis with counts>"},
+      {"title": "Digital Maturity Index", "content": "<technology adoption analysis>"},
+      ...
+    ]
+  },
+  "rating_analysis": {
+    "average": <number>,
+    "median": <number>,
+    "minimum": <number>,
+    "maximum": <number>,
+    "total_reviews": <number>,
+    "interpretation": "<what this distribution reveals about market>"
+  },
+  "digital_maturity_dashboard": {
+    "market_average_score": <number out of 5>,
+    "channels": [
+      {"channel": "Website", "adoption_rate": "<X of Y (Z%)>"},
+      {"channel": "Online Booking", "adoption_rate": "<X of Y (Z%)>"},
+      {"channel": "Social Media", "adoption_rate": "<X of Y (Z%)>"},
+      {"channel": "Video Content", "adoption_rate": "<X of Y (Z%)>"},
+      {"channel": "Remote Services", "adoption_rate": "<X of Y (Z%)"}
+    ]
+  },
+  "technology_trends": {
+    "headers": ["Trend", "Adoption Rate", "Impact", "Opportunity"],
+    "rows": [
+      ["<trend>", "<X% of competitors>", "<impact level>", "<opportunity description>"],
+      ...
+    ]
+  },
+  "customer_trends": [
+    "<customer behavior trend 1 with quantified evidence>",
+    "<customer behavior trend 2 with quantified evidence>",
+    ...
+  ],
+  "competitive_dynamics": [
+    "<dynamic 1 with evidence from data>",
+    "<dynamic 2 with evidence from data>",
+    ...
+  ],
+  "strategic_openings": [
+    {
+      "opening": "<description of market opening>",
+      "evidence": "<data supporting this opening>",
+      "risk_level": "<low|medium|high>",
+      "recommended_action": "<specific action to take>"
+    },
+    ...
+  ],
+  "recommendations": [
+    "<strategic recommendation 1 with evidence>",
+    "<strategic recommendation 2 with evidence>",
+    ...
+  ]
+}

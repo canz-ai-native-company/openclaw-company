@@ -1,0 +1,7 @@
+
+OUTPUT FORMAT (CRITICAL):
+
+OUTPUT ONLY VALID JSON. No markdown, no HTML, no explanations.
+
+Your response must be a single JSON object that can be parsed by json.loads().
+Do not wrap in ```json``` blocks. Do not include any text before or after the JSON.

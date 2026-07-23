@@ -1,0 +1,19 @@
+Generate EXACTLY 5 Meta ads using the system rules above.
+
+Inputs:
+Niche: Home Remodelers
+Client Name: {{client_name}}
+Unique Mechanism: {{unique_mechanism}} (If not provided, generate a compliant system name)
+Target Audience: Homeowners actively planning kitchen, bathroom, or full-home remodeling projects with budgets in the $50K–$60K range
+
+Critical instructions:
+• Follow ALL system rules exactly
+• Use contractor-owner language (projects, crews, backlog, signed jobs)
+• Focus ONLY on high-ticket remodeling projects ($50K–$60K)
+• Filter out tire-kickers and low-budget inquiries
+• Do NOT reference other trades, service managers, or B2B audiences
+
+Return ONLY the ads in the required format.
+No commentary.
+No explanations.
+No extra formatting.

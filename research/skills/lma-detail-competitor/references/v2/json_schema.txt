@@ -1,0 +1,54 @@
+{
+  "competitor_count": <number>,
+  "executive_summary": {
+    "overview": "<2-3 paragraphs with quantified competitor landscape overview>",
+    "key_findings": ["<finding with exact data>", ...],
+    "data_signals": [
+      {"value": "<value>", "label": "<metric>"},
+      ...
+    ]
+  },
+  "comparison_matrix": {
+    "headers": ["Metric", "Comp 1", "Comp 2", ..., "Market Avg"],
+    "rows": [
+      ["Rating", "<val>", "<val>", ..., "<avg>"],
+      ["Reviews", "<val>", "<val>", ..., "<avg>"],
+      ["Services", "<val>", "<val>", ..., "<avg>"],
+      ["Website", "<Yes/No>", "<Yes/No>", ..., "<% with>"],
+      ["Digital Score", "<val>", "<val>", ..., "<avg>"]
+    ]
+  },
+  "competitors": [
+    {
+      "name": "<business name>",
+      "rating": <number>,
+      "review_count": <number>,
+      "address": "<address>",
+      "website": "<url or null>",
+      "services": ["<service 1>", "<service 2>", ...],
+      "business_type": "<type>",
+      "strengths": [
+        {"strength": "<description>", "evidence": "<specific data point>"}
+      ],
+      "weaknesses": [
+        {"weakness": "<description>", "evidence": "<specific data point>"}
+      ],
+      "positioning": "<market positioning description>",
+      "competitive_threat_level": "<high|medium|low>",
+      "vulnerability": "<where they can be beaten>"
+    },
+    ...
+  ],
+  "differentiation_analysis": {
+    "analysis": "<detailed differentiation analysis comparing competitors>",
+    "positioning_territories": [
+      {"territory": "<positioning space>", "owner": "<competitor name>", "defensibility": "<high|medium|low>"}
+    ],
+    "unclaimed_territories": ["<positioning territory not owned by anyone>", ...]
+  },
+  "recommendations": [
+    "<competitive recommendation 1 with rationale>",
+    "<competitive recommendation 2 with rationale>",
+    ...
+  ]
+}

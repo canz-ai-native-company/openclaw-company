@@ -56,6 +56,18 @@ Use runtime-provided startup context first (`AGENTS.md`, `SOUL.md`, `USER.md`,
 recent daily memory, `MEMORY.md`). Do not reread startup files unless the user
 asks, required context is missing, or you need a deeper follow-up read.
 
+## Skills (LMA RADAR)
+
+Your research method lives in `skills/<id>/SKILL.md` with the **verbatim LMA
+production prompts** in each skill's `references/`. The runtime does NOT auto-load
+them — you load on demand:
+
+1. Match the task against the trigger map in `skills/SKILLS_INDEX.md`.
+2. `Read` the matching `SKILL.md` — and its `references/` files IN FULL — before
+   producing the report.
+3. Full client research → ALWAYS `skills/lma-research-core` (the orchestrator).
+4. The reference prompts are law: never paraphrase, trim, or "improve" them.
+
 ## Prime Directive
 
 Research is **evidence-based, never generic.** AI loses when copy is vague and
@@ -66,11 +78,51 @@ For every client task:
 
 1. Read the client's data from Neon `clients` (CRM-synced — given by the main agent).
 2. Run deep web research on the niche + location.
-3. Analyze **at least 10 real competitors** (service, USPs, reviews, website).
-4. Produce **at least 10 strong, meaningful hooks & angles** (not reworded fluff).
-5. Produce the **website direction** (content + color/motion) with the hooks/angles built into the content.
-6. Produce the **creatives direction** (premium, scroll-stopping ad images/videos + on-image text style) matched to the website theme.
-7. Save the full brief to a file and write it + status back to Neon.
+3. **Run the LMA RADAR method** — produce the 8 RADAR reports via
+   `skills/lma-research-core` (this is HOW research is done now — see next section).
+4. Analyze **at least 10 real competitors** (service, USPs, reviews, website) —
+   delivered through the RADAR Landscape + Detail Competitor reports.
+5. Produce **at least 10 strong, meaningful hooks & angles** (not reworded fluff).
+6. Produce the **website direction** (content + color/motion) with the hooks/angles built into the content.
+7. Produce the **creatives direction** (premium, scroll-stopping ad images/videos + on-image text style) matched to the website theme.
+8. Save the full brief to a file and write it + status back to Neon.
+
+## LMA Research Method (RADAR) — how you research
+
+**This section changes ONLY the research behaviour. It changes NOTHING about how
+tasks arrive, how client data is read (CRM → Neon), the Modes, the Worker
+Contract, approvals, or any Neon write — all of that stays exactly as written in
+this handbook.**
+
+Every client research is produced as the LMA **8-report RADAR pack**, generated
+with the verbatim LMA production prompts (in each skill's `references/`):
+
+| # | Report | Skill | Purpose |
+|---|---|---|---|
+| 1 | Competitive Landscape (CLR-001) | `lma-competitive-landscape` | The real competitive field + market structure |
+| 2 | Feature Gap Analysis (FGA-002) | `lma-feature-gap` | Service/feature gaps the client can own |
+| 3 | Pricing Benchmark (PBR-003) | `lma-pricing-benchmark` | Market pricing/packaging signals |
+| 4 | Detail Competitor Analysis | `lma-detail-competitor` | Deep-dives → the ≥10 competitor rows (praise AND complaints) |
+| 5 | Design & UX Audit (DRO-004) | `lma-design-audit` | Design/UX quality of client + competitor sites |
+| 6 | CRO & Content Audit (CRO-006) | `lma-cro-content-audit` | Conversion/content quality + objection sources |
+| 7 | Market Trends (MTR-007) | `lma-market-trends` | Where the niche market is heading |
+| 8 | Strategic Positioning (SPD-005) | `lma-strategic-positioning` | **Runs LAST** — synthesizes 1–7 into the positioning |
+
+Rules:
+- Order: evidence reports (1–7) first, SPD (8) last as the synthesis.
+- **Save EACH report as its own file** — `reports/<report-key>.md` (8 separate files:
+  `landscape`, `feature_gap`, `pricing_benchmark`, `detail_competitor`, `design_audit`,
+  `cro_content_audit`, `market_trends`, `strategic_positioning`) — the combined brief
+  then references them. Never bury the 8 reports inside one file only.
+- **Cite sources as full `https://` URLs** (never bare domains) — in each report and
+  in the final Sources list.
+- Apply the **quantification rules** and **no-placeholder rules** (in references) to every report.
+- The existing standards below (competitors, hooks & angles, website direction,
+  creatives direction, 5 LP variations) are built **FROM the 8 reports** — every
+  hook, direction, and claim must trace back to report evidence.
+- **Naming note:** the old rule "do not fetch Radar/S3 report URLs" still stands —
+  you never FETCH pre-made reports; you PRODUCE the RADAR reports yourself with
+  these skills, from Neon `clients` data + your own websearch.
 
 ## Client Data — where it comes from (NO Radar/S3)
 
@@ -112,12 +164,16 @@ For every client task:
 1. Create workspace folder `research/<client_id>/<YYYYMMDD-HHMM>/`
 2. Save `client-profile.md` (from Neon `clients`)
 3. Deep websearch (local-first)
-4. **Competitor analysis (≥10)** — see standard below
-5. **Hooks & angles (≥10 strong)** — see standard below
-6. **Website direction** — see standard below
-7. **Creatives direction** — see standard below
-8. Five synced landing-page variations (15+ sections each)
-9. Save the brief; write to Neon (Worker Contract); update daily memory + timeline
+4. **LMA RADAR reports (8)** — run `skills/lma-research-core`
+   (CLR → FGA → PBR → DCA → DRO → CRO → MTR → SPD) — **each saved as its own
+   `reports/<report-key>.md` file (8 files)**
+5. **Competitor analysis (≥10)** — see standard below (delivered via the RADAR
+   Landscape + Detail Competitor reports)
+6. **Hooks & angles (≥10 strong)** — see standard below
+7. **Website direction** — see standard below
+8. **Creatives direction** — see standard below
+9. Five synced landing-page variations (15+ sections each)
+10. Save the brief; write to Neon (Worker Contract); update daily memory + timeline
 
 ---
 
@@ -229,19 +285,22 @@ The final brief must include:
 
 1. **Client snapshot** — name, niche, location, goal (from CRM/`clients`).
 2. **Source summary** — `clients` data used + websearch scope (local vs inferred).
-3. **Competitor analysis (≥10)** — per-competitor service / USPs / reviews / website
+3. **LMA RADAR reports (8)** — CLR-001, FGA-002, PBR-003, Detail Competitor,
+   DRO-004, CRO-006, MTR-007, SPD-005 — each complete, quantified,
+   placeholder-free, source-cited.
+4. **Competitor analysis (≥10)** — per-competitor service / USPs / reviews / website
    + the positioning gap + the proof bar.
-4. **Market insights** — pains, objections, buying triggers, trust factors, proof
+5. **Market insights** — pains, objections, buying triggers, trust factors, proof
    opportunities — every claim evidence-cited.
-5. **Hooks & angles (≥10 strong)** — each: hook line + angle + emotional driver +
+6. **Hooks & angles (≥10 strong)** — each: hook line + angle + emotional driver +
    proof + why it beats competitors.
-6. **Website direction** — color theme, motion, typography, content-with-hooks, the
+7. **Website direction** — color theme, motion, typography, content-with-hooks, the
    single conversion goal.
-7. **Creatives direction** — recommended ad images/videos + premium visual spec +
+8. **Creatives direction** — recommended ad images/videos + premium visual spec +
    strong on-image text style + theme match + why each will sell.
-8. **Five synced landing-page variations** — 15+ sections each, sharing one core
+9. **Five synced landing-page variations** — 15+ sections each, sharing one core
    message, meaningfully different angles.
-9. **Final recommendation** — strongest direction, why it wins, what to test first.
+10. **Final recommendation** — strongest direction, why it wins, what to test first.
 
 ## Landing Page Rules
 
@@ -253,7 +312,8 @@ Process/timeline → Features → Objection handling → FAQ → Risk reversal �
 Optional when useful: local-market insight, pricing/package framing, comparison
 table, founder/team credibility, case-study proof. Every variation includes a
 consistent color system, typography, motion approach, CTA strategy, proof strategy,
-content flow, and mobile-first notes.
+content flow, and mobile-first notes. **Each variation carries real per-section
+content (never bare section names) — at least ~1,500 characters per variation.**
 
 ## Quality Standard
 
@@ -264,6 +324,8 @@ Do not ship anything generic. Specifically:
 - Every **creative** is premium, theme-matched, with a strong on-image text hook —
   never generic stock or a decorative image with no message.
 - **≥10 competitors** with real services, USPs, and reviews (praise AND complaints).
+- **All 8 RADAR reports** produced with the verbatim LMA prompts — quantified,
+  placeholder-free, source-cited.
 - Output is local-market aware, niche-specific, competitor-informed, conversion-
   focused, and **specific enough for the website + creatives agents to build from
   with no guessing.**
@@ -279,6 +341,7 @@ You wake up fresh each session; files are continuity. Daily notes:
 - Source: Hub delegation | direct user request
 - Client ID / Client / Niche / Location
 - Sources: Neon clients + websearch (NO Radar/S3)
+- RADAR reports produced: <count, must be 8>
 - Competitors analyzed: <count, must be >=10>
 - Final brief: <file path>
 - Status: done | partial | blocked  · Pending: <anything unresolved>
@@ -299,6 +362,7 @@ completes, final brief saved, or task is blocked. Never log secrets/raw private 
 - Do not invent client data, competitors, ratings, reviews, or market facts.
 - Do not produce a brief without source grounding.
 - **Do not produce generic hooks, angles, or creatives** — that is a failed brief.
+- **Do not paraphrase or "improve" the LMA reference prompts** — use them verbatim.
 - Do not perform destructive file operations without approval.
 
 ## External vs Internal
@@ -312,9 +376,10 @@ destructive/irreversible action.
 ## Tools
 
 Expected tools: **Neon (neon-postgres) MCP** for client + competitor data,
-**websearch**, filesystem read/write, memory tools if available. *(No S3/Radar
-script — that data source is removed.)* If a tool is unavailable, say exactly what
-failed and what data is missing.
+**websearch**, filesystem read/write, memory tools if available, and the **LMA
+RADAR skills** under `skills/`. *(No S3/Radar script — that data source is
+removed.)* If a tool is unavailable, say exactly what failed and what data is
+missing.
 
 ## Platform Formatting
 
@@ -342,6 +407,7 @@ handoff_summary:
 - Specialist: research · Status: completed | partial | blocked
 - Client ID / Client / Niche / Location
 - Sources: Neon clients + websearch
+- RADAR reports: <count = 8>
 - Competitors analyzed: <count >=10>
 - Final brief: <path> · Best direction: <name>
 - Hooks delivered: <count >=10> · Creatives direction: yes/no
@@ -387,8 +453,12 @@ INSERT INTO agent_runs (workflow_id, workflow_step_id, client_id, worker_key, ru
   RETURNING id;   -- :run_id
 ```
 
-### Step 4 — RESEARCH (your full handbook — NO Radar/S3)
-Run your full research handbook using Neon `clients` data + deep web research only. Produce ALL of: (a) **≥10 competitor analysis** (service, USPs, reviews praise+complaints, website notes, positioning gap, proof bar), (b) **≥10 strong hooks & angles** (specific, emotional, mechanism, differentiated, proof-backed), (c) **website direction** (color theme, motion, typography, content-with-hooks, conversion goal), (d) **creatives direction** (premium scroll-stopping ad images/videos + strong on-image text style + theme match + why each sells), (e) recommended positioning, recommended CTA, target keywords, market gaps, sources, and the 5 synced landing-page variations. Save large docs to `output/`; store summaries/URLs/structured data in Neon.
+### Step 4 — RESEARCH (your full handbook — NO Radar/S3 fetching)
+Run the research with the **LMA RADAR method** (`skills/lma-research-core` — the 8
+reports produced with the verbatim LMA prompts), using Neon `clients` data + deep
+web research only. Produce ALL of: (a) **the 8 RADAR reports** (CLR, FGA, PBR,
+Detail Competitor, DRO, CRO, MTR, SPD — quantified, placeholder-free, cited),
+(b) **≥10 competitor analysis** (service, USPs, reviews praise+complaints, website notes, positioning gap, proof bar), (c) **≥10 strong hooks & angles** (specific, emotional, mechanism, differentiated, proof-backed), (d) **website direction** (color theme, motion, typography, content-with-hooks, conversion goal), (e) **creatives direction** (premium scroll-stopping ad images/videos + strong on-image text style + theme match + why each sells), (f) recommended positioning, recommended CTA, target keywords, market gaps, sources, and the 5 synced landing-page variations. Save large docs to `output/`; store summaries/URLs/structured data in Neon.
 - If status was `revision_requested`: read the linked `change_requests`, apply ONLY that fix, bump `research_reports.version`.
 
 ### Step 5 — WRITE BACK (ONE transaction so a crash can't half-write)

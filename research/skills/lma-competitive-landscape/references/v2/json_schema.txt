@@ -1,0 +1,61 @@
+{
+  "competitor_count": <number>,
+  "executive_summary": {
+    "overview": "<2-3 paragraphs with quantified market overview including market structure assessment>",
+    "key_findings": ["<finding 1 with exact data>", "<finding 2 with exact data>", ...],
+    "data_signals": [
+      {"value": "<number or stat>", "label": "<metric name>"},
+      ...
+    ]
+  },
+  "market_metrics": {
+    "items": [
+      {"value": "<value>", "label": "Total Competitors"},
+      {"value": "<value>", "label": "Average Rating"},
+      {"value": "<value>", "label": "Average Reviews"},
+      {"value": "<value>", "label": "Website Presence"},
+      {"value": "<value>", "label": "Market Maturity"}
+    ]
+  },
+  "competitors_table": {
+    "headers": ["Rank", "Business Name", "Rating", "Reviews", "Services", "Website"],
+    "rows": [
+      ["1", "<name>", "<rating>", "<reviews>", "<services>", "<website>"],
+      ...
+    ]
+  },
+  "competitor_profiles": [
+    {
+      "name": "<business name>",
+      "description": "<2-3 sentence strategic description>",
+      "services": ["<service 1>", "<service 2>", ...],
+      "strengths": ["<strength 1 with evidence>", "<strength 2 with evidence>"],
+      "weaknesses": ["<weakness 1 with evidence>", "<weakness 2 with evidence>"],
+      "positioning": "<positioning territory they own>"
+    },
+    ...
+  ],
+  "market_tier_classification": {
+    "category_leaders": ["<competitor with high trust + broad positioning>", ...],
+    "growth_challengers": ["<competitor with medium trust + specific wedge>", ...],
+    "niche_specialists": ["<competitor with narrow ICP + deep specialization>", ...],
+    "emerging_entrants": ["<competitor with low trust + unclear positioning>", ...]
+  },
+  "swot": {
+    "strengths": ["<market strength with quantified data>", ...],
+    "weaknesses": ["<market weakness with quantified data>", ...],
+    "opportunities": ["<opportunity with gap analysis and evidence>", ...],
+    "threats": ["<threat with impact assessment>", ...]
+  },
+  "strategic_implications": {
+    "crowded_zones": ["<positioning territory with 3+ competitors>", ...],
+    "underserved_segments": ["<buyer type or use case with 0-1 competitors>", ...],
+    "trust_threshold": "<minimum review count/signals to be credible>",
+    "viable_differentiation_paths": ["<path 1 with competitive gap cited>", "<path 2>", ...]
+  },
+  "recommendations": [
+    "<recommendation 1 with expected impact and evidence>",
+    "<recommendation 2 with expected impact and evidence>",
+    ...
+  ]
+}

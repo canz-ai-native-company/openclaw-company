@@ -1,0 +1,78 @@
+{
+  "competitor_count": <number>,
+  "executive_summary": {
+    "overview": "<2-3 paragraphs with design analysis overview>",
+    "key_findings": ["<design finding>", ...],
+    "data_signals": [
+      {"value": "<value>", "label": "<metric>"},
+      ...
+    ]
+  },
+  "design_scores": {
+    "items": [
+      {
+        "name": "<competitor name>",
+        "url": "<website url>",
+        "first_impression_score": <1-10>,
+        "value_communication_score": <1-10>,
+        "trust_infrastructure_score": <1-10>,
+        "information_architecture_score": <1-10>,
+        "conversion_path_score": <1-10>,
+        "overall_score": <1-10>
+      },
+      ...
+    ]
+  },
+  "design_analyses": [
+    {
+      "name": "<competitor name>",
+      "url": "<website url>",
+      "first_impression": {
+        "assessment": "<professional|amateur|mixed>",
+        "observations": ["<observation 1>", "<observation 2>", ...]
+      },
+      "visual_hierarchy": ["<observation 1>", "<observation 2>", ...],
+      "messaging_clarity": {
+        "headline": "<exact headline>",
+        "clarity_level": "<clear|unclear|absent>",
+        "specificity": "<concrete|vague>",
+        "target_audience_clear": <boolean>
+      },
+      "trust_infrastructure": {
+        "customer_logos": {"present": <boolean>, "count": <number>, "quality": "<recognizable|unknown|mix>"},
+        "testimonials": {"present": <boolean>, "attributed": <boolean>},
+        "review_badges": ["<badge>", ...],
+        "security_badges": ["<badge>", ...],
+        "proof_of_scale": ["<stat>", ...]
+      },
+      "conversion_path": {
+        "primary_cta": "<text>",
+        "cta_type": "<trial|demo|contact|signup>",
+        "friction_level": "<low|medium|high>",
+        "form_fields": <number if visible>
+      },
+      "design_strengths": ["<strength 1>", "<strength 2>", ...],
+      "design_weaknesses": ["<weakness 1>", "<weakness 2>", ...],
+      "red_flags": ["<red flag if any>", ...],
+      "priority_improvements": [
+        {"issue": "<issue>", "impact": "<critical|high|medium|low>", "fix": "<recommended fix>"}
+      ]
+    },
+    ...
+  ],
+  "design_trends": [
+    "<design trend 1 observed across competitors>",
+    "<design trend 2 observed across competitors>",
+    ...
+  ],
+  "enterprise_credibility_assessment": {
+    "high_credibility": ["<competitor meeting enterprise standards>", ...],
+    "medium_credibility": ["<competitor with gaps>", ...],
+    "low_credibility": ["<competitor with red flags>", ...]
+  },
+  "recommendations": [
+    "<design recommendation 1 with rationale>",
+    "<design recommendation 2 with rationale>",
+    ...
+  ]
+}

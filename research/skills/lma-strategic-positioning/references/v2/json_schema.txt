@@ -1,0 +1,83 @@
+{
+  "executive_summary": {
+    "overview": "<2-3 paragraphs with strategic positioning overview>",
+    "key_findings": ["<strategic finding>", ...],
+    "data_signals": [
+      {"value": "<value>", "label": "<metric>"},
+      ...
+    ]
+  },
+  "market_context": {
+    "category": "<market category>",
+    "maturity": "<emerging|growing|mature>",
+    "key_dynamics": ["<dynamic 1>", "<dynamic 2>", ...],
+    "competitive_intensity": "<assessment>"
+  },
+  "icp": {
+    "primary_segment": "<primary target segment description>",
+    "job_title": "<target buyer title>",
+    "company_size": "<target company size>",
+    "industry": "<target industry>",
+    "demographics": ["<demographic 1>", "<demographic 2>", ...],
+    "pain_points": ["<pain point 1>", "<pain point 2>", ...],
+    "buying_triggers": ["<trigger 1>", "<trigger 2>", ...],
+    "decision_criteria": ["<criterion 1>", "<criterion 2>", ...]
+  },
+  "positioning": {
+    "statement": "<core positioning statement>",
+    "for_who": "<target customer>",
+    "who_have": "<problem they face>",
+    "our_solution_is": "<what we offer>",
+    "that_delivers": "<key benefit>",
+    "unlike": "<alternatives>",
+    "we": "<key differentiator>",
+    "value_proposition": "<complete value proposition>",
+    "differentiators": ["<differentiator 1>", "<differentiator 2>", ...]
+  },
+  "competitive_positioning": {
+    "direct_competitors": [
+      {"name": "<competitor>", "their_positioning": "<how they position>", "our_counter": "<how we differ>"}
+    ],
+    "positioning_territory_we_own": "<territory>",
+    "positioning_territory_we_avoid": "<territory>",
+    "crowded_zones": ["<zone 1>", ...],
+    "unclaimed_territories": ["<territory 1>", ...]
+  },
+  "swot": {
+    "strengths": ["<strength with evidence>", ...],
+    "weaknesses": ["<weakness with evidence>", ...],
+    "opportunities": ["<opportunity with evidence>", ...],
+    "threats": ["<threat with evidence>", ...]
+  },
+  "messaging_architecture": {
+    "tagline": "<10-second value>",
+    "elevator_pitch": "<30-second version>",
+    "key_pillars": [
+      {
+        "pillar_name": "<pillar>",
+        "description": "<description>",
+        "supporting_points": ["<point 1>", "<point 2>", ...]
+      }
+    ]
+  },
+  "strategic_principles": {
+    "do": ["<action that reinforces positioning>", ...],
+    "do_not": ["<action that dilutes positioning>", ...],
+    "green_light_decisions": ["<opportunity type to pursue>", ...],
+    "red_light_decisions": ["<opportunity type to decline>", ...]
+  },
+  "proof_requirements": {
+    "claims_to_prove": ["<claim needing evidence>", ...],
+    "evidence_needed": ["<evidence type required>", ...]
+  },
+  "gtm_strategy": {
+    "channels": ["<channel 1>", "<channel 2>", ...],
+    "messaging": ["<message 1>", "<message 2>", ...],
+    "tactics": ["<tactic 1>", "<tactic 2>", ...]
+  },
+  "recommendations": [
+    "<strategic recommendation 1>",
+    "<strategic recommendation 2>",
+    ...
+  ]
+}

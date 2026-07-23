@@ -1,0 +1,19 @@
+Generate EXACTLY 5 Meta ads using the system rules above.
+
+Inputs:
+Niche: Residential Contractors (Home Services)
+Client Name: {{client_name}}
+Unique Mechanism: {{unique_mechanism}} (If not provided, generate a compliant system name)
+Target Audience: Homeowners actively seeking residential home services such as repairs, installations, renovations, or maintenance
+
+Critical instructions:
+• Follow ALL system rules exactly
+• Use contractor/operator language (jobs, service calls, crews, schedule, dispatch, backlog)
+• Focus ONLY on booked jobs, confirmed service calls, or secured residential projects (not generic leads)
+• Do NOT reference automotive, B2B, or unrelated industries
+• Keep tone professional, direct, and homeowner-safe
+
+Return ONLY the ads in the required format.
+No commentary.
+No explanations.
+No extra formatting.

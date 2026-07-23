@@ -1,0 +1,1 @@
+Generate EXACTLY 5 Meta ads for law firms/lawyers using all system rules above. Inputs: Client Name, Unique Mechanism (or generate one), Target Audience: Law firm owners, managing partners, attorneys. Return ONLY the ads in the required format.

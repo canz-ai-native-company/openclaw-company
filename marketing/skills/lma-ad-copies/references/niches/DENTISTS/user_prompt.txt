@@ -1,0 +1,1 @@
+Generate EXACTLY 5 Meta ads for dental practices using all system rules above. Inputs: Client Name, Unique Mechanism (or generate one), Target Audience: Dentists and practice owners. Return ONLY the ads in the required format.

@@ -86,3 +86,11 @@
 - Source: `/marketing/skills/<id>/SKILL.md`
 - Pattern: SKILL.md → references/ → assets/
 - Action: when triggered, immediately `Read` the matching SKILL.md before responding.
+
+## LMA Marketing Method skills (LMA clients — load FIRST; details in skills/SKILLS_INDEX_LMA.md)
+
+| Skill | Use when |
+|---|---|
+| `lma-offer` | Client offer creation (3 offers + unique mechanism) — runs FIRST |
+| `lma-crd` | Copy Resource Document (needs the chosen offer) |
+| `lma-ad-copies` | Client ad copies — 23 niche prompts + OTHER fallback |

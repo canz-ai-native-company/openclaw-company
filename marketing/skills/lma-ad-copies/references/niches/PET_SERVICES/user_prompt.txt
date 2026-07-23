@@ -1,0 +1,19 @@
+Generate EXACTLY 5 Meta ads using the system rules above.
+
+Inputs:
+Niche: Pet Services (Groomers, Trainers, Boarding, Dog Spas / Hotels)
+Client Name: {{client_name}}
+Unique Mechanism: {{unique_mechanism}} (If not provided, generate a compliant system name)
+Target Audience: Pet owners actively seeking grooming, training, daycare, boarding, or premium pet care services for dogs and cats
+
+Critical instructions:
+• Follow ALL system rules exactly
+• Use pet-service operator language (appointments, schedules, grooming slots, boarding capacity, no-shows)
+• Focus ONLY on booked pet service appointments or reservations (not generic leads)
+• Avoid unrelated industries or B2B audiences
+• Keep tone friendly, professional, and brand-safe
+
+Return ONLY the ads in the required format.
+No commentary.
+No explanations.
+No extra formatting.

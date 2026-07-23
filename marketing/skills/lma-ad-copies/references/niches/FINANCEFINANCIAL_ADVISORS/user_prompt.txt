@@ -1,0 +1,20 @@
+Generate EXACTLY 5 Meta ads using the system rules above.
+
+Inputs:
+Niche: Finance / Financial Advisors
+Client Name: {{client_name}}
+Unique Mechanism: {{unique_mechanism}} (If not provided, generate a compliant system name)
+Target Audience: Affluent individuals, pre-retirees, retirees, business owners, and professionals seeking financial planning, wealth management, or retirement advisory services
+
+Critical instructions:
+• Follow ALL system rules exactly
+• Maintain strict compliance-safe language
+• Focus ONLY on booked qualified financial consultations
+• Do NOT make investment return claims, income promises, or guarantees
+• Use advisor/operator language (consultations, strategy calls, qualified prospects, calendar flow)
+• Do NOT reference unrelated industries or B2B service businesses
+
+Return ONLY the ads in the required format.
+No commentary.
+No explanations.
+No extra formatting.

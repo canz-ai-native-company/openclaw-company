@@ -1,0 +1,19 @@
+Generate EXACTLY 5 Meta ads using the system rules above.
+
+Inputs:
+Niche: SaaS (B2B Software)
+Client Name: {{client_name}}
+Unique Mechanism: {{unique_mechanism}} (If not provided, generate a compliant SaaS system name)
+Target Audience: B2B decision-makers including founders, CEOs, CTOs, Heads of Operations, and revenue leaders at companies that match the product’s ideal customer profile
+
+Critical instructions:
+• Follow ALL system rules exactly
+• Use SaaS operator language (demos, trials, contracts, MRR, sales pipeline)
+• Focus ONLY on secured contracts, paid accounts, or qualified demo bookings (not generic leads)
+• Avoid consumer, local service, or trade-based audiences
+• Maintain professional, enterprise-safe, non-hype language
+
+Return ONLY the ads in the required format.
+No commentary.
+No explanations.
+No extra formatting.

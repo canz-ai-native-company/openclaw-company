@@ -98,6 +98,34 @@ If a relevant skill exists, read:
 
 If you did not load the relevant skills, say so before continuing.
 
+## LMA Marketing Method (Offer · CRD · Ad Copies)
+
+**This section changes ONLY how these three client deliverables are produced. It
+changes NOTHING about how tasks arrive, the Modes, the Worker Contract, Neon
+writes, approvals, memory, or timeline — all of that stays exactly as written in
+this handbook.**
+
+For LMA pipeline clients, three deliverables are produced with the **verbatim LMA
+production prompts** (in each skill's `references/` — loaded on demand like every
+other skill):
+
+| Skill | Deliverable | Notes |
+|---|---|---|
+| `lma-offer` | 3 offer variants + the unique mechanism | **Runs FIRST** — its chosen offer feeds the CRD and the ads |
+| `lma-crd` | The Copy Resource Document (12-section HTML, CANZ report theme) | Needs the chosen offer; consumes SPD/CRO research + brand kit |
+| `lma-ad-copies` | 5 client ad copies (Headline + Description) + cover line | 23 niche prompts + `OTHER` fallback — exact niche match only |
+
+Rules:
+- Chain when a client needs all three: **approved research (SPD/CRO) → `lma-offer`
+  → `lma-crd` → `lma-ad-copies`.**
+- The reference prompts are **law** — read them IN FULL, never paraphrase, trim,
+  or "improve" them.
+- Ad copies: the exact niche folder or `OTHER` — never a "close" niche's prompt.
+- `references/examples/` in these skills are shape/quality reference ONLY —
+  another client's copy, claims, or numbers never leak into new work.
+- Every claim stays grounded in client data / approved research (per Claims and
+  Compliance below).
+
 ## What Counts as Marketing Work
 
 Use this agent for:
@@ -118,6 +146,14 @@ Use this agent for:
 ## Skill Routing
 
 Always start with `product-marketing-context` unless the task is a tiny rewrite.
+
+### LMA Client Deliverables (LMA pipeline clients — load FIRST)
+
+Use:
+
+- `lma-offer` for client offer creation (3 offers + unique mechanism)
+- `lma-crd` for the Copy Resource Document (after the offer exists)
+- `lma-ad-copies` for client ad copies (5 copies via the matched niche prompt)
 
 ### Conversion Optimization
 
@@ -441,6 +477,8 @@ A marketing task is done only when:
 - Do not invent data, proof, testimonials, or results.
 - Do not recommend platform-policy violations.
 - Do not overpromise outcomes.
+- Do not paraphrase or "improve" the LMA reference prompts — use them verbatim.
+- Do not reuse LMA example-client copy, claims, or numbers for another client — examples are shape-only.
 
 ## Make It Yours
 
@@ -620,7 +658,7 @@ INSERT INTO agent_runs (workflow_id, workflow_step_id, client_id, worker_key, ru
 ```
 
 ### Step 4 — PRODUCE (your normal handbook)
-Produce the deliverable the job asks for (campaign plan / SEO brief / ad copy / lifecycle, etc.), grounded in the approved research + positioning. Save docs to `output/`; store the URL + structured data in Neon.
+Produce the deliverable the job asks for (campaign plan / SEO brief / ad copy / lifecycle, etc.), grounded in the approved research + positioning. **If the deliverable is an offer, a CRD, or client ad copies, produce it via the LMA Marketing Method skills (`lma-offer` / `lma-crd` / `lma-ad-copies`).** Save docs to `output/`; store the URL + structured data in Neon.
 - If `revision_requested`: read linked `change_requests`, apply only that fix, bump version.
 
 ### Step 5 — WRITE BACK (ONE transaction)
@@ -685,17 +723,3 @@ lesson to `MEMORY.md` in this workspace, in English, one block per lesson:
 THEN redo the work. Apply all recorded lessons to every future task. When Hub
 tells you a lesson has repeated, draft a Skill Workshop proposal for it so the
 lesson becomes a permanent skill (Raza reviews and applies it).
-
-
-## Client Proposals (canz-proposal MCP)
-
-When the task is a Canz client proposal (Hub-delegated or direct), build it with the `canz-proposal` MCP — don't hand-write from scratch.
-
-Flow:
-1. `proposal_get_guide` — read the guide FIRST (how to use the proposal skills), then follow it.
-2. `proposal_start` — begin; pass prospect (name, website, call notes).
-3. `proposal_get_reference` — pull CANZ capabilities, house style, samples.
-4. `proposal_add_section` — add each section (findings → challenges → solution/scope → investment → next steps).
-5. `proposal_get_live` to check state; `proposal_finalize` to complete.
-
-Rules: client-facing pricing only · every claim from evidence or a CANZ capability · no invented numbers/guarantees · never expose CANZ/partner-cost. Then deliver to the user (Mode B) or write to Neon + pending `marketing_approval` (Mode A).

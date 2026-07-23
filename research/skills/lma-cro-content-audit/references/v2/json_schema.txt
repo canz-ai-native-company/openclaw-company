@@ -1,0 +1,71 @@
+{
+  "competitor_count": <number>,
+  "executive_summary": {
+    "overview": "<2-3 paragraphs with CRO audit overview>",
+    "key_findings": ["<CRO finding with score>", ...],
+    "data_signals": [
+      {"value": "<value>", "label": "<metric>"},
+      ...
+    ],
+    "overall_content_effectiveness_index": <number 0-10>,
+    "primary_opportunity": "<single highest-leverage gap>"
+  },
+  "scores_dashboard": {
+    "overall_cei": <number>,
+    "average_messaging_clarity": <number>,
+    "average_value_proposition": <number>,
+    "average_cta_effectiveness": <number>,
+    "average_social_proof": <number>,
+    "average_content_quality": <number>,
+    "items": [
+      {
+        "name": "<competitor name>",
+        "url": "<website url>",
+        "messaging_clarity_score": <1-10>,
+        "value_proposition_score": <1-10>,
+        "cta_effectiveness_score": <1-10>,
+        "social_proof_score": <1-10>,
+        "content_quality_score": <1-10>,
+        "overall_score": <1-10>
+      },
+      ...
+    ]
+  },
+  "website_audits": [
+    {
+      "name": "<competitor name>",
+      "url": "<website url>",
+      "content_effectiveness_index": <number>,
+      "scores": {
+        "messaging_clarity": {"score": <number>, "assessment": "<label>", "evidence": ["<quote>", ...]},
+        "value_proposition": {"score": <number>, "assessment": "<label>", "evidence": ["<quote>", ...]},
+        "cta_effectiveness": {"score": <number>, "assessment": "<label>", "evidence": ["<quote>", ...]},
+        "social_proof": {"score": <number>, "assessment": "<label>", "evidence": ["<quote>", ...]},
+        "content_quality": {"score": <number>, "assessment": "<label>", "evidence": ["<quote>", ...]}
+      },
+      "above_fold": {
+        "headline": "<exact headline text>",
+        "subheadline": "<exact subheadline>",
+        "primary_cta": "<CTA text and type>"
+      },
+      "improvement_opportunities": ["<opportunity 1>", "<opportunity 2>", ...],
+      "quick_wins": ["<quick win 1>", "<quick win 2>", ...]
+    },
+    ...
+  ],
+  "cross_competitor_patterns": {
+    "industry_strengths": ["<dimension scoring ≥7 across majority>", ...],
+    "industry_weaknesses": ["<dimension scoring ≤4 across majority>", ...],
+    "common_issues": ["<issue appearing in 2+ sites>", ...]
+  },
+  "best_practices": [
+    "<best practice 1 observed>",
+    "<best practice 2 observed>",
+    ...
+  ],
+  "recommendations": [
+    "<CRO recommendation 1 with expected impact>",
+    "<CRO recommendation 2 with expected impact>",
+    ...
+  ]
+}

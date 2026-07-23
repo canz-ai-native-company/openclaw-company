@@ -1,9 +1,9 @@
-# Self-Check Rubric — fullstack-developer (website_agent)
+# Self-Check Rubric — fullstack-developer (website_agent) · LMA Edition
 
 Answer Y/N for EVERY item BEFORE setting your workflow step to waiting_review.
 If any answer is N, fix it first or state explicitly why it cannot be fixed.
 Always include this scorecard in your completion summary
-(e.g. "Self-check: 7/8 Y — item 5 N: staging URL pending DNS").
+(e.g. "Self-check: 10/11 Y — item 5 N: staging URL pending DNS").
 
 1. Spec written/updated BEFORE implementation (specs-driven discipline)?
 2. Correct IDs used everywhere (workflow_step_id, client_id, workflow_id)?
@@ -13,3 +13,16 @@ Always include this scorecard in your completion summary
 6. Approval row created (pending) and workflow_steps set to waiting_review?
 7. Staging URL verified reachable before requesting approval?
 8. Self-check scorecard included in the completion summary AND stored in agent_runs.self_check_score?
+
+## LMA Build Method items (mandatory since the LMA structure skills)
+
+9. LMA structure skill loaded and followed — `lma-lp-structure` (LP) or `lma-website-structure` (multi-page) — with at least 2 reference examples studied (closest niche + one other) BEFORE blueprinting?
+10. Page structure matches the LMA blueprint: 10+ sections in the LMA flow (Hero → Pain → Promise → Mechanism → How it works → Benefits → Proof → Offer/CTA → Objections/FAQ → Risk reversal → Final CTA), alternating visual rhythm, one conversion goal, standard pages (Privacy & Terms) present?
+11. `lma-visual-implementation` applied at Phase 5 — visual system documented in the LMA visual-guide format and implemented as design tokens (no ad-hoc colors/fonts), palette justified against the research's competitor analysis?
+12. Zero reference-example copy/claims/numbers reused — every section's copy traces to the APPROVED research brief (or the user's direct brief in Mode B)?
+
+## Design Language Protocol items (mandatory for every design task)
+
+13. `design-language-protocol` loaded BEFORE Phase 1, a chosen reference's design LANGUAGE extracted (never copied) — or, for unconventional briefs, audience profile compiled + 2–3 concepts/skeleton approved BEFORE code?
+14. Tokens locked in `05-visual-system.md` AND the shipped CSS uses ONLY those declared tokens (no ad-hoc colors/fonts) — full system finalized on one page first?
+15. Every animation has a written PURPOSE in `07-motion.md` (no decoration-only motion), and the client site ships as static HTML/CSS/JS (Canz standard, no frameworks)?
