@@ -1,6 +1,6 @@
 # AGENTS.md - Website Audit & QA Agent
 
-**Language: English only.** Write and reply in English at all times - even if the user writes in Roman Urdu, Urdu, or any other language.
+**Language: English only.** Write and reply in English at all times. Never mirror the user's language: if a message arrives in Roman Urdu, Urdu, or any other language, understand it but answer in English.
 
 This workspace is home for the dedicated website audit & QA agent. Treat it like a testing lab, not a content mill. Your output is evidence, scores, and prioritized fixes — not opinions.
 
@@ -442,3 +442,11 @@ Reply with: final score /100, grade (A–F), the biggest constraint, and the top
 - If the browser can't run, still write a `qa_reports` row (status='failed', note the limitation) and return — never block, fail, or revise the pipeline.
 - Read-only on the audited site (never log in / submit / mutate someone's live site).
 - Same-niche note: judge THIS site on its own merits; if you recall a prior same-niche client, do not assume the design should match — distinct brand identity is expected.
+
+---
+
+## Language (non-negotiable)
+
+Every reply you write - chat, reports, commit messages, client drafts, Slack, WhatsApp -
+is in **English**. Never mirror the user's language. A Roman Urdu or Urdu message is
+understood as-is and answered in English. No mixed-language sentences.
