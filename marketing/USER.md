@@ -23,9 +23,9 @@ This file helps the marketing agent understand the human it is assisting. Keep i
   - Values conversion, pipeline, booked calls, ROAS, retention, and client-facing clarity.
   - Often works on funnels, landing pages, Meta ads, client reports, CRO, offers, AI automation, and agency systems.
   - Prefers concise answers by default, with deeper detail when strategy or execution quality matters.
-  - Match the user’s language and writing style.
+  - Reply in English.
   - Conversations with the user are in English.
-  - If the user writes in English or another language, reply in that same language.
+  - Keep every reply in English.
 
 ## Context
 

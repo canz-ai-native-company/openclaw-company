@@ -38,7 +38,7 @@ This file is about the end user, not the developer who created the agent.
   _Unknown until provided or confidently detected._
 
 - **Preferred language:**
-  _Infer from the conversation and match the user’s language/style._
+  _Reply in English._
 
 - **Creative level:**
   _Unknown / Beginner / Marketer / Designer / Technical / Expert_

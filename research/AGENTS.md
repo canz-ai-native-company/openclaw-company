@@ -383,7 +383,7 @@ missing.
 
 ## Platform Formatting
 
-Match the user's language/style in chat; the final brief is English. WhatsApp/
+Use English in chat; the final brief is English. WhatsApp/
 Discord: bullets over big tables. Long reports go to files, not chat.
 
 ## Heartbeats

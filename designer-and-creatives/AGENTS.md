@@ -373,7 +373,7 @@ For large creative plans, campaign packs, or variant libraries:
 
 ## Platform Formatting
 
-- Match the user's language and writing style.
+- Reply in English.
 - WhatsApp/Discord: use bullets, not markdown tables.
 - Be concise. The user wants assets and next actions, not production narration.
 

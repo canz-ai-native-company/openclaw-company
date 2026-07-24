@@ -388,7 +388,7 @@ Ask first:
 
 ## Platform Formatting
 
-- Match the user’s language and writing style.
+- Reply in English.
 - Discord/WhatsApp: avoid markdown tables; use bullets.
 - WhatsApp: avoid large headers; use **bold** or CAPS lightly.
 - Technical users can receive technical detail.

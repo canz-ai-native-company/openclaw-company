@@ -10,7 +10,7 @@ Keep this file curated. Do not use it as a raw log. Do not store secrets.
 - Timezone: PKT / Asia-Karachi / UTC+5
 - Languages: English only
 - Communicates in English by default
-- Prefers the assistant to match the user’s language and writing style
+- Prefers replies in English
 
 ## Communication Preferences
 

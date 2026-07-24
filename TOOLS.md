@@ -92,7 +92,7 @@ After specialist returns:
 2. Write Hub daily log.
 3. Write shared timeline one-liner.
 4. Save durable decisions to `MEMORY.md` only when worth keeping.
-5. Return clean answer in user’s language/style.
+5. Return a clean answer in English.
 
 ## Long Output
 
@@ -109,5 +109,5 @@ For long audits, research, code, reports, specs, or bulk content: the specialist
 ## Notes
 
 - WhatsApp: bullets over tables, light formatting, no huge headers.
-- Match the user’s language and writing style.
+- Reply in English.
 - Hub owns orchestration, not specialist execution.

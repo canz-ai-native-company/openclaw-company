@@ -37,7 +37,7 @@ This file is about the end user, not the developer who created the AI employee.
   _Unknown until provided or confidently detected._
 
 - **Preferred language:**
-  _Match the user’s language and writing style._
+  _Reply in English._
 
 - **Technical level:**
   _Unknown / Beginner / Intermediate / Technical / Expert_
