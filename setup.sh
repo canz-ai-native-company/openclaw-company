@@ -3,7 +3,7 @@
 # ONE-FILE company provisioner.
 #
 # ── ONE-TIME PREP (admin, per laptop) ──────────────────────────────────────
-#   1. Install OpenClaw 2026.6.8 + Node v24.15.0 + `sudo npx playwright install-deps`
+#   1. Install OpenClaw 2026.7.1+ + Node v24.15+ (nvm) + `sudo npx playwright install-deps`
 #   2. Authenticate openclaw to the model provider (codex/openai login)  [interactive]
 #   3. Give this laptop READ access to the repo (deploy key, or `gh auth login`, or public repo)
 #   4. Put real secrets in  ~/.openclaw/.env  (use the company .env file you were given)
@@ -99,7 +99,7 @@ log "Setting swarm allowlist + agent-to-agent permissions..."
 FILE="$OPENCLAW_JSON" node <<'NODE'
 const fs = require('fs');
 const FILE = process.env.FILE;
-const A = ["research","fullstack-developer","designer-and-creatives","marketing","website-qa","evaluator"];
+const A = ["main","research","fullstack-developer","designer-and-creatives","marketing","website-qa","evaluator"];
 const j = JSON.parse(fs.readFileSync(FILE, 'utf8'));
 j.agents = j.agents || {}; j.agents.defaults = j.agents.defaults || {};
 j.agents.defaults.subagents = j.agents.defaults.subagents || {};
