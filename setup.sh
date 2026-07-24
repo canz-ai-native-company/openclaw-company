@@ -3,7 +3,7 @@
 # ONE-FILE company provisioner.
 #
 # ── ONE-TIME PREP (admin, per laptop) ──────────────────────────────────────
-#   1. Install OpenClaw 2026.7.1+ + Node v24.15+ (nvm) + `sudo npx playwright install-deps`
+#   1. (AUTO) setup.sh installs OpenClaw (npm) + Node 24 (nvm) itself if missing. Still manual once: `sudo npx playwright install-deps`
 #   2. Authenticate openclaw to the model provider (codex/openai login)  [interactive]
 #   3. Give this laptop READ access to the repo (deploy key, or `gh auth login`, or public repo)
 #   4. Put real secrets in  ~/.openclaw/.env  (use the company .env file you were given)
@@ -15,7 +15,7 @@ set -euo pipefail
 
 # ============ CONFIG ============
 REPO_URL="${REPO_URL:-https://github.com/canz-ai-native-company/openclaw-company.git}"
-NODE_BIN="$HOME/.nvm/versions/node/v24.15.0/bin"
+NODE_BIN="$(ls -d "$HOME"/.nvm/versions/node/v*/bin 2>/dev/null | sort -V | tail -1)"; NODE_BIN="${NODE_BIN:-$HOME/.nvm/versions/node/v24.15.0/bin}"
 OPENCLAW_HOME="${OPENCLAW_HOME:-$HOME/.openclaw}"
 WORKSPACE="$OPENCLAW_HOME/workspace"
 AGENTS=(research fullstack-developer designer-and-creatives marketing website-qa evaluator)
@@ -28,6 +28,29 @@ TIMEOUT_SECONDS=1800
 CLONE_DIR="$(mktemp -d)/company-brain"
 
 log(){ printf '\n\033[1;36m> %s\033[0m\n' "$*"; }
+
+# ============ 0. AUTO-INSTALL OpenClaw + Node (skipped if already installed) ============
+export NVM_DIR="$HOME/.nvm"
+set +u; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"; set -u
+if ! command -v openclaw >/dev/null 2>&1; then
+  log "OpenClaw not found - auto-installing (Node 24 via nvm -> npm install -g openclaw@latest)..."
+  if ! command -v nvm >/dev/null 2>&1; then
+    curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+    set +u; . "$NVM_DIR/nvm.sh"; set -u
+  fi
+  NODE_MAJ="$( (node -v 2>/dev/null || echo v0) | sed 's/^v//' | cut -d. -f1 )"
+  if [ "$NODE_MAJ" -lt 24 ]; then
+    log "Installing Node 24 (OpenClaw default target; requires 22.22.3+/24.15+/25.9+)..."
+    set +u; nvm install 24; nvm alias default 24; nvm use 24; set -u
+  fi
+  npm install -g openclaw@latest
+  openclaw onboard --install-daemon \
+    || echo "  (onboard needs a terminal - run manually later: openclaw onboard --install-daemon)"
+  NODE_BIN="$(ls -d "$HOME"/.nvm/versions/node/v*/bin 2>/dev/null | sort -V | tail -1)"
+  echo "  Installed: openclaw $(openclaw --version 2>/dev/null || echo '?') on node $(node -v)"
+else
+  echo "OpenClaw already installed: $(openclaw --version 2>/dev/null) (node $(node -v 2>/dev/null))"
+fi
 
 # ============ 0. PREFLIGHT ============
 export PATH="$NODE_BIN:$PATH"
