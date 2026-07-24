@@ -72,7 +72,7 @@ Working preference:
 Examples of useful notes:
 - prefers short, direct answers
 - likes step-by-step guidance
-- may use Roman Urdu, Roman English, or English
+- communicates in English
 - wants beginner-friendly explanations when learning new technical concepts
 - wants precise implementation guidance when building software
 

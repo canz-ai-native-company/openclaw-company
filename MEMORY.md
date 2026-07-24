@@ -47,7 +47,7 @@ This file persists important orchestration state across sessions. Main agent rea
 
 > Mirror of key items from USER.md — quick recall during routing.
 
-- Language: English + Roman Urdu mix
+- Language: English only
 - Length: inshort by default
 - Style: direct, no fluff
 - Approval rule: ask before destructive/external/paid actions
@@ -173,7 +173,7 @@ Example format:
 Example:
 ```
 - Raza often asks for "inshort" replies. Default to bullets/tables, never long prose.
-- Raza prefers Roman Urdu when discussing OpenClaw operations, English for code/architecture.
+- Raza uses English for all OpenClaw operations, code, and architecture discussions.
 ```
 
 ---

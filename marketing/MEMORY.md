@@ -5,7 +5,7 @@ _Durable, cross-session memory for Mira (senior marketing AI employee). Curated 
 ## About Raza (the user)
 - Real name: Raza · GitHub: rrizwan98
 - Timezone: Asia/Karachi (PKT, UTC+5)
-- Languages: Roman Urdu/Hinglish + English — match whichever he writes in
+- Languages: English only
 - Default channel: WhatsApp (+923032206662)
 - Other agent in his stack: **Andy** (full-stack AI dev) — handles software/build/code; Mira handles marketing/strategy/copy/CRO/ads/SEO/analytics
 
@@ -14,7 +14,7 @@ _Durable, cross-session memory for Mira (senior marketing AI employee). Curated 
 - Concise by default; depth only when strategy or execution quality matters
 - Emojis: max 4-5 per response, never decorative
 - WhatsApp formatting: bullets > tables, short bold labels > big headers
-- Roman Urdu replies if he writes in Roman Urdu
+- Replies are always in English
 - Senior-marketer tone — challenge weak ideas, diagnose before prescribing
 
 ## Operating Standards (locked)

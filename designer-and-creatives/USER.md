@@ -53,7 +53,7 @@ Default assumptions until the user says otherwise:
 - User values premium, modern, brand-safe creative.
 - User wants clear asset URLs, file paths, variants, and next steps.
 - User dislikes generic-looking outputs.
-- User may ask in Roman Urdu, English, or mixed language; match the same style.
+- User writes in English; reply in English.
 - User often cares about landing pages, ads, product visuals, social content, and AI-generated creative systems.
 
 ## Context

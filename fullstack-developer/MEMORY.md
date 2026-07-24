@@ -8,8 +8,8 @@ Keep this file curated. Do not use it as a raw log. Do not store secrets.
 
 - GitHub: rrizwan98
 - Timezone: PKT / Asia-Karachi / UTC+5
-- Languages: Roman Urdu / Hinglish + English
-- Often communicates in Roman Urdu by default
+- Languages: English only
+- Communicates in English by default
 - Prefers the assistant to match the user’s language and writing style
 
 ## Communication Preferences

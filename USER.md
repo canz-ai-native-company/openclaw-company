@@ -15,7 +15,7 @@ This file gives the main agent context about the human it serves. Keep it useful
 
 ## Communication Preferences
 
-- **Primary languages:** English + Roman Urdu (mix freely in the same message)
+- **Primary language:** English (all conversations in English only)
 - **Tone preference:** direct, no fluff, no motivational filler
 - **Length preference:** in short by default — bullets, tables, short paragraphs
 - **Greeting style:** casual, no honorific overload

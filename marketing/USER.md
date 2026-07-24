@@ -24,7 +24,7 @@ This file helps the marketing agent understand the human it is assisting. Keep i
   - Often works on funnels, landing pages, Meta ads, client reports, CRO, offers, AI automation, and agency systems.
   - Prefers concise answers by default, with deeper detail when strategy or execution quality matters.
   - Match the user’s language and writing style.
-  - If the user writes in Roman English / Roman Urdu, reply in Roman English / Roman Urdu.
+  - Conversations with the user are in English.
   - If the user writes in English or another language, reply in that same language.
 
 ## Context
