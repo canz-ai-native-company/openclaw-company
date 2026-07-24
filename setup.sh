@@ -112,7 +112,7 @@ console.log("  swarm allowlist + agent-to-agent set; per-agent overrides aligned
 NODE
 
 # ============ 8. MCP SERVERS (second-last) — exact live config; secrets from .env ============
-log "Adding the 5 MCP servers..."
+log "Adding the 6 MCP servers..."
 
 openclaw config set mcp.servers.context7 \
   "{\"command\":\"npx\",\"args\":[\"-y\",\"@upstash/context7-mcp\"],\"codex\":{\"agents\":$ALL7,\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
@@ -141,6 +141,19 @@ if [ -n "${GEMINI_API_KEY:-}" ]; then
     "{\"command\":\"npx\",\"args\":[\"-y\",\"nano-banana-2-mcp\"],\"env\":{\"GEMINI_API_KEY\":\"$GEMINI_API_KEY\"},\"codex\":{\"agents\":[\"designer-and-creatives\",\"fullstack-developer\"],\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
     && echo "  - nanobanana (designer-and-creatives, fullstack-developer)"
 else echo "  ! nanobanana SKIPPED (GEMINI_API_KEY missing in .env)"; fi
+
+if true; then
+  CHROME_BIN=$(ls -d $HOME/.cache/ms-playwright/chromium-*/chrome-linux64/chrome 2>/dev/null | sort -V | tail -1)
+  if [ -n "$CHROME_BIN" ]; then
+    CDT_ARGS="[\"-y\",\"chrome-devtools-mcp@latest\",\"--isolated\",\"--headless\",\"--executable-path\",\"$CHROME_BIN\"]"
+  else
+    CDT_ARGS="[\"-y\",\"chrome-devtools-mcp@latest\",\"--isolated\",\"--headless\"]"
+    echo "  (no playwright chromium found - chrome-devtools-mcp will use its own browser)"
+  fi
+  openclaw config set mcp.servers.chrome-devtools \
+    "{\"command\":\"npx\",\"args\":$CDT_ARGS,\"codex\":{\"agents\":[\"fullstack-developer\",\"website-qa\"],\"defaultToolsApprovalMode\":\"approve\"}}" --strict-json \
+    && echo "  - chrome-devtools (fullstack-developer, website-qa)"
+fi
 
 openclaw mcp reload 2>/dev/null || true
 
@@ -171,5 +184,5 @@ echo "Manual swarm check (optional) - send this to the Hub on Slack:"
 echo "  Quick roll call - have every agent reply with one line: Hi, I'm <name>, ready to work."
 
 echo
-echo "DONE - Hub + 6 agents on codex / $MODEL / thinkingDefault=$THINKING, 5 MCP servers, swarm enabled."
+echo "DONE - Hub + 6 agents on codex / $MODEL / thinkingDefault=$THINKING, 6 MCP servers, swarm enabled."
 echo "Brain installed at: $WORKSPACE"
