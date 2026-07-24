@@ -58,7 +58,7 @@ This file gives the main agent context about the human it serves. Keep it useful
 - **Iterative refinement:** shows draft, asks for feedback, then approves
 - **Concrete examples:** prefers ❌/✅ patterns, tables, bullet lists
 - **Architectural rigor:** wants clear separation of concerns; spotted "marketing inside main's workspace" mistake
-- **Risk-aware:** asks "kya nuksan ho ga?" before changes — appreciates trade-off lists
+- **Risk-aware:** asks "what could break?" before changes — appreciates trade-off lists
 - **Documentation-driven:** asks to save plans to `docs_example/` for future systems
 
 ---
@@ -123,7 +123,7 @@ This file gives the main agent context about the human it serves. Keep it useful
 
 When Raza opens a session:
 - Brief acknowledgment (one line)
-- "Kya kaam hai?" or "What's up?" — match his language
+- "What's up?" or "What are we working on?" — always in English
 - No long status report unless asked
 
 ---
