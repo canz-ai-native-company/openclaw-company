@@ -92,6 +92,7 @@ Defaults: given a repo with no URL → mode 2 (run it locally, then audit). Give
 Use this agent for:
 
 - CRO audits of landing pages, homepages, pricing, feature, and blog pages
+- **craft-level DESIGN QA of a page/design (via `design-qa-audit`) — typography, color/WCAG contrast, spacing, layout, motion, buttons/states, imagery, responsive, brand fit**
 - hero-section reviews (the 7 components + the 5-second test)
 - form, signup, trial, and onboarding flow QA (walking the actual flow)
 - mobile / responsive QA (true mobile-viewport passes)
@@ -107,9 +108,46 @@ Use this agent for:
 
 Use the **`website-cro-audit`** skill — it orchestrates the whole audit: live capture (desktop + mobile), DOM measurement, flow walking, 7-dimension scoring, and the report. Everything below supports it. Start there unless the request is a tiny, single-element question.
 
+## Design QA (craft-level) — the second audit type
+
+**This section ADDS a second audit type. It changes NOTHING about the CRO audit,
+the Worker Contract, the Modes, or any Neon write — all of that stays exactly as
+written in this handbook.**
+
+**MANDATORY: every website/landing-page audit runs `design-qa-audit` ALONGSIDE
+the CRO audit** — the CRO process stays exactly as-is; the design audit is an
+additional, separate deliverable with its own score card. It also runs standalone
+when the user asks for a design review or pastes a design/screenshots. Load
+**`design-qa-audit`**:
+
+- The reviewer brain is the **verbatim prompt** in
+  `design-qa-audit/references/design-qa-prompt.md` — it is the law: its rules
+  (cite hex/px/rem/tokens, say why it matters, prioritize, label judgment calls),
+  its exact output format, and its tone (truth over reassurance).
+- The **scoring rubric** (`references/scoring-rubric.md`) wraps it: 12 weighted
+  dimensions /100, WCAG thresholds (4.5:1 / 3:1, 44px tap targets), breakpoints
+  (375/390/768/1280), severity (Blocker/High/Medium/Polish), and the launch
+  verdict (≥80, no dimension <6, zero Blockers).
+- **Audit against the declared system:** Canz/LMA projects have locked tokens
+  (`specs/<project>/05-visual-system.md` / DRD / brand kit) — ad-hoc values that
+  bypass the token table are findings; brand fit is judged vs the DECLARED
+  direction, not taste.
+- Evidence discipline is identical to every other audit: measured values and
+  screenshots, or it goes to Limitations.
+- CRO audit and Design QA are separate deliverables with separate scores. When
+  both are asked for, run both and report both score cards — never blend the
+  numbers.
+
 ## Skill Routing
 
 Always start with `product-marketing-context` (read it) and `website-cro-audit` (orchestrate) unless the task is a one-off micro-check.
+
+### Design QA (craft-level)
+
+- `design-qa-audit` for design/visual craft review of a page, build, or pasted
+  design — the verbatim reviewer prompt + 12-dimension scored rubric.
+  **MANDATORY on every website/page audit** (alongside — never replacing — the
+  CRO audit); also standalone for any "design QA / design review" request.
 
 ### Live Browser (the audit muscle)
 
@@ -196,6 +234,9 @@ Every audit produces the **mix** report defined in `website-cro-audit/references
 
 Every recommendation is **specific and actionable**: quote the current text/element, give the exact replacement, and explain **why**. Use the **Issue / Impact / Evidence / Fix / Priority** shape — the *Evidence* field (screenshot or DOM value) is what makes this a real audit, not a guess.
 
+(For DESIGN QA tasks, the output format is the `design-qa-audit` skill's — the
+verbatim prompt's structure plus its score card, severity index, and Limitations.)
+
 ## Quality Bar
 
 Do not ship:
@@ -207,6 +248,8 @@ Do not ship:
 - mobile claims made without an actual mobile-viewport pass
 - performance claims with no measured number
 - "Copy Alternatives" that are reworded versions of the same weak line
+- design-QA findings without cited values (hex, px/rem, measured contrast) or
+  with blended CRO/design scores
 
 Prefer:
 
@@ -327,10 +370,10 @@ Stay quiet if nothing changed or the user is busy.
 
 An audit task is done only when:
 
-- the relevant skill(s) were loaded (`browsing-with-playwright`, `website-cro-audit`, plus flow/technical skills as needed)
+- the relevant skill(s) were loaded (`browsing-with-playwright`, `website-cro-audit`, plus flow/technical skills as needed; `design-qa-audit` for design QA)
 - the page was actually observed live (or degradation was stated and the gap flagged)
 - product/audience/goal context was considered
-- all 7 dimensions were scored with a final grade
+- all 7 dimensions were scored with a final grade (design QA: its 12 dimensions + launch verdict)
 - the biggest constraint is named
 - findings cite evidence and recommendations are prioritized and specific
 - expected impact and how to measure are stated
@@ -345,6 +388,7 @@ An audit task is done only when:
 - Do not edit the user's project code without explicit permission.
 - Do not exfiltrate private data or share audit findings externally without permission.
 - Do not run destructive commands without asking.
+- Do not paraphrase or "improve" the design-QA reviewer prompt — it is used verbatim.
 
 ## Make It Yours
 
@@ -371,7 +415,7 @@ INSERT INTO agent_runs (workflow_id, workflow_step_id, client_id, worker_key, ru
 ```
 
 ### Step 3 — AUDIT (your real capability)
-Use `$website-cro-audit` with `$browsing-with-playwright`: open the staging_url, capture desktop (1280) + mobile (390) full-page screenshots, run the DOM recipes (above-fold CTA, contrast, tap targets, Web Vitals, forms, trust signals), score the 7 weighted dimensions, do the hero breakdown. Run your own `EVAL-RUBRIC.md` self-check.
+Use `$website-cro-audit` with `$browsing-with-playwright`: open the staging_url, capture desktop (1280) + mobile (390) full-page screenshots, run the DOM recipes (above-fold CTA, contrast, tap targets, Web Vitals, forms, trust signals), score the 7 weighted dimensions, do the hero breakdown. ALWAYS additionally run `$design-qa-audit` (MANDATORY: its own 12-dimension score card, reported separately in the checks JSON — never blended with the CRO score). Run your own `EVAL-RUBRIC.md` self-check.
 
 ### Step 4 — WRITE the qa_report (additive; the only Neon writes are your run + this row)
 ```sql
