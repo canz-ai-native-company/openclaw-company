@@ -86,8 +86,19 @@ never fabricate to fill it.
   exactly; Reason: they are the battle-tested LMA production prompts; Application:
   each report skill Reads its references in full before generating.
 
+## Output format — Markdown, in English (standard)
+
+Every stored artefact is **Markdown written in English**: `reports/<key>.md`,
+`synthesis/*.md`, `docs/*.md`. Headings with `#`, tables with pipes, no `<!DOCTYPE>`,
+no `<html>`, no `<style>`, no HTML block markup. The server rejects an HTML document
+submitted as a report (canz-sor `RES-INV-013`).
+
+The CANZ HTML report format below is a **RADAR v1 client-facing export theme** — used
+when someone asks for a formatted, printable document to hand to a client. It is never
+the format of the stored report. Do not apply it to `reports/*.md`.
+
 ## Reference Files
 | File | When |
 |---|---|
-| `references/canz-report-format.system_prompt.txt` | Report HTML/format theme (when formatted output is requested) — VERBATIM |
+| `references/canz-report-format.system_prompt.txt` | RADAR **v1** client-facing HTML export theme — ONLY when a formatted deliverable is explicitly requested, NEVER for `reports/*.md` — VERBATIM |
 | `references/quantification-rules.system_prompt.txt` | Global quantification rules applied to every report — VERBATIM |

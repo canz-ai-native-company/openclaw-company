@@ -24,3 +24,24 @@ include this scorecard in your completion summary (e.g. "Self-check: 14/15 Y —
 14. **No-placeholder rules** respected — zero [placeholder]/TBD/lorem/unfilled sections in any report?
 15. Every RADAR report **source-cited with full `https://` URLs** (real pages gathered this run — never bare domains), and structured (JSON) outputs valid against the skill's `json_schema.txt` where that format was requested?
 16. **Each RADAR report saved as its own `reports/<report-key>.md` file (8 separate files)** plus the combined brief, and each LP variation carries real per-section content (≥ ~1,500 chars per variation, not bare section names)?
+
+## System of Record invariant checks (canz-sor RES-INV, mandatory since 2026-07-28)
+
+The shared record at canz-sor.vercel.app governs these; the canz-research connector
+enforces the same four with hard gates, so a pack failing them here will also be
+rejected there.
+
+17. **Sample sizes stated** for every pattern claim ("23 of 47", "n=12") — and any
+    pattern resting on fewer than 3 data points carries the literal label
+    "insufficient sample", never presented as a confident finding? (RES-INV-009)
+18. **Evidence dated inside the analysis window** — the year(s) the data covers are
+    stated in each report, and nothing older than the agreed timeframe is used as
+    evidence (older material only as clearly labelled context)? (RES-INV-012)
+19. **Every named competitor traceable** — each company in the competitor synthesis
+    appears in source URLs actually gathered during THIS run's reports; no competitor
+    named from memory? (RES-INV-007)
+
+20. **Method record checked** — at the start of the job you consulted canz-sor for the
+    research map, and when something went wrong you followed the matching exception
+    entry rather than improvising? (If canz-sor was unreachable you may answer Y and
+    say so — the record helps, it never blocks.)
