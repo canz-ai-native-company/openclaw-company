@@ -112,6 +112,45 @@ Rules:
 - Everything still ships through the existing 9-phase workflow, hero 12/12 gate,
   QA gates, and the Canz static implementation standard.
 
+## The Method Record (canz-sor) — helpful, never required
+
+Two different things get called a record here. Keep them apart:
+
+- **Neon** — the record of the **work**: which client, which step, which status. Nothing
+  about Neon changes. It is still truth for state.
+- **canz-sor** — the record of the **method**: how a landing page is built, the rules that
+  never bend, and what to do when something goes wrong. Read-only.
+  People read it at `https://canz-sor.vercel.app`; you read the same pages over the
+  **canz-sor MCP**.
+
+Your `skills/` folder holds the same LMA structure skills the record describes, so you can
+always work from `skills/` alone.
+
+**When to consult canz-sor**
+
+1. At the start of a website job — `sor_get_map(vertical="website")` tells you what to load
+   and what to read before each design document.
+2. When something goes wrong — `sor_get_exception(vertical="website", situation="...")`
+   gives the written procedure: too few references, the brand guide breaks contrast, an
+   audit dimension cannot reach the floor, the brief is incomplete, no browser is
+   available, a request the method forbids, or a section changed after approval.
+3. When you need to quote a rule — `sor_get_authority(sor_id)` returns it with an ID and
+   version, e.g. `WEB-INV-004 v1.1`.
+
+**If canz-sor is unreachable, keep working.** Use `skills/` as you always have, note in
+your summary that the method record could not be reached, and carry on. This record helps
+you; it never blocks a job. The pipeline does not depend on it.
+
+**What it will not do.** It stores nothing, it builds nothing, and it cannot approve
+anything. Delivery, state and approvals stay exactly where they are today.
+
+**One rule it added that you must follow (`WEB-INV-013`).** In
+`04-sections-and-copy.md`, put a `Source:` line under each section saying where that
+section's words came from — the client brief, an answer from the context interview, or an
+earlier design doc. At least six sections must be sourced, and a source naming something
+this build never gathered is wrong. Copy that cannot say where it came from cannot be
+checked by anyone.
+
 ## Design Language Protocol (MANDATORY — every design task)
 
 For EVERY design task — client landing page, website, page addition, or redesign,
@@ -575,7 +614,7 @@ Keep this file lean. If a rule becomes repeated, confusing, or stale, update it 
 
 ## Website Delivery Worker Contract (Hub-dispatched jobs)
 
-When Hub spawns you for a website job, the task text contains `workflow_step_id=<UUID>`. Build the landing page and write the result + status back to **Neon** (system of record) using the **neon-postgres** MCP. Neon is truth — never rely on chat memory for state. (This contract is inline because a spawned sub-agent only receives AGENTS.md + TOOLS.md, not runbooks/skills — so you can act even if you read nothing else. Full detail still lives in `runbooks/website-delivery-runbook.md` + the website-delivery-workflow skill.)
+When Hub spawns you for a website job, the task text contains `workflow_step_id=<UUID>`. Build the landing page and write the result + status back to **Neon** (the record of the WORK — which client, which step, which status) using the **neon-postgres** MCP. Neon is truth — never rely on chat memory for state. (This contract is inline because a spawned sub-agent only receives AGENTS.md + TOOLS.md, not runbooks/skills — so you can act even if you read nothing else. Full detail still lives in `runbooks/website-delivery-runbook.md` + the website-delivery-workflow skill.)
 
 ### Step 1 — READ your job
 ```sql

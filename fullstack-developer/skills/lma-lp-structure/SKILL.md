@@ -29,6 +29,19 @@ You are implementing an LMA-standard landing page. For each LP build:
 2. **MAP CONTENT** — Take the copy/hooks from the APPROVED research brief (Mode A)
    or the user's brief (Mode B). Never reuse an example's client copy — examples
    give SHAPE, research gives WORDS.
+   **Say where each section's words came from.** Put a `Source:` line under every
+   section in `04-sections-and-copy.md` naming its origin — the client brief, an
+   answer from the context interview, or an earlier design doc. At least 6 sections
+   must be sourced, and a source naming something this build never gathered (an
+   outside statistic, another client's testimonial, a swipe file) is rejected.
+   Copy that cannot say where it came from cannot be checked by anyone.
+   This is canz-sor `WEB-INV-013`, and the connector enforces it.
+
+   ```
+   ### 3. Promise
+   Book a first assessment and leave with a written home plan...
+   Source: client brief — conversion goal is to book a first assessment
+   ```
 3. **BLUEPRINT** — Lay out the page in the LMA pattern before coding
    (this becomes/extends spec doc `04-sections-and-copy.md`):
    - **10+ sections** in the LMA flow: Hero → Problem/Pain → Promise/Outcome →
