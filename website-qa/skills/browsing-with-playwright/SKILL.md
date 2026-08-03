@@ -7,6 +7,8 @@ description: Browser automation using Playwright MCP. Navigate websites, fill fo
 
 Automate browser interactions via Playwright MCP server.
 
+> **FALLBACK ONLY.** For website QA / CRO / browser testing, prefer **`chrome-devtools-mcp`** first (Chrome DevTools Protocol — navigation, screenshots, DOM, console, network, performance, Lighthouse). Use this Playwright skill **only when `chrome-devtools-mcp` is unavailable or fails to launch/connect**, and note the fallback in the report. Everything below still works unchanged as the fallback path.
+
 ## Server Lifecycle
 
 ### Start Server

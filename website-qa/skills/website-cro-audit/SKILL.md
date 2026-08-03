@@ -16,8 +16,11 @@ against a defined rubric, and hand back a prioritized, actionable report. Every
 finding must be grounded in something you actually observed on the live page —
 not assumed.
 
+**Browser engine priority:** Use **`chrome-devtools-mcp`** as the PRIMARY browser engine for every step below (navigate, screenshot, DOM/evaluate, console, network, performance, Lighthouse). Only if `chrome-devtools-mcp` is unavailable or fails to launch/connect, fall back to the **browsing-with-playwright** skill — and note the fallback in the report. The phases, recipes, rubric, and report below are unchanged; only the browser tool changes.
+
 This skill is the orchestrator. It leans on sibling skills:
-- **browsing-with-playwright** — the browser engine (navigate, snapshot, screenshot, evaluate, fill forms). Read its `SKILL.md` for server lifecycle and tool calls.
+- **chrome-devtools-mcp** — the PRIMARY browser engine (navigate, screenshot, DOM/evaluate, console, network, performance, Lighthouse). Use this first.
+- **browsing-with-playwright** — the FALLBACK browser engine (navigate, snapshot, screenshot, evaluate, fill forms), used only when chrome-devtools-mcp is unavailable. Read its `SKILL.md` for server lifecycle and tool calls.
 - **page-cro** — the CRO analysis framework and output house-style.
 - **form-cro / signup-flow-cro / onboarding-cro** — when a form or multi-step flow must be walked.
 - **seo-audit** — technical/crawlability signals when auditing a whole site.
